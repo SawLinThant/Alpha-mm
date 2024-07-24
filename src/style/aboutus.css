@@ -1,0 +1,133 @@
+.aboutus-container{
+    overflow: hidden;
+}
+
+.about-alpha{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid gray;
+}
+
+.about-alpha-logo-container{
+    height: 100%;
+    width: 35%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    margin-top: 2.25rem;
+}
+
+.about-alpha-logo{
+    height: 80%;
+    width: 80%;
+    margin-left: 1rem;   
+}
+
+.about-alpha-logo h4{
+    font-weight: 400;
+    font-size: large;
+}
+
+.about-alpha-logo h1{
+    font-size: xx-large;
+}
+
+.about-alpha-text-container{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+}
+
+.about-alpha-text{
+    width: 88%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 6rem;
+}
+
+.about-alpha-text p{
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+.vision-container{
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5rem;
+}
+
+.reason-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.reason{
+    width: 90%;
+    height: 90%;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    background-color: aquamarine;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.reason-description-container{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.reason-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.reason-text p{
+    line-height: 1.5rem;
+}
+
+.aim-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.sub-aim-container{
+    width: 90%;
+    height: 90%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    gap: 1rem;
+}
+
+.aim{
+    width: 91%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    background-color: aquamarine;
+    padding: 2rem;
+}
+
+.aim h2, .aim p{
+    margin-top: 0;
+}
