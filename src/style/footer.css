@@ -1,0 +1,84 @@
+footer{
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-container-main{
+    width: 100%;
+    height: 18rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.location{
+    width: 32%;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.location-logo{
+    width: 100%;
+    height: 3rem;
+}
+
+.location-description{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.location-icon{
+    width: 4rem;
+}
+
+.section-container{
+    height: 100%;
+    width: 68%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-container-bottom{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copy-right{
+    text-align: center;
+    width: 90%;
+    border-top: 1px solid gray;
+}
+
+.section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.section h3{
+ padding-left: 2.5rem;
+}
+
+.section.one ul, .section.two ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section li{
+    list-style: none;
+}
