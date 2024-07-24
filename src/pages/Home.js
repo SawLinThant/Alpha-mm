@@ -114,10 +114,32 @@ const Home = () => {
               <p>instant updates. Download now and elevate your </p>
               <p>experience!</p>
             </div>
-            <div className="download-app-icon"></div>
+            <div className="download-app-icon">
+              <div className="playstore"><li className="playstore-link"></li></div>
+              <div className="apple"><li className="apple-link"></li></div>
+            </div>
           </div>
         </div>
-        <div className="badge-container"></div>
+        <div className="badge-container">
+          <div className="property-logo easy">
+            <div className="property-logo-container">
+              <div className="easy-image"></div>
+              <p>Easy Download</p>
+            </div>
+          </div>
+          <div className="property-logo simple">
+            <div className="property-logo-container">
+              <div className="simple-image"></div>
+              <p>Simple Order</p>
+            </div>
+          </div>
+          <div className="property-logo effortless">
+            <div className="property-logo-container">
+              <div className="effortless-image"></div>
+              <p>Effortless Join Partner</p>
+            </div>
+          </div>
+        </div>
         <div className="find-us-container">
           <div className="find-us">
             <div className="find-us-section find-us-text">
@@ -130,9 +152,13 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            {branch.map((branch) =>(
+            {branch.map((branch) => (
               <div key={branch.id} className="find-us-section">
-                <BrachDescription name={branch.name} location={branch.location} phone={branch.phone} />
+                <BrachDescription
+                  name={branch.name}
+                  location={branch.location}
+                  phone={branch.phone}
+                />
               </div>
             ))}
           </div>

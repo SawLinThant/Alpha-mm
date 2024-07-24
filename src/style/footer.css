@@ -12,7 +12,7 @@ footer{
 
 .footer-container-main{
     width: 100%;
-    height: 18rem;
+    height: 20rem;
     display: flex;
     flex-direction: row;
 }
@@ -35,6 +35,7 @@ footer{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 2rem;
 }
 
 .location-icon{
@@ -42,6 +43,7 @@ footer{
 }
 
 .section-container{
+    margin-top: 3rem;
     height: 100%;
     width: 68%;
     display: grid;
@@ -50,7 +52,6 @@ footer{
 
 .footer-container-bottom{
     width: 100%;
-    height: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
