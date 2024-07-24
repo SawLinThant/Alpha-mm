@@ -1,0 +1,51 @@
+.branch-description{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    place-items: center;
+    background-color: blueviolet;
+    border-radius: 1rem;
+}
+
+.branch-description-text{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.branch-heading-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.go-link{
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.branch-description-text h3{
+    padding-left: 1rem;
+    font-size: medium;
+}
+
+.branch-description-text p{
+    padding-left: 1rem;
+    font-size: small;
+}
+
+.branch-location{
+    margin-bottom: 0;
+}
+
+.branch-phone-no{
+    margin-top: 0.5rem;
+}

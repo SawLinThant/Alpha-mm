@@ -3,6 +3,8 @@ import Catalouge from "../components/catalouge";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import "../style/home.css";
+import { branch } from "../config/branch";
+import BrachDescription from "../components/branch-description.-box";
 
 const Home = () => {
   const KITCHEN_ITEMS = [
@@ -128,9 +130,11 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="find-us-section"></div>
-            <div className="find-us-section"></div>
-            <div className="find-us-section"></div>
+            {branch.map((branch) =>(
+              <div key={branch.id} className="find-us-section">
+                <BrachDescription name={branch.name} location={branch.location} phone={branch.phone} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
