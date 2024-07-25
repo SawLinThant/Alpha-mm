@@ -1,4 +1,3 @@
-import Footer from "../components/footer";
 import "../style/contactus.css";
 
 const ContactUs = () => {
@@ -118,7 +117,6 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-      <Footer/>
     </div>
   );
 };

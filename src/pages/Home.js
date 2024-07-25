@@ -1,7 +1,5 @@
 import { useInView } from "react-intersection-observer";
 import Catalouge from "../components/catalouge";
-import Footer from "../components/footer";
-import Header from "../components/header";
 import "../style/home.css";
 import { branch } from "../config/branch";
 import BrachDescription from "../components/branch-description.-box";
@@ -26,6 +24,10 @@ const Home = () => {
   });
 
   const { ref: showcaseRightRef, inView: showcaseRightInView } = useInView({
+    triggerOnce: false,
+  });
+
+  const { ref: downloadButtonRef, inView: downloadButtonInView } = useInView({
     triggerOnce: false,
   });
 
@@ -65,40 +67,42 @@ const Home = () => {
         </section>
       </section>
       <section className="showcase">
-        <div
-          ref={showcaseLeftRef}
-          className={`showcase-left ${
-            showcaseLeftInView ? "animate-left" : ""
-          }`}
-        >
-          <div className="showcase-left-img">
-            <div className="showcaseleft-img-text">
-              <p>Discover Your</p>
-              <p>Perfect Home</p>
-              <p>Appliances</p>
-              <div className="left-img-button-container">
-                <a href="/">All Products</a>
+        <div className="showcase-layout">
+          <div
+            ref={showcaseLeftRef}
+            className={`showcase-left ${
+              showcaseLeftInView ? "animate-left" : ""
+            }`}
+          >
+            <div className="showcase-left-img">
+              <div className="showcaseleft-img-text">
+                <p>Discover Your</p>
+                <p>Perfect Home</p>
+                <p>Appliances</p>
+                <div className="left-img-button-container">
+                  <a href="/">All Products</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          ref={showcaseRightRef}
-          className={`showcase-right ${
-            showcaseRightInView ? "animate-right" : ""
-          }`}
-        >
-          <div className="catalouge-container">
-            <Catalouge Items={KITCHEN_ITEMS} />
-          </div>
-          <div className="catalouge-container">
-            <Catalouge Items={KITCHEN_ITEMS} />
-          </div>
-          <div className="catalouge-container">
-            <Catalouge Items={KITCHEN_ITEMS} />
-          </div>
-          <div className="catalouge-container">
-            <Catalouge Items={KITCHEN_ITEMS} />
+          <div
+            ref={showcaseRightRef}
+            className={`showcase-right ${
+              showcaseRightInView ? "animate-right" : ""
+            }`}
+          >
+            <div className="catalouge-container">
+              <Catalouge Items={KITCHEN_ITEMS} />
+            </div>
+            <div className="catalouge-container">
+              <Catalouge Items={KITCHEN_ITEMS} />
+            </div>
+            <div className="catalouge-container">
+              <Catalouge Items={KITCHEN_ITEMS} />
+            </div>
+            <div className="catalouge-container">
+              <Catalouge Items={KITCHEN_ITEMS} />
+            </div>
           </div>
         </div>
       </section>
@@ -114,8 +118,26 @@ const Home = () => {
               <p>experience!</p>
             </div>
             <div className="download-app-icon">
-              <div className="playstore"><li className="playstore-link"></li></div>
-              <div className="apple"><li className="apple-link"></li></div>
+              <div className="playstore-container">
+                <div
+                  ref={downloadButtonRef}
+                  className={`playstore ${
+                    downloadButtonInView ? "download-button-grow" : ""
+                  }`}
+                >
+                  <li className="playstore-link"></li>
+                </div>
+              </div>
+              <div className="apple-container">
+                <div
+                  ref={downloadButtonRef}
+                  className={`apple ${
+                    downloadButtonInView ? "download-button-grow" : ""
+                  }`}
+                >
+                  <li className="apple-link"></li>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -163,7 +185,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

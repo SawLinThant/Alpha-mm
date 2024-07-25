@@ -6,8 +6,15 @@
     width: 100%;
     height: 70vh;
     display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.about-alpha-layout{
+    width: 90%;
+    height: 100%;
+    display: flex;
     flex-direction: row;
-    border-bottom: 1px solid gray;
 }
 
 .about-alpha-logo-container{
@@ -15,14 +22,12 @@
     width: 35%;
     display: flex;
     place-items: center;
-    justify-content: center;
     margin-top: 2.25rem;
 }
 
 .about-alpha-logo{
     height: 80%;
-    width: 80%;
-    margin-left: 1rem;   
+    width: 80%;   
 }
 
 .about-alpha-logo h4{
@@ -39,16 +44,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    place-items: center;
-    justify-content: center;
 }
 
 .about-alpha-text{
-    width: 88%;
+    width: 100%;
     height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
     margin-top: 6rem;
 }
 
@@ -61,23 +61,29 @@
     width: 100%;
     height: 65vh;
     display: flex;
-    flex-direction: row;
-    padding-bottom: 5rem;
-}
-
-.reason-container{
-    width: 50%;
-    height: 100%;
-    display: flex;
     place-items: center;
     justify-content: center;
 }
 
-.reason{
+.vision-container-layout{
     width: 90%;
-    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 1.5rem;
+    padding-bottom: 5rem;
+}
+
+.reason-container{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.reason{
+    width: 100%;
+    height: 100%;
     border-radius: 1rem;
-    margin-left: 1rem;
     background-color: aquamarine;
     display: flex;
     place-items: center;
@@ -101,20 +107,16 @@
 }
 
 .aim-container{
-    width: 50%;
-    height: 100%;
     display: flex;
     place-items: center;
     justify-content: center;
 }
 
 .sub-aim-container{
-    width: 90%;
-    height: 90%;
+    width: 100%;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
-    margin-right: 2rem;
     gap: 1rem;
 }
 
