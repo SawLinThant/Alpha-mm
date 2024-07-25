@@ -1,11 +1,9 @@
 import Footer from "../components/footer";
-import Header from "../components/header";
 import "../style/aboutus.css";
 
 const AboutUs = () => {
   return (
     <div className="aboutus-container">
-      <Header />
       <section className="about-alpha">
         <div className="about-alpha-logo-container">
           <div className="about-alpha-logo">

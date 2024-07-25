@@ -31,7 +31,6 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Header />
       <section className="hero-container">
         <div className="hero"></div>
       </section>
