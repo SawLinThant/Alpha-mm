@@ -31,6 +31,10 @@ const Home = () => {
     triggerOnce: false,
   });
 
+  const { ref: badgeRef, inView: badgeInView } = useInView({
+    triggerOnce: false,
+  });
+
   return (
     <div className="home-container">
       <section className="hero-container">
@@ -141,7 +145,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="badge-container">
+        <div ref={badgeRef} className={`badge-container ${badgeInView?"badge-container-open":""}`}>
           <div className="property-logo easy">
             <div className="property-logo-container">
               <div className="easy-image"></div>

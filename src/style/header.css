@@ -39,6 +39,10 @@ nav{
     list-style: none;
 }
 
+.nav-icon a{
+    text-decoration: none;
+}
+
 .hotline{
     height: 40%;
     border: 1px solid blueviolet;
