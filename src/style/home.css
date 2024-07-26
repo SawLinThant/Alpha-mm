@@ -1,17 +1,17 @@
-.home-container{
+.home-container {
   overflow: hidden;
 }
 
 .showcase {
   width: 100%;
-  height: 75vh;
+  height: 34.25rem;
   display: flex;
   place-items: center;
   justify-content: center;
 }
 
-.showcase-layout{
-  width: 90%;
+.showcase-layout {
+  width: 93%;
   height: 95%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -25,10 +25,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
-.showcase-left{
+.showcase-left {
   opacity: 0;
   transition: transform 0.5s, opacity 0.5s;
 }
@@ -73,63 +72,105 @@
 
 .hero-container {
   width: 100%;
-  height: 60vh;
+  height: 37.5rem;
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
 }
 
 .mvp-container {
   width: 100%;
-  height: 65vh;
+  height: 42.5rem;
   display: flex;
   place-items: center;
   justify-content: center;
 }
 
 .mvp {
-  width: 90%;
-  height: 100%;
+  width: 93%;
+  height: 25rem;
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 2rem;
 }
 
 .mvp-description {
-  width: 40%;
-  height: 100%;
+  width: 41rem;
+  height: 23.75rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
 }
 
 .mvp-text {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 3px;
+}
+
+.mvp-text p{
+  font-family: sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  color: #262626;
+}
+
+.bottom-paragraph{
+  margin-top: 0;
 }
 
 .mvp-heading {
+  height: 100px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
 }
 
-.mvp-heading h1 {
+.mvp-heading h3{
+  font-family: sans-serif;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
   line-height: 0;
-  font-size: xx-large;
-  font-weight: 500;
+  color: #262626;
+}
+
+.mvp-heading h2 {
+  font-family: sans-serif;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0;
+  margin-top: 10px;
+  color: #262626;
 }
 
 .mvp-button {
-  height: 2.5rem;
-  width: 7rem;
-  margin-top: 1.5rem;
+  height: 3rem;
+  width: 9rem;
+  background-color: #4A4CCD;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  place-items: center;
+  justify-content: center;
 }
 
 .mvp-button a {
-  padding: 1rem;
-  border: 1px solid gray;
-  border-radius: 1.75rem;
-  text-align: center;
   text-decoration: none;
-  background-color: blueviolet;
   color: white;
+  margin-bottom: 2px
 }
 
 .mvp-image-container {
@@ -137,87 +178,120 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 3.5rem;
+  column-gap: normal;
+  border: 1px solid gray;
 }
 
 .mvp-image {
-  height: 80%;
+  width: 12.5rem;
+  height: 100%;
   border: 1px solid gray;
   margin-right: 0;
+}
+
+.showcase-left-img{
+  background-image: url("/public/show-left.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .showcaseleft-img-text {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4rem;
+  width: 90%;
+  margin-top: 1rem;
 }
 
-.showcaseleft-img-text p {
-  width: 40%;
-  padding-right: 1.5rem;
-  text-align: left;
-  font-size: large;
-  line-height: normal;
+.showcaseleft-img-text h2{
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 700;
 }
 
 .left-img-button-container {
-  width: 40%;
-  height: 2rem;
+  width: 113px;
+  height: 40px;
   padding-right: 1.5rem;
   margin-top: 2rem;
 }
 
 .showcaseleft-img-text a {
-  text-align: center;
   text-decoration: none;
-  height: 100%;
-  border: 1px solid gray;
+  background-color: #4A4CCD;
+  color: white;
   border-radius: 1.5rem;
-  padding: 12px;
+  padding: 6px 10px 8px 10px;
+  text-align: center;
 }
 
-.advertise-container{
+.showcase-left-image-icon{
+   width: 90%;
+   height: 13rem;
+   background-image: url("/public/htoo.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.advertise-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 5rem;
 }
 
-.download-container{
+.download-container {
   width: 100%;
-  height: 78vh;
-  border: 1px solid grey;
+  height: 35.1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  background-image: url("/public/download-bg.png");
+  background-position: center;
+  background-size: cover;
 }
 
-.download-description{
+.download-description {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
 }
 
-.download-app-icon{
+.download-description h2{
+  font-weight: 700;
+  font-size: 35px;
+  font-family: sans-serif;
+}
+
+.download-text{
+  font-weight: 400;
+  font-size: 19px;
+  font-family: sans-serif;
+}
+
+.download-app-icon {
   height: 6rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-.playstore-container, .apple-container{
-  width: 8rem;
-  height: 50%;
+.playstore-container,
+.apple-container {
+  width: 12rem;
+  height: 3.5rem;
   display: flex;
   justify-content: center;
   place-items: center;
 }
 
-.apple{
+.apple {
   width: 100%;
   height: 100%;
   transform: translateX(100%);
@@ -225,7 +299,7 @@
   opacity: 0;
 }
 
-.playstore{
+.playstore {
   width: 100%;
   height: 100%;
   transform: translateX(100%);
@@ -233,20 +307,20 @@
   opacity: 0;
 }
 
-.download-button-grow{
+.download-button-grow {
   transform: translateX(0);
   opacity: 1;
 }
 
-.playstore-link, .apple-link{
+.playstore-link,
+.apple-link {
   list-style: none;
   width: 100%;
   height: 100%;
-  border: 1px solid gray;
   border-radius: 0.5rem;
 }
 
-.badge-container{
+.badge-container {
   width: 90%;
   height: 25vh;
   position: absolute;
@@ -263,7 +337,7 @@
   opacity: 1;
 }
 
-.badge-container-open{
+.badge-container-open {
   animation: badgegrow 0.5s ease-in-out forwards;
   opacity: 1;
 }
@@ -275,23 +349,27 @@
   padding: 30px 0 30px 0;
 }
 
-.property-logo-container{
+.property-logo-container {
   width: 100%;
   height: 100%;
   border-right: 1px solid gainsboro;
 }
 
-.easy-image, .simple-image, .effortless-image{
+.easy-image,
+.simple-image,
+.effortless-image {
   height: 65%;
   width: 100%;
 }
 
-.easy p, .simple p, .effortless p{
+.easy p,
+.simple p,
+.effortless p {
   text-align: center;
   width: 100%;
 }
 
-.find-us-container{
+.find-us-container {
   width: 100%;
   height: 95vh;
   border: 1px solid grey;
@@ -301,7 +379,7 @@
   justify-content: center;
 }
 
-.find-us{
+.find-us {
   width: 90%;
   height: 60%;
   margin-top: 12rem;
@@ -310,7 +388,7 @@
   column-gap: 2rem;
 }
 
-.find-us-descritpion{
+.find-us-descritpion {
   margin-top: 3rem;
 }
 

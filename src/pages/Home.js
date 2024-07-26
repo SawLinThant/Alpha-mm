@@ -3,6 +3,9 @@ import Catalouge from "../components/catalouge";
 import "../style/home.css";
 import { branch } from "../config/branch";
 import BrachDescription from "../components/branch-description.-box";
+import ProgressBarSlider from "../components/slider-progress-style";
+import PlayStore from "../modules/icons/playstore";
+import AppleStore from "../modules/icons/apple-store";
 
 const Home = () => {
   const KITCHEN_ITEMS = [
@@ -38,14 +41,16 @@ const Home = () => {
   return (
     <div className="home-container">
       <section className="hero-container">
-        <div className="hero"></div>
+        <div className="hero">
+          <ProgressBarSlider/>
+        </div>
       </section>
       <section className="mvp-container">
         <section className="mvp">
           <div className="mvp-description">
             <div className="mvp-heading">
-              <h1>Hello, We are </h1>
-              <h1>Official Distributor & Retailer</h1>
+              <h3>Hello, We are </h3>
+              <h2>Official Distributor & Retailer</h2>
             </div>
             <div className="mvp-text">
               <p>
@@ -54,19 +59,19 @@ const Home = () => {
                 The point of using Lorem Ipsum is that it has a more-or-less
                 normal distribution of letters
               </p>
-              <p>
+              <p className="bottom-paragraph">
                 The point of using Lorem Ipsum is that it has a more-or-less
                 normal distribution of letters
               </p>
             </div>
             <div className="mvp-button">
-              <a href="/">Read More</a>
+              <a href="/">Read More <span>&rarr;</span></a>
             </div>
           </div>
           <div className="mvp-image-container">
+            {/* <div className="mvp-image"></div>
             <div className="mvp-image"></div>
-            <div className="mvp-image"></div>
-            <div className="mvp-image"></div>
+            <div className="mvp-image"></div> */}
           </div>
         </section>
       </section>
@@ -80,13 +85,12 @@ const Home = () => {
           >
             <div className="showcase-left-img">
               <div className="showcaseleft-img-text">
-                <p>Discover Your</p>
-                <p>Perfect Home</p>
-                <p>Appliances</p>
+               <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
-                  <a href="/">All Products</a>
+                  <a href="/">View All <span>&rarr;</span></a>
                 </div>
               </div>
+              <div className="showcase-left-image-icon"></div>
             </div>
           </div>
           <div
@@ -114,7 +118,7 @@ const Home = () => {
         <div className="download-container">
           <div className="icon"></div>
           <div className="download-description">
-            <h1>Get the App Today!</h1>
+            <h2>Get the App Today!</h2>
             <div className="download-text">
               <p>Discover convenience at your fingertips with our app!</p>
               <p>Enjoy seamless navigation, exclusive features, and</p>
@@ -129,7 +133,9 @@ const Home = () => {
                     downloadButtonInView ? "download-button-grow" : ""
                   }`}
                 >
-                  <li className="playstore-link"></li>
+                  <li className="playstore-link">
+                    <a href="/"><PlayStore width={194} height={57}/></a>
+                  </li>
                 </div>
               </div>
               <div className="apple-container">
@@ -139,7 +145,9 @@ const Home = () => {
                     downloadButtonInView ? "download-button-grow" : ""
                   }`}
                 >
-                  <li className="apple-link"></li>
+                  <li className="apple-link">
+                  <a href="/"><AppleStore width={194} height={57}/></a>
+                  </li>
                 </div>
               </div>
             </div>
