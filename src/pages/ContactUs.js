@@ -1,8 +1,11 @@
+import Footer from "../components/footer";
+import Header from "../components/header";
 import "../style/contactus.css";
 
 const ContactUs = () => {
   return (
     <div>
+      <Header/>
       <section className="contact-container">
         <div className="contact-layout-container">
           <div className="contact-catalouge-container">
@@ -117,6 +120,7 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

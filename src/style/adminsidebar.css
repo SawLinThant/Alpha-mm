@@ -1,0 +1,109 @@
+aside{
+    height: 100vh;
+    width: 15rem;
+    border: 1px solid gray;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    transition-duration: 0.5s;
+}
+
+.ops-sidebar-collapse{
+    width: 4rem;
+}
+
+.side-layout{
+    width: 95%;
+    height: 98%;
+}
+
+.ops-sidebar-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transition: transform 1s, opacity 1s;
+}
+
+.ops-sidebar-container-collapse{
+    opacity: 0;
+}
+
+.collapse-button-container{
+    width: 100%;
+    height: 1.5rem;
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.collapse-button-container-not-collapsed{
+    justify-content: flex-end;
+}
+
+.collapse-button-container-collapsed{
+    justify-content: center;
+}
+
+.collapse-button{
+    position: relative;
+    height: 100%;
+    width: 3rem;  
+    border: none; 
+    background-color: white;
+    transition-duration: 0.5s;
+}
+
+.collapse-state-button{
+    transform: rotate(180deg);
+}
+
+.side-logo-container{
+    width: 100%;
+    height: 4.5rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+}
+
+.ops-sidebar-lists{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.ops-sidebar-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition-duration: 0.5s;
+    border-radius: 0.25rem;
+}
+
+.ops-sidebar-list:hover{
+    background-color: rgb(172, 177, 177);
+}
+
+.ops-sidebarlist-link{ 
+    height: 3rem;
+    width: 100%;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: #262626;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;
+    gap: 10px;  
+}
+
+.not-collopase-list-text{
+    margin-right: 2rem;
+}
+

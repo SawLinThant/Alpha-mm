@@ -11,6 +11,8 @@ import PhoneTwo from "../modules/icons/phone-two";
 import ThumbsUp from "../modules/icons/thumbsup";
 import Smile from "../modules/icons/smile";
 import JoinHand from "../modules/icons/joinhand";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 const Home = () => {
   const KITCHEN_ITEMS = [
@@ -45,6 +47,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <Header />
       <section className="hero-container">
         <div className="hero">
           <ProgressBarSlider />
@@ -236,6 +239,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
