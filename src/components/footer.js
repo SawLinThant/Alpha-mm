@@ -1,3 +1,9 @@
+import AlphaLogo from "../modules/icons/alpha-logo";
+import LocationIcon from "../modules/icons/location";
+import RightArrowCircle from "../modules/icons/rignt-arrow-circle";
+import FacebookLogo from "../modules/icons/social-icons/facebook";
+import TiktokLogo from "../modules/icons/social-icons/tiktok";
+import YoutubeLogo from "../modules/icons/social-icons/youtube";
 import "../style/footer.css";
 
 const Footer = () => {
@@ -7,39 +13,44 @@ const Footer = () => {
         <div className="footer-layout">
           <div className="footer-container-main">
             <div className="location">
-              <div className="location-logo"></div>
+              <div className="location-layout">
+              <div className="location-logo">
+                <AlphaLogo width={275} height={80}/>
+              </div>
               <div className="location-description">
-                <div className="location-icon"></div>
+                <div className="location-icon"><LocationIcon width={24} height={24}/></div>
                 <p>
                   No.186/188, Pansodan Middle Block, Kyautada Township,
                   Yangon,Myanmar
                 </p>
               </div>
+              </div>
+            
             </div>
             <div className="section-container">
               <div className="section one">
                 <h3>Link</h3>
                 <ul className="links">
-                  <li className="link">Home</li>
-                  <li className="link">Products</li>
-                  <li className="link">About Us</li>
-                  <li className="link">Contact Us</li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/>Home</li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/>Products</li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/>About Us</li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/>Contact Us</li>
                 </ul>
               </div>
               <div className="section two">
                 <h3>Call Us</h3>
                 <ul className="call-us">
-                  <li className="call">01 382 772</li>
-                  <li className="call">09 407 146 226</li>
-                  <li className="call">09 424 46 693</li>
+                  <li className="call"><RightArrowCircle width={20} height={20}/>01 382 772</li>
+                  <li className="call"><RightArrowCircle width={20} height={20}/>09 407 146 226</li>
+                  <li className="call"><RightArrowCircle width={20} height={20}/>09 424 46 693</li>
                 </ul>
               </div>
               <div className="section three">
                 <h3>Follow Us</h3>
                 <ul className="follow-us">
-                  <li className="follow">Follow us on Facebook</li>
-                  <li className="follow">Follow us on TikTok</li>
-                  <li className="follow">Subscribe on YouTube</li>
+                  <li className="follow"><FacebookLogo width={20} height={20}/>Follow us on Facebook</li>
+                  <li className="follow"><TiktokLogo width={20} height={20}/>Follow us on TikTok</li>
+                  <li className="follow"><YoutubeLogo width={20} height={20}/>Subscribe on YouTube</li>
                 </ul>
               </div>
             </div>

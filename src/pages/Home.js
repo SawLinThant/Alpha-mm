@@ -6,6 +6,11 @@ import BrachDescription from "../components/branch-description.-box";
 import ProgressBarSlider from "../components/slider-progress-style";
 import PlayStore from "../modules/icons/playstore";
 import AppleStore from "../modules/icons/apple-store";
+import PhoneOne from "../modules/icons/phone-one";
+import PhoneTwo from "../modules/icons/phone-two";
+import ThumbsUp from "../modules/icons/thumbsup";
+import Smile from "../modules/icons/smile";
+import JoinHand from "../modules/icons/joinhand";
 
 const Home = () => {
   const KITCHEN_ITEMS = [
@@ -42,7 +47,7 @@ const Home = () => {
     <div className="home-container">
       <section className="hero-container">
         <div className="hero">
-          <ProgressBarSlider/>
+          <ProgressBarSlider />
         </div>
       </section>
       <section className="mvp-container">
@@ -65,13 +70,21 @@ const Home = () => {
               </p>
             </div>
             <div className="mvp-button">
-              <a href="/">Read More <span>&rarr;</span></a>
+              <a href="/">
+                Read More <span>&rarr;</span>
+              </a>
             </div>
           </div>
           <div className="mvp-image-container">
-            {/* <div className="mvp-image"></div>
-            <div className="mvp-image"></div>
-            <div className="mvp-image"></div> */}
+            <div className="mvp-image">
+              <img src="/mvp1.jpg" alt="mvp1" />
+            </div>
+            <div className="mvp-image">
+              <img src="/mvp2.jpg" alt="mvp2" />
+            </div>
+            <div className="mvp-image">
+              <img src="/mvp3.jpg" alt="mvp3" />
+            </div>
           </div>
         </section>
       </section>
@@ -85,9 +98,11 @@ const Home = () => {
           >
             <div className="showcase-left-img">
               <div className="showcaseleft-img-text">
-               <h2>Discover Your Perfect Home Appliance</h2>
+                <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
-                  <a href="/">View All <span>&rarr;</span></a>
+                  <a href="/">
+                    View All <span>&rarr;</span>
+                  </a>
                 </div>
               </div>
               <div className="showcase-left-image-icon"></div>
@@ -116,7 +131,16 @@ const Home = () => {
       </section>
       <section className="advertise-container">
         <div className="download-container">
-          <div className="icon"></div>
+          <div className="icon">
+            <div className="phone-icon-container">
+              <div className="phone-icon1">
+                <PhoneOne width={320} height={320} />
+              </div>
+              <div className="phone-icon2">
+                <PhoneTwo width={220} height={440} />
+              </div>
+            </div>
+          </div>
           <div className="download-description">
             <h2>Get the App Today!</h2>
             <div className="download-text">
@@ -134,7 +158,9 @@ const Home = () => {
                   }`}
                 >
                   <li className="playstore-link">
-                    <a href="/"><PlayStore width={194} height={57}/></a>
+                    <a href="/">
+                      <PlayStore width={194} height={57} />
+                    </a>
                   </li>
                 </div>
               </div>
@@ -146,29 +172,42 @@ const Home = () => {
                   }`}
                 >
                   <li className="apple-link">
-                  <a href="/"><AppleStore width={194} height={57}/></a>
+                    <a href="/">
+                      <AppleStore width={194} height={57} />
+                    </a>
                   </li>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div ref={badgeRef} className={`badge-container ${badgeInView?"badge-container-open":""}`}>
+        <div
+          ref={badgeRef}
+          className={`badge-container ${
+            badgeInView ? "badge-container-open" : ""
+          }`}
+        >
           <div className="property-logo easy">
             <div className="property-logo-container">
-              <div className="easy-image"></div>
+              <div className="easy-image">
+                <ThumbsUp width={50} height={50} />
+              </div>
               <p>Easy Download</p>
             </div>
           </div>
           <div className="property-logo simple">
             <div className="property-logo-container">
-              <div className="simple-image"></div>
+              <div className="simple-image">
+                <Smile width={50} height={50} />
+              </div>
               <p>Simple Order</p>
             </div>
           </div>
           <div className="property-logo effortless">
             <div className="property-logo-container">
-              <div className="effortless-image"></div>
+              <div className="effortless-image">
+                <JoinHand width={50} height={50} />
+              </div>
               <p>Effortless Join Partner</p>
             </div>
           </div>
