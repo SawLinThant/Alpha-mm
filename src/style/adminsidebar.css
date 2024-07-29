@@ -84,8 +84,10 @@ aside{
     border-radius: 0.25rem;
 }
 
-.ops-sidebar-list:hover{
-    background-color: rgb(172, 177, 177);
+.ops-sidebar-list:hover .ops-sidebarlist-link{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 0.25rem;
 }
 
 .ops-sidebarlist-link{ 
@@ -101,6 +103,7 @@ aside{
     align-items: center; 
     justify-content: center;
     gap: 10px;  
+    transition-duration: 0.5s;
 }
 
 .not-collopase-list-text{

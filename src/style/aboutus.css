@@ -8,10 +8,13 @@
     display: flex;
     place-items: center;
     justify-content: center;
+    background-image: url("/public/download-bg.png");
+    background-position: center;
+    background-size: cover;
 }
 
 .about-alpha-layout{
-    width: 90%;
+    width: 93%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -33,10 +36,13 @@
 .about-alpha-logo h4{
     font-weight: 400;
     font-size: large;
+    font-size: 23px;
+    font-family: 'Sansation', sans-serif;
 }
 
 .about-alpha-logo h1{
-    font-size: xx-large;
+    font-weight: 700;
+    font-size: 37px;
 }
 
 .about-alpha-text-container{
@@ -59,18 +65,18 @@
 
 .vision-container{
     width: 100%;
-    height: 65vh;
+    height: 32rem;
     display: flex;
     place-items: center;
     justify-content: center;
 }
 
 .vision-container-layout{
-    width: 90%;
+    width: 93%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     column-gap: 1.5rem;
-    padding-bottom: 5rem;
 }
 
 .reason-container{
@@ -84,7 +90,7 @@
     width: 100%;
     height: 100%;
     border-radius: 1rem;
-    background-color: aquamarine;
+    background-color: #F2F2F2;
     display: flex;
     place-items: center;
     justify-content: center;
@@ -97,13 +103,22 @@
     flex-direction: column;
 }
 
+.reason-description-container h4{
+    font-weight: 700;
+    font-size: 25px;
+    color: #262626;
+}
+
 .reason-text{
     display: flex;
     flex-direction: column;
 }
 
 .reason-text p{
-    line-height: 1.5rem;
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 19px;
+    color: #262626;
 }
 
 .aim-container{
@@ -114,6 +129,7 @@
 
 .sub-aim-container{
     width: 100%;
+    height: 100%;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -126,10 +142,139 @@
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
-    background-color: aquamarine;
+    background-color: #F2F2F2;
     padding: 2rem;
+}
+
+.aim h4{
+    font-weight: 700;
+    font-size: 25px;
+    color: #262626;
+}
+
+.aim p{
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 19px;
+    color: #262626;
 }
 
 .aim h2, .aim p{
     margin-top: 0;
 }
+
+.mvp-container {
+    width: 100%;
+    height: 42.5rem;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
+  
+  .mvp {
+    width: 93%;
+    height: 25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .mvp-description {
+    width: 41rem;
+    height: 23.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .mvp-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 3px;
+  }
+  
+  .mvp-text p{
+    font-family: sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    color: #262626;
+  }
+  
+  .bottom-paragraph{
+    margin-top: 0;
+  }
+  
+  .mvp-heading {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+  }
+  
+  .mvp-heading h3{
+    font-family: sans-serif;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0;
+    color: #262626;
+  }
+  
+  .mvp-heading h2 {
+    font-family: sans-serif;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0;
+    margin-top: 10px;
+    color: #262626;
+  }
+  
+  .mvp-button {
+    height: 3rem;
+    width: 9rem;
+    background-color: #4A4CCD;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    place-items: center;
+    justify-content: center;
+  }
+  
+  .mvp-button a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 2px
+  }
+  
+  .mvp-image-container {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .mvp-image {
+    width: 12.5rem;
+    height: 100%;
+    border: 1px solid gray;
+    margin-right: 0;
+  }
+  
+  .mvp-image img{
+    height: 100%;
+  }
+  
+  .blank-separator{
+    height: 6rem;
+  }

@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+body {
+  font-family: 'Sansation', sans-serif;
+  color: #262626;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
