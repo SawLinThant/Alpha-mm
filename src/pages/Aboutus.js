@@ -42,8 +42,8 @@ const AboutUs = () => {
         <section className="mvp">
           <div className="mvp-description">
             <div className="mvp-heading">
-              <h1>Hello, We are </h1>
-              <h1>Official Distributor & Retailer</h1>
+              <h3>Hello, We are </h3>
+              <h2>Official Distributor & Retailer</h2>
             </div>
             <div className="mvp-text">
               <p>
@@ -52,19 +52,27 @@ const AboutUs = () => {
                 The point of using Lorem Ipsum is that it has a more-or-less
                 normal distribution of letters
               </p>
-              <p>
+              <p className="bottom-paragraph">
                 The point of using Lorem Ipsum is that it has a more-or-less
                 normal distribution of letters
               </p>
             </div>
             <div className="mvp-button">
-              <a href="/">Read More</a>
+              <a href="/">
+                Read More <span>&rarr;</span>
+              </a>
             </div>
           </div>
           <div className="mvp-image-container">
-            <div className="mvp-image"></div>
-            <div className="mvp-image"></div>
-            <div className="mvp-image"></div>
+            <div className="mvp-image">
+              <img src="/mvp1.jpg" alt="mvp1" />
+            </div>
+            <div className="mvp-image">
+              <img src="/mvp2.jpg" alt="mvp2" />
+            </div>
+            <div className="mvp-image">
+              <img src="/mvp3.jpg" alt="mvp3" />
+            </div>
           </div>
         </section>
       </section>
@@ -73,7 +81,7 @@ const AboutUs = () => {
           <div className="reason-container">
             <div className="reason">
               <div className="reason-description-container">
-                <h2>Why Choose Us?</h2>
+                <h4>Why Choose Us?</h4>
                 <div className="reason-text">
                   <p>
                     Being an older electronic company in Myanmar, we understand
@@ -94,7 +102,7 @@ const AboutUs = () => {
           <div className="aim-container">
             <div className="sub-aim-container">
               <div className="aim">
-                <h2>Our Vision</h2>
+                <h4>Our Vision</h4>
                 <p>
                   To be a globally recognised corporation for excellence,
                   governance, consumer delight and fairness to each stakeholder
@@ -102,7 +110,7 @@ const AboutUs = () => {
                 </p>
               </div>
               <div className="aim">
-                <h2>Our Mission</h2>
+                <h4>Our Mission</h4>
                 <p>
                   To achieve our vision through business ethics, global reach,
                   technological expertise, building long-term relationships with
@@ -113,6 +121,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+      <div className="blank-separator"></div>
       <Footer/>
     </div>
   );

@@ -1,6 +1,10 @@
+import { useQuery } from "@apollo/client"
+import { GET_PRODUCTS } from "../graphql/queries/productQueries"
 import "../style/product.css"
 
 const Product = () => {
+    const {data,loading,error} = useQuery(GET_PRODUCTS);
+    console.log(data)
     return(
         <div>
             <section className="product-container">
