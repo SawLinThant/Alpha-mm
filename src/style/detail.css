@@ -59,6 +59,7 @@
   width: 90%;
   height: 95%;
   border: 1px solid gainsboro;
+  border-radius: 1rem;
 }
 
 .description-text-container {
@@ -133,4 +134,10 @@
   color: black;
   cursor: pointer;
   border: 1px solid gray;
+}
+
+.description-detail-image{
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
 }

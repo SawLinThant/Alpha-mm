@@ -9,6 +9,7 @@ import {
 } from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 import ImageUploadField from "../../components/image-upload-field";
+import { useNavigate } from "react-router-dom";
 
 const CreateProduct = () => {
   const {
@@ -20,6 +21,7 @@ const CreateProduct = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [createProduct, { loading }] = useMutation(CREATE_PRODUCT);
   const [updateProduct, { data, error }] = useMutation(UPDATE_PRODUCT);
+  const navigate = useNavigate();
   console.log(image);
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -56,7 +58,7 @@ const CreateProduct = () => {
       <div className="create-product-container">
         <div className="create-product-layout">
           <div className="back-button-container">
-            <button>
+            <button onClick={() => navigate(-1)}>
               <IoArrowBackOutline />
               <p>Back</p>
             </button>
@@ -109,12 +111,15 @@ const CreateProduct = () => {
                   })}
                 />
               </div>
+              <div className="img-btn-container">
               <div className="image-upload-field-container">
                 <ImageUploadField handleImageChange={handleImageChange} image={image} imageUrl={imageUrl}/>
               </div>
               <div className="submit-button-container">
                 <button type="submit">Submit</button>
               </div>
+              </div>
+             
             </form>
           </div>
         </div>

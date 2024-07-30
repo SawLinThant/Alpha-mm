@@ -8,6 +8,7 @@ import { GET_PRODUCT_BY_ID } from "../../../graphql/queries/productQueries";
 import { UPDATE_PRODUCT } from "../../../graphql/mutation/productMutations";
 import { useMutation } from "@apollo/client";
 import toast, { Toaster } from "react-hot-toast";
+import ImageUploadField from "../../../components/image-upload-field";
 
 const ProductDetail = () => {
   const { register, handleSubmit } = useForm();
@@ -36,6 +37,16 @@ const ProductDetail = () => {
       ...productData,
       [name]: value
     });
+  };
+
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setImage(e.target.files[0].name);
+      setImageUrl(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   const [updateProduct,{error}] = useMutation(UPDATE_PRODUCT);
@@ -75,10 +86,6 @@ useEffect(() => {
 
   const handleUpdate = handleSubmit(async (credential) => {
     try {
-        // console.log(credential.name);
-        // console.log(credential.category);
-        // console.log(credential.model);
-        // console.log(credential.price);
       updateProduct({
         variables: {
           id: id, // replace with the actual product ID
@@ -86,11 +93,11 @@ useEffect(() => {
           category: productData.category,
           model: productData.model,
           price: productData.price,
-          image_url: "http://example.com/updated-image.jpg",
+          image_url: image,
         },
       });
       toast("Update Success");
-     // window.location.reload();
+      window.location.reload();
     } catch (err) {
       throw new Error("Product update failed");
     }
@@ -114,7 +121,14 @@ useEffect(() => {
               </div>
             </div>
             <div className="description-image-container">
-              <div className="description-image-layout"></div>
+              <div className="description-image-layout">
+                {editable?(
+                  <ImageUploadField handleImageChange={handleImageChange} image={image} imageUrl={imageUrl}/>
+                ):
+                (
+                  <img className="description-detail-image" src={productData.image_url} alt="product image"/>
+                )}
+              </div>
             </div>
             <div className="description-text-container">
               <div className="description-text-layout">
