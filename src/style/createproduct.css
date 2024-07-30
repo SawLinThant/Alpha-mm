@@ -46,6 +46,14 @@
     gap:  1.5rem;
 }
 
+.product-form-container form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:  1.5rem;
+}
+
 .input-field{
     display: flex;
     flex-direction: column;

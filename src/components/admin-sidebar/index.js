@@ -4,11 +4,19 @@ import AlphaLogo from "../../modules/icons/alpha-logo";
 import { LuArrowRightFromLine } from "react-icons/lu";
 import { AiOutlineProduct } from "react-icons/ai";
 import { BsArrowBarLeft } from "react-icons/bs";
+import { GrLogout } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 const AdminSidebar = () => {
   const [isCollapse, setIsCollapse] = useState(false);
   const handleCollapse = () => {
     setIsCollapse(!isCollapse);
+  }
+  const navigate = useNavigate();
+  const handleLogout = () => {
+     localStorage.removeItem('user');
+     navigate('/login')
+
   }
   return (
     <aside className={`${isCollapse?"ops-sidebar-collapse":""}`}>
@@ -31,6 +39,9 @@ const AdminSidebar = () => {
                 {!isCollapse && <p className={`ops-sidebarlist-link-text ${isCollapse ? "" : "not-collopase-list-text"}`}>Product</p>}
                 {/* <p className={`ops-sidebarlist-link-text ${isCollapse ? "collopase-list-text" : "not-collopase-list-text"}`}>Product</p> */}
               </a>
+            </div>
+            <div className="ops-sidebar-list">
+              <button onClick={handleLogout} className="ops-sidebarlist-link"><GrLogout /> {!isCollapse && <p className={`ops-sidebarlist-link-text ${isCollapse ? "" : "not-collopase-list-text"}`}>Logout</p>}</button>
             </div>
           </div>
         </div>

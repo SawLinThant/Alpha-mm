@@ -18,8 +18,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="*" element={<Login setIsLogin={setIsLogin} />} />
-        <Route path="home" element={<Home />} />
+        <Route path="login" element={<Login setIsLogin={setIsLogin} />} />
+        <Route path="*" element={<Home />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs />} />
         <Route path="products" element={<Product />} />

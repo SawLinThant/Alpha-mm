@@ -84,6 +84,17 @@ aside{
     border-radius: 0.25rem;
 }
 
+.ops-sidebar-list button{
+    border: none;
+    background-color: white;
+    margin-top: 4rem;
+    border-top: 1px solid rgb(207, 200, 200);
+}
+
+.ops-sidebar-list button:hover{
+    cursor: pointer;
+}
+
 .ops-sidebar-list:hover .ops-sidebarlist-link{
     background-color: blueviolet;
     color: white;
