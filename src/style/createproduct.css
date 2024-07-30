@@ -69,6 +69,7 @@
     height: 2rem;
     border-radius: 0.25rem;
     padding-left: 1rem;
+    border: 2px solid gainsboro;
 }
 
 .submit-button-container{
@@ -89,34 +90,7 @@
     border: none;
 }
 
-.image-upload-container{
-    position: relative;
-    width: 12rem;
-    height: 12rem;
-    border: 1px solid gray;
-}
-
-.image-upload-container input{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-
-.image-container{
-    width: 100%;
-    height: 100%;
-}
-
-.image-container{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgb(225, 218, 218);
-}
-
-.image-container img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.image-upload-field-container{
+    width: 10rem;
+    height: 10rem;
 }

@@ -3,8 +3,12 @@ import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT, UPDATE_PRODUCT } from "../../graphql/mutation/productMutations";
+import {
+  CREATE_PRODUCT,
+  UPDATE_PRODUCT,
+} from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
+import ImageUploadField from "../../components/image-upload-field";
 
 const CreateProduct = () => {
   const {
@@ -14,7 +18,7 @@ const CreateProduct = () => {
   } = useForm();
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
-  const [createProduct, { loading}] = useMutation(CREATE_PRODUCT);
+  const [createProduct, { loading }] = useMutation(CREATE_PRODUCT);
   const [updateProduct, { data, error }] = useMutation(UPDATE_PRODUCT);
   console.log(image);
   const handleImageChange = (e) => {
@@ -26,10 +30,9 @@ const CreateProduct = () => {
 
   const handleCreate = handleSubmit(async (credential) => {
     try {
-      if(!image){
+      if (!image) {
         toast("Please upload an image");
-      }
-      else{
+      } else {
         await createProduct({
           variables: {
             name: credential.name,
@@ -42,7 +45,6 @@ const CreateProduct = () => {
         toast("Product created");
         console.log("product created");
       }
-  
     } catch (err) {
       toast("Product creation failed");
       throw new Error("error creating product");
@@ -107,25 +109,9 @@ const CreateProduct = () => {
                   })}
                 />
               </div>
-
-              <div className="image-upload-container">
-                <input
-                  className="image-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                />
-                <div className="image-container">
-                  {image && (
-                    <img
-                      src={imageUrl}
-                      alt="Uploaded"
-                      style={{ width: "300px", height: "auto" }}
-                    />
-                  )}
-                </div>
+              <div className="image-upload-field-container">
+                <ImageUploadField handleImageChange={handleImageChange} image={image} imageUrl={imageUrl}/>
               </div>
-
               <div className="submit-button-container">
                 <button type="submit">Submit</button>
               </div>

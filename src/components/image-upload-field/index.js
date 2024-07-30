@@ -1,0 +1,39 @@
+import { useRef } from "react";
+import "../../style/image-upload.css";
+import { LuUpload } from "react-icons/lu";
+
+const ImageUploadField = ({ handleImageChange, imageUrl, image }) => {
+    const fileRef = useRef(null);
+    const handleContainerClick = () => {
+        if(fileRef.current){
+            fileRef.current.click();
+        }
+    }
+  return (
+    <div className="image-upload-container" onClick={handleContainerClick}>
+      <input
+        ref={fileRef}
+        className="image-input"
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+      />
+      <div className="image-container">
+       
+        {image? (
+            <img
+            src={imageUrl}
+            alt="Uploaded"
+            style={{ width: "300px", height: "auto" }}
+          />
+        ):
+        (<div className="file-upload-image-icon-container">
+            <LuUpload size={40}/>
+            <p>Upload Image</p>
+        </div>)
+        }
+      </div>
+    </div>
+  );
+};
+export default ImageUploadField;
