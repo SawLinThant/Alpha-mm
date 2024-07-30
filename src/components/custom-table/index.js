@@ -3,13 +3,60 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { column } from "./column";
-import { dummyData } from "./dummydata";
 import "../../style/customtable.css";
+import { createColumnHelper } from "@tanstack/react-table";
+import { useNavigate } from "react-router-dom";
 
-const CustomTable = ({ loading }) => {
+const CustomTable = ({ loading,data }) => {
+  const navigate = useNavigate();
+  const columnHelper = createColumnHelper();
+    const column =[
+    columnHelper.accessor("name",{
+        cell:(info) => (
+            <span>{info.getValue()}</span>
+        ),
+        header:() => <span>Name</span>
+    }),
+
+    columnHelper.accessor("category",{
+        cell:(info) => (
+            <span>{info.getValue()}</span>
+        ),
+        header:() => <span>Category</span>
+    }),
+
+    columnHelper.accessor("price",{
+        cell:(info) => (
+            <span>{info.getValue()}</span>
+        ),
+        header:() => <span>Price</span>
+    }),
+
+    columnHelper.accessor("model",{
+        cell:(info) => (
+            <span>{info.getValue()}</span>
+        ),
+        header:() => <span>Model</span>
+    }),
+
+    columnHelper.accessor("id",{
+        cell:(info) => (
+            <button 
+            onClick={() => {
+                
+                navigate(`/dashboard/detail/${info.getValue()}`)
+            }}
+            
+            >
+                Detail
+            </button>
+        ),
+        header:() => <span>Price</span>
+    }),
+]
+
   const table = useReactTable({
-    data: dummyData,
+    data: data,
     columns: column,
     getCoreRowModel: getCoreRowModel(),
   });

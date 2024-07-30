@@ -24,4 +24,33 @@ export const CREATE_PRODUCT = gql`
        image_url   
      }
   }
-`
+`;
+
+export const UPDATE_PRODUCT = gql`
+  mutation updateProduct(
+    $id: uuid!
+    $name: String
+    $category: String
+    $model: String
+    $price: Int
+    $image_url: String
+  ) {
+    update_product_by_pk(
+      pk_columns: { id: $id },
+      _set: {
+        name: $name,
+        category: $category,
+        model: $model,
+        price: $price,
+        image_url: $image_url
+      }
+    ) {
+      id
+      name
+      category
+      model
+      price
+      image_url
+    }
+  }
+`;

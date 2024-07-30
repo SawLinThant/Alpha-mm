@@ -31,7 +31,7 @@ const AdminSidebar = () => {
           <div className="ops-sidebar-lists">
             <div className="ops-sidebar-list">
               <a
-                href="/"
+                href="/dashboard"
                // className={`ops-sidebarlist-link ${isCollapse ? "" : "not-collopase-lis"}`}
                className="ops-sidebarlist-link"
               >

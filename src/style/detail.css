@@ -1,0 +1,136 @@
+.detail-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.detail-container-layout {
+  width: 90%;
+  height: 90%;
+}
+
+.detail-description-container {
+  width: 22rem;
+  height: 100%;
+  border: 1px solid rgb(129, 122, 122);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.description-header {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  border-bottom: 1px solid gainsboro;
+  background-color: blueviolet;
+}
+
+.edit-label {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  color: white;
+}
+
+.edit-label p {
+  line-height: 0;
+  color: white;
+}
+
+.description-image-container {
+  width: 100%;
+  height: 12rem;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.description-image-layout {
+  width: 90%;
+  height: 95%;
+  border: 1px solid gainsboro;
+}
+
+.description-text-container {
+  width: 100%;
+  height: 25rem;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.description-text-layout {
+  width: 90%;
+  height: 100%;
+}
+
+.edit-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.edit-form-input-container {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.edit-form-input-container input {
+  padding: 10px 0px 10px 10px;
+  border-radius: 0.25rem;
+  background-color: gainsboro;
+  border: none;
+  transition-duration: 0.5s;
+}
+
+.edit-form-input-container input.editable {
+  border: 1px solid gainsboro;
+  background-color: white;
+}
+
+.edit-save-button-container {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.edit-save-button-container button {
+  width: 4.5rem;
+  height: 70%;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  background-color: blueviolet;
+  border: none;
+  color: white;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+.edit-save-button-container button.editable-button {
+  opacity: 1;
+}
+
+.edit-save-button-container button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: 1px solid gray;
+}

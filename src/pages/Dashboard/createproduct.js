@@ -3,7 +3,7 @@ import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT } from "../../graphql/mutation/productMutations";
+import { CREATE_PRODUCT, UPDATE_PRODUCT } from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 
 const CreateProduct = () => {
@@ -15,6 +15,7 @@ const CreateProduct = () => {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const [createProduct, { loading}] = useMutation(CREATE_PRODUCT);
+  const [updateProduct, { data, error }] = useMutation(UPDATE_PRODUCT);
   console.log(image);
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
