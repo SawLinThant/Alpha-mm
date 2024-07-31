@@ -93,11 +93,10 @@ useEffect(() => {
           category: productData.category,
           model: productData.model,
           price: productData.price,
-          image_url: image,
         },
       });
       toast("Update Success");
-      window.location.reload();
+     // window.location.reload();
     } catch (err) {
       throw new Error("Product update failed");
     }
@@ -122,12 +121,13 @@ useEffect(() => {
             </div>
             <div className="description-image-container">
               <div className="description-image-layout">
-                {editable?(
+                {/* {editable?(
                   <ImageUploadField handleImageChange={handleImageChange} image={image} imageUrl={imageUrl}/>
                 ):
                 (
                   <img className="description-detail-image" src={productData.image_url} alt="product image"/>
-                )}
+                )} */}
+                <img className="description-detail-image" src={productData.image_url} alt="product image"/>
               </div>
             </div>
             <div className="description-text-container">

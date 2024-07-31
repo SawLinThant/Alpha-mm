@@ -33,7 +33,6 @@ export const UPDATE_PRODUCT = gql`
     $category: String
     $model: String
     $price: Int
-    $image_url: String
   ) {
     update_product_by_pk(
       pk_columns: { id: $id },
@@ -42,7 +41,6 @@ export const UPDATE_PRODUCT = gql`
         category: $category,
         model: $model,
         price: $price,
-        image_url: $image_url
       }
     ) {
       id
