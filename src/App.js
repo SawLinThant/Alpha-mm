@@ -7,6 +7,9 @@ import Product from "./pages/product";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Dashboard/login";
 import { useState } from "react";
+import Service from "./pages/Service";
+import Store from "./pages/store";
+import ProductDetail from "./pages/ProductDetail/[id]";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -23,6 +26,9 @@ function App() {
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs />} />
         <Route path="products" element={<Product />} />
+        <Route path="service" element={<Service />} />
+        <Route path="store" element={<Store />} />
+        <Route path="products/productdetail/:id" element={<ProductDetail />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="dashboard/*" element={<Dashboard />} />
         </Route>
