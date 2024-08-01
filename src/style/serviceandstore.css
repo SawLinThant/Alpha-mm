@@ -28,7 +28,6 @@
 .store-service-description-container{
     width: 100%;
     height: 36.5rem;   
-    display: flex;
     place-items: center;
     justify-content: center;
     display: grid;
@@ -104,4 +103,24 @@
     justify-content: center;
     color: white;
     gap: 8px;
+}
+
+@media screen and (max-width: 844px){
+    .store-service-description-container{
+        grid-template-columns: repeat(1,1fr);
+        row-gap: 2rem;
+        height: 100%;
+    }
+
+    .store-section-container, .service-section-container{
+        height: 99.75rem;
+    }
+
+    .storeandservice-layout{
+        height: 100%;
+    }
+
+    .store-service-description-text{
+        height: 18rem;
+    }
 }

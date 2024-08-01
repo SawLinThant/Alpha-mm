@@ -87,3 +87,17 @@ nav{
         gap: 2rem;      
     }
 }
+
+@media screen and (max-width: 844px){
+    nav{
+        justify-content: flex-start;
+        width: 85%;
+    }
+    .nav-right{
+        display: none;
+    }
+
+    .nav-left{
+        padding-left: 0;
+    }
+}

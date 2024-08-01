@@ -61,7 +61,7 @@ const ContactUs = () => {
         </div>
       </section> */}
       <section className="contact-form-container">
-        <div className="contact-location-container">
+        <div className="contact-location-container-layout">
           <div className="contact-location-layout">
             <div className="contact-loaction-container">
               <div className="contact-location">

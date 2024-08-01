@@ -29,7 +29,7 @@ const Service = () => {
                                 <p>09 884 888 693</p>
                             </div>
                             <div className="store-service-detail-text">
-                                <LocationIcon width={24} height={24}/>
+                               <div><LocationIcon width={24} height={24}/></div> 
                                 <p>အမှတ် 390, 391၊ ယမုံနာ (၁) လမ်း၊ (၂) ရပ်ကွက်၊ ဒေါပုံမြို့နယ်၊ ရန်ကုန်မြို့။</p>
                             </div>
                         </div>
@@ -51,7 +51,7 @@ const Service = () => {
                                 <p>09 884 888 693</p>
                             </div>
                             <div className="store-service-detail-text">
-                                <LocationIcon width={24} height={24}/>
+                            <div><LocationIcon width={24} height={24}/></div>
                                 <p>အမှတ် D, 78 လမ်း၊ 29 x 30 ကြား လော်ဂျာဆိုင်ကယ် အပိုပစ္စည်း ဆိုင်ဘေး ဘူတာကြီးရှေ့၊ မန္တလေးမြို့။</p>
                             </div>
                         </div>

@@ -278,3 +278,47 @@
   .blank-separator{
     height: 6rem;
   }
+
+  @media screen and (max-width: 844px){
+    .about-alpha{
+      height: 90vh !important;
+    }
+
+    .about-alpha-layout{
+      flex-direction: column !important;
+    }
+
+    .about-alpha-logo-container{
+      width: 100% !important;
+      margin-top: 0 !important;
+      height: 20vh !important;
+    }
+
+    .about-alpha-logo{
+      width: 100% !important;
+    }
+
+    .about-alpha-text-container{
+      width: 100% !important;
+    }
+
+    .about-alpha-text{
+      margin-top: 1rem !important;
+    }
+
+    .vision-container{
+      margin-top: 2rem !important;
+      height: 75rem !important;
+    }
+
+    .vision-container-layout{
+      grid-template-columns: repeat(1,1fr);
+      row-gap: 1rem !important;
+    }
+
+    .aim{
+      padding: 0 1rem 0 1rem !important;
+      width: 92% !important;
+      height: 100% !important;
+    }
+  }

@@ -7,7 +7,7 @@
 }
 
 .contact-layout-container{
-    width: 90%;
+    width: 93%;
     height: 65%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -64,8 +64,8 @@
     padding-bottom: 5rem;
 }
 
-.contact-location-container{
-    width: 90%;
+.contact-location-container-layout{
+    width: 93%;
     height: 85%;
 }
 
@@ -260,4 +260,25 @@
     .catalouge-phone{
         margin-bottom: 10px;
     }
+}
+
+@media screen and (max-width: 844px){
+    .contact-form-container{
+        height: 94rem;
+        padding-bottom: 0;
+    }
+
+    .contact-loaction-container{
+        height: 93%;
+    }
+
+    .contact-location-layout{    
+        grid-template-columns: repeat(1,1fr);
+        height: 100%;
+    }
+
+    .contact-location-container-layout{
+        height: 95%;
+    }
+    
 }

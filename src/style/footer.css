@@ -113,3 +113,34 @@ footer{
     gap: 8px;
     margin-left: 5px;
 }
+
+@media screen and (max-width: 844px){
+    .footer-container-main{
+        flex-direction: column !important;
+    }
+
+    .location{
+        width: 100% !important;
+        justify-content: left !important;
+        height: auto !important;
+        margin-left: 1.5rem !important;
+    }
+
+    .location-layout{
+        width: 100% !important;
+    }
+
+    .footer-container-main{
+        height: 55rem !important;
+    }
+
+    .section-container{
+        width: 100% !important;
+        height: 20rem !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .section h3{
+        padding-left: 1.5rem !important;
+    }
+}

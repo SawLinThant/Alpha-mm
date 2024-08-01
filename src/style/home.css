@@ -462,6 +462,8 @@
   line-height: 27px;
 }
 
+
+
 @keyframes buttongrow {
   0% {
     width: 0%;
@@ -1172,5 +1174,105 @@
   }
   100% {
     width: 93%;
+  }
+}
+
+@media screen and (max-width: 844px){
+  .mvp-container{
+    height: 48rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .mvp {    
+    flex-direction: column !important;
+    height: 100%!important;
+    gap: 2rem !important;
+  }
+
+  .mvp-description{
+    width: 100% !important;
+    height: 30rem !important;
+  }
+
+  .mvp-heading{
+    height: 10rem !important;
+  }
+
+  .mvp-image-container{
+    width: 100% !important;
+  }
+
+  .mvp-image{
+    width: 30% !important;
+  }
+
+  .mvp-image img{
+    width: 100% !important;
+  }
+
+  .mvp-heading h2{
+    line-height: normal !important;
+  }
+
+  .showcase{
+    height: auto !important;
+    margin-top: 2rem !important;
+  }
+
+  .showcase-layout {
+    grid-template-columns: 1fr !important;
+    row-gap: 1rem; 
+  }
+
+  .showcase-left, .showcase-right {
+    grid-column: span 12 !important; 
+    grid-template-columns: 1fr !important; 
+    transform: translateY(0%) !important;
+  }
+
+  .advertise-container{
+    height: 200rem !important;
+    gap: 2rem;
+  }
+
+  .download-container{
+    grid-template-columns: 1fr !important;
+    height: 70rem !important;
+  }
+
+  .phone-icon-container{
+    width: 100% !important;
+  }
+
+  .download-description{
+    padding: 0 10px 0 10px;
+  }
+
+  .download-text{
+    padding: 0 10px 0 10px;
+  }
+
+  .badge-container{
+    position:  relative !important;
+    margin-bottom: 0 !important;
+    width: 93%;
+  }
+
+  .badge-container-open{
+    animation: none !important;
+  }
+
+  .find-us-container{
+    height: 100% !important;
+  }
+  
+  .find-us{
+    flex-direction: column !important;
+    margin-top: 0 !important;
+    height: 100% !important;
+  }
+
+  .find-us-section{
+    width: 100% !important;
   }
 }
