@@ -279,9 +279,9 @@
     height: 6rem;
   }
 
-  @media screen and (max-width: 844px){
+  @media screen and (max-width: 932px){
     .about-alpha{
-      height: 90vh !important;
+      height: 100vh !important;
     }
 
     .about-alpha-layout{

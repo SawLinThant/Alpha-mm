@@ -2,11 +2,17 @@ import "../style/branch-description-box.css";
 import DirectionIcon from "../modules/icons/direction";
 import LocationIcon from "../modules/icons/location";
 import PhoneIcon from "../modules/icons/phone-iocn";
+import RightArrrow from "../modules/icons/rightarrow";
 
-const BrachDescription = ({ name, location, phone }) => {
+const BrachDescription = ({ name, buttontext, phone, img_url }) => {
   return (
-    <div className="branch-description">
-      <div className="branch-description-text">
+    <div
+      className="branch-description"
+      style={{
+        backgroundImage: `url(${img_url})`,
+      }}
+    >
+      {/* <div className="branch-description-text">
         <div className="branch-description-text-layout">
           <div className="branch-heading-container">
             <h3 className="branch-name">{name}</h3>
@@ -28,6 +34,16 @@ const BrachDescription = ({ name, location, phone }) => {
             <p className="branch-phone-no">{phone}</p>
           </div>
         </div>
+      </div> */}
+      <div className="branch-description-text">
+        <div className="branch-description-text-layout">
+        <p>{name}</p>
+        <button>
+          {buttontext}
+          <RightArrrow width={24} height={24} />
+        </button>
+        </div>
+       
       </div>
     </div>
   );

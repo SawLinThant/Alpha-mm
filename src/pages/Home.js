@@ -249,8 +249,8 @@ const Home = () => {
               <div key={branch.id} className="find-us-section">
                 <BrachDescription
                   name={branch.name}
-                  location={branch.location}
-                  phone={branch.phone}
+                  buttontext={branch.buttontext}
+                  img_url={branch.img_url}
                 />
               </div>
             ))}

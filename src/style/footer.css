@@ -123,7 +123,6 @@ footer{
         width: 100% !important;
         justify-content: left !important;
         height: auto !important;
-        margin-left: 1.5rem !important;
     }
 
     .location-layout{
@@ -141,6 +140,6 @@ footer{
     }
 
     .section h3{
-        padding-left: 1.5rem !important;
+        padding-left: 0.5rem !important;
     }
 }
