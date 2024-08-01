@@ -16,10 +16,18 @@
 .branch-description-text {
   width: 90%;
   display: flex;
-  flex-direction: column;
+  place-items: center;
+  justify-content: center;
   background-color: aliceblue;
   border-radius: 1rem;
   margin-bottom: 1rem;
+}
+
+.branch-description-text-layout{
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .branch-heading-container {
@@ -30,25 +38,37 @@
 }
 
 .go-link {
-  height: 2rem;
-  width: 2rem;
-  margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .branch-description-text h3 {
-  padding-left: 1rem;
-  font-size: medium;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.branch-description-text p {
-  padding-left: 1rem;
-  font-size: small;
+.branch-location-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 
 .branch-location {
-  margin-bottom: 0;
+  margin-bottom: 0; 
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.branch-phone-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
 }
 
 .branch-phone-no {
-  margin-top: 0.5rem;
+  font-size: 16px;
+  font-weight: 400;
 }

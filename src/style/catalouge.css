@@ -26,10 +26,11 @@
 .item-count{
     display: flex;
     align-items: center;
+    
 }
 
 .item-count-text{
-    background-color: whitesmoke;
+    background-color: #EBEBFA;
     border-radius: 1rem;
     height: 50%;
     display: flex;
@@ -42,11 +43,16 @@
 
 .item-count-text span{
     color: blueviolet;
+    padding-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .description-text h2, .view-btn{
     margin-top: 0;
     padding-left: 40px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .description-text ul{
@@ -56,10 +62,33 @@
 .description-text ul li{
     padding-top: 5px;
     list-style: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #737373;
 }
 
 .view-btn a{
     text-decoration: none;
     color: blueviolet;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
 }
+
+.right-description{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.right-description img{
+    width: 9.375rem;
+    height: 13.375rem;
+}
+
+
 

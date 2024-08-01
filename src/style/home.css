@@ -114,7 +114,7 @@
   gap: 3px;
 }
 
-.mvp-text p{
+.mvp-text p {
   font-family: sans-serif;
   font-size: 17px;
   font-style: normal;
@@ -123,7 +123,7 @@
   color: #262626;
 }
 
-.bottom-paragraph{
+.bottom-paragraph {
   margin-top: 0;
 }
 
@@ -137,7 +137,7 @@
   align-self: stretch;
 }
 
-.mvp-heading h3{
+.mvp-heading h3 {
   font-family: sans-serif;
   font-size: 27px;
   font-style: normal;
@@ -159,7 +159,7 @@
 .mvp-button {
   height: 3rem;
   width: 9rem;
-  background-color: #4A4CCD;
+  background-color: #4a4ccd;
   border-radius: 2rem;
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@
 .mvp-button a {
   text-decoration: none;
   color: white;
-  margin-bottom: 2px
+  margin-bottom: 2px;
 }
 
 .mvp-image-container {
@@ -188,11 +188,11 @@
   margin-right: 0;
 }
 
-.mvp-image img{
+.mvp-image img {
   height: 100%;
 }
 
-.showcase-left-img{
+.showcase-left-img {
   background-image: url("/public/show-left.jpg");
   background-position: center;
   background-size: cover;
@@ -210,7 +210,7 @@
   margin-top: 1rem;
 }
 
-.showcaseleft-img-text h2{
+.showcaseleft-img-text h2 {
   font-size: 30px;
   font-family: sans-serif;
   font-weight: 700;
@@ -225,17 +225,17 @@
 
 .showcaseleft-img-text a {
   text-decoration: none;
-  background-color: #4A4CCD;
+  background-color: #4a4ccd;
   color: white;
   border-radius: 1.5rem;
   padding: 6px 10px 8px 10px;
   text-align: center;
 }
 
-.showcase-left-image-icon{
-   width: 90%;
-   height: 13rem;
-   background-image: url("/public/htoo.png");
+.showcase-left-image-icon {
+  width: 90%;
+  height: 13rem;
+  background-image: url("/public/htoo.png");
   background-position: center;
   background-size: cover;
 }
@@ -259,13 +259,13 @@
   background-size: cover;
 }
 
-.icon{
+.icon {
   display: flex;
   place-items: center;
   justify-content: center;
 }
 
-.phone-icon-container{
+.phone-icon-container {
   position: relative;
   width: 28rem;
   height: 27rem;
@@ -274,18 +274,18 @@
   align-items: flex-end;
 }
 
-.phone-icon1{
+.phone-icon1 {
   width: 20.5rem;
   height: 20.5rem;
 }
 
-.phone-icon2{
+.phone-icon2 {
   z-index: 2;
   position: absolute;
   margin-right: 2rem;
-   height: 27rem;
-   width: 12rem;
-   right: 0;
+  height: 27rem;
+  width: 12rem;
+  right: 0;
 }
 
 .download-description {
@@ -295,13 +295,13 @@
   justify-content: center;
 }
 
-.download-description h2{
+.download-description h2 {
   font-weight: 700;
   font-size: 35px;
   font-family: sans-serif;
 }
 
-.download-text{
+.download-text {
   font-weight: 400;
   font-size: 19px;
   font-family: sans-serif;
@@ -390,7 +390,7 @@
   border-right: 1px solid gainsboro;
 }
 
-.property-logo-container p{
+.property-logo-container p {
   margin-bottom: 0;
   transform: translateY(70%);
   font-weight: 700;
@@ -424,33 +424,42 @@
   width: 93%;
   height: 60%;
   margin-top: 12rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
 }
 
-.find-us-text{
+.find-us-text {
+  width: 18.25rem;
+  height: 16.563rem;
   display: flex;
   flex-direction: column;
   justify-items: center;
   justify-content: center;
 }
 
-.find-us-text h2{
-   font-size: 33px;
-   font-weight: 700;
-   line-height: 42px;
-   margin-bottom: 0;
+.find-us-section {
+  width: 19.75rem;
+  height: 100%;
+}
+
+.find-us-text h2 {
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 42px;
+  margin-bottom: 0;
 }
 
 .find-us-descritpion {
   margin-top: 3rem;
 }
 
-.find-us-descritpion p{
+.find-us-descritpion p {
   font-size: 17px;
-   font-weight: 400;
-   line-height: 27px;
+  font-weight: 400;
+  line-height: 27px;
 }
 
 @keyframes buttongrow {

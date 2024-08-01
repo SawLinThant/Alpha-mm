@@ -1,4 +1,6 @@
 import "../style/header.css";
+import PhoneIcon from "../modules/icons/phone-iocn"
+import AlphaLogo from "../modules/icons/alpha-logo";
 
 const Header = () => {
   return (
@@ -6,7 +8,7 @@ const Header = () => {
       <nav>
         <div className="nav-left">
             <div className="logo">
-                <h2>Alpha Myanmar</h2>
+                <AlphaLogo width={150} height={56}/>
             </div>
         </div>
         <div className="nav-right">
@@ -19,7 +21,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="hotline">
-           <p>Hotline:<span>01 235 678</span></p> 
+           <p><PhoneIcon stroke="white"  width={24} height={24}/>Hotline:<span>01 235 678</span></p> 
           </div>
         </div>
       </nav>

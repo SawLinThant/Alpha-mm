@@ -18,15 +18,44 @@ const Home = () => {
   const KITCHEN_ITEMS = [
     {
       id: "1",
-      name: "Electric Kettles",
+      name: "Kitchen",
+      items: {
+        itemone:"Electric Kettles",
+        itemtwo:"Microwave Ovens",
+        itemthree:"Blenders",
+      },
+      img_url: "/kitchen.png"
     },
+   
     {
       id: "2",
-      name: "Microwave Ovens",
+      name: "Laundry",
+      items: {
+        itemone:"Washing Machines",
+        itemtwo:"Dryers",
+        itemthree:"Steamers",
+      },
+      img_url: "/laundry.png"
     },
+
     {
       id: "3",
-      name: "Blenders",
+      name: "Entertainments",
+      items: {
+        itemone:"Televisions",
+        itemtwo:"Sound Systems",
+      },
+      img_url: "/entertainment.png"
+    },
+
+    {
+      id: "4",
+      name: "Miscellaneous",
+      items: {
+        itemone:"Water Purifiers",
+        itemtwo:"Air Purifiers",
+      },
+      img_url: "/miscellaneous.png"
     },
   ];
   const { ref: showcaseLeftRef, inView: showcaseLeftInView } = useInView({
@@ -117,18 +146,7 @@ const Home = () => {
               showcaseRightInView ? "animate-right" : ""
             }`}
           >
-            <div className="catalouge-container">
-              <Catalouge Items={KITCHEN_ITEMS} />
-            </div>
-            <div className="catalouge-container">
-              <Catalouge Items={KITCHEN_ITEMS} />
-            </div>
-            <div className="catalouge-container">
-              <Catalouge Items={KITCHEN_ITEMS} />
-            </div>
-            <div className="catalouge-container">
-              <Catalouge Items={KITCHEN_ITEMS} />
-            </div>
+            <Catalouge Items={KITCHEN_ITEMS} />
           </div>
         </div>
       </section>
@@ -217,7 +235,7 @@ const Home = () => {
         </div>
         <div className="find-us-container">
           <div className="find-us">
-            <div className="find-us-section find-us-text">
+            <div className="find-us-text">
               <h2>Find us</h2>
               <div className="find-us-descritpion">
                 <p>
