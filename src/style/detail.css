@@ -9,10 +9,13 @@
 .detail-container-layout {
   width: 90%;
   height: 90%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
 
 .detail-description-container {
-  width: 22rem;
+  width: 60vw;
   height: 100%;
   border: 1px solid rgb(129, 122, 122);
   display: flex;
@@ -47,19 +50,27 @@
   color: white;
 }
 
+.edit-detail-container{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
 .description-image-container {
   width: 100%;
-  height: 12rem;
-  display: flex;
-  place-items: center;
-  justify-content: center;
+  height: 100%;
+ 
 }
 
 .description-image-layout {
   width: 90%;
   height: 95%;
-  border: 1px solid gainsboro;
   border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .description-text-container {
@@ -138,6 +149,6 @@
 
 .description-detail-image{
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 17vw;
+  height: 31vh;
 }

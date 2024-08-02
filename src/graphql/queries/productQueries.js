@@ -6,10 +6,24 @@ export const GET_PRODUCTS = gql`
       id
       name
       category
-      subcategory
       model
-      image_url
       price
+      image_url  
+      category_id
+      subcategory_id
+      category {
+        id
+        category_name
+        subcategories{
+          id
+          subcategory_name
+        }
+      }
+      subcategory {
+        id
+        subcategory_name
+      }
+
     }
   }
 `;
@@ -17,13 +31,27 @@ export const GET_PRODUCTS = gql`
 export const GET_PRODUCT_BY_ID = gql`
   query getProductById($id: uuid!) {
     product_by_pk(id: $id) {
-      id
+       id
       name
       category
-      subcategory
       model
-      image_url
       price
+      image_url  
+      category_id
+      subcategory_id
+      category {
+        id
+        category_name
+        subcategories{
+          id
+          subcategory_name
+        }
+      }
+      subcategory {
+        id
+        subcategory_name
+      }
+
     }
   }
 `;
@@ -31,13 +59,27 @@ export const GET_PRODUCT_BY_ID = gql`
 export const GET_PRODUCTS_BY_CATEGORY = gql`
   query getProductsByCategory($category: String!) {
     product(where: { category: { _eq: $category } }) {
-      id
+       id
       name
       category
-      subcategory
       model
-      image_url
       price
+      image_url  
+      category_id
+      subcategory_id
+      category {
+        id
+        category_name
+        subcategories{
+          id
+          subcategory_name
+        }
+      }
+      subcategory {
+        id
+        subcategory_name
+      }
+
     }
   }
 `;

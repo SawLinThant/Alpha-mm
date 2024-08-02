@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dropdown from "react-dropdown";
 import "../style/dropdown.css";
 import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES_WITHOUT_SUB, GET_SUBCATEGORIES } from "../graphql/queries/productQueries";
 
-// const options = ["Option 1", "Option 2", "Option 3"];
 
-// const defaultOption = options[0];
-
-const CustomDropdown = ({ isMain, setCategory, setSubCategory }) => {
+const CustomDropdown = ({ isMain, setCategory, setSubCategory, initialValue }) => {
   const [selectedOption, setSelectedOption] = useState();
 
   const { data:category, loading } = useQuery(GET_CATEGORIES_WITHOUT_SUB);
@@ -41,6 +38,13 @@ const CustomDropdown = ({ isMain, setCategory, setSubCategory }) => {
       setSubCategory(option.value);
     }
   };
+
+  useEffect(() => {
+    if(initialValue){
+      setSelectedOption(initialValue)
+    }
+  },[initialValue])
+
   return (
     <div className="dropdown-container">
       <p>Select Category</p>
