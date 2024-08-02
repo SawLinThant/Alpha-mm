@@ -10,6 +10,13 @@ const Service = () => {
   return (
     <div className="service-page-container">
         <Header/>
+        <div className="sub-nav-links">
+        <div className="sub-nav-links-layout">
+          <p>Home</p>
+          <span>/</span>
+          <p style={{color:"#4A4CCD" }}>Service Centers</p>
+        </div>
+      </div>
       <section className="service-section-container">
       <div className="storeandservice-container">
             <div className="storeandservice-layout">

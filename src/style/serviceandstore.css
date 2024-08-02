@@ -12,6 +12,27 @@
     justify-content: center;
 }
 
+.sub-nav-links{
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.sub-nav-links-layout{
+    width: 93%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.sub-nav-link-layout p,span{
+    font-size: 16px;
+    font-weight: 400;
+    color: #737373;
+}
+
 .storeandservice-layout{
     width: 93%;
     height: 90%;

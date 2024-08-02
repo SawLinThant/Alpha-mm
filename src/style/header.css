@@ -90,7 +90,7 @@ nav{
 
 @media screen and (max-width: 844px){
     nav{
-        justify-content: flex-start;
+        justify-content: space-between;
         width: 85%;
     }
     .nav-right{

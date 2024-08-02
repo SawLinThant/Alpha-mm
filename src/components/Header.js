@@ -1,6 +1,7 @@
 import "../style/header.css";
 import PhoneIcon from "../modules/icons/phone-iocn"
 import AlphaLogo from "../modules/icons/alpha-logo";
+import Sidebar from "./mobilenav";
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
                 <AlphaLogo width={150} height={56}/>
             </div>
         </div>
+        <Sidebar/>
         <div className="nav-right">
           <div className="nav-list-container">
             <ul className="nav-list">
@@ -21,7 +23,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="hotline">
-           <p><PhoneIcon stroke="white"  width={24} height={24}/>Hotline:<span>01 235 678</span></p> 
+           <p><PhoneIcon stroke="white"  width={24} height={24}/>Hotline:<span style={{color:"white"}}>01 235 678</span></p> 
           </div>
         </div>
       </nav>
