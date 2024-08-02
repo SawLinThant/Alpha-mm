@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/Aboutus";
 import ContactUs from "./pages/ContactUs";
-import Product from "./pages/product";
+import Product from "./pages/product/index";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Dashboard/login";
 import { useState } from "react";
@@ -25,7 +25,7 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="contactus" element={<ContactUs />} />
-        <Route path="products" element={<Product />} />
+        <Route path="products/*" element={<Product />} />
         <Route path="service" element={<Service />} />
         <Route path="store" element={<Store />} />
         <Route path="products/productdetail/:id" element={<ProductDetail />} />

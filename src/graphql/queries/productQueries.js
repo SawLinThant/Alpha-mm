@@ -6,6 +6,7 @@ export const GET_PRODUCTS = gql`
       id
       name
       category
+      subcategory
       model
       image_url
       price
@@ -19,6 +20,7 @@ export const GET_PRODUCT_BY_ID = gql`
       id
       name
       category
+      subcategory
       model
       image_url
       price
@@ -32,9 +34,55 @@ export const GET_PRODUCTS_BY_CATEGORY = gql`
       id
       name
       category
+      subcategory
       model
       image_url
       price
+    }
+  }
+`;
+
+export const GET_PRODUCTS_BY_SUBCATEGORY = gql`
+  query getProductsBySubCategory($subcategory: String!) {
+    product(where: { subcategory: { _eq: $subcategory } }) {
+      id
+      name
+      category
+      subcategory
+      model
+      image_url
+      price
+    }
+  }
+`;
+
+export const GET_CATEGORIES = gql`
+  query getCategories{
+    category{
+      id
+      category_name
+      subcategories {
+        id
+        name
+      }
+    }
+  }
+`;
+
+export const GET_CATEGORIES_WITHOUT_SUB = gql`
+  query getCategories{
+    category{
+      id
+      category_name
+    }
+  }
+`;
+
+export const GET_SUBCATEGORIES = gql`
+  query getSubCategories{
+    subcategory{
+      id
+      subcategory_name
     }
   }
 `;
