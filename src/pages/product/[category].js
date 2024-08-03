@@ -7,13 +7,15 @@ import {
 import "../../style/product.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useCallback } from "react";
 import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 
 const Products = () => {
   const { category } = useParams();
   const itemsPerPage = 5; // Number of items per page
+
+  const navigate = useNavigate();
 
   // State to manage pagination for each subcategory
   const [pagination, setPagination] = useState({});
@@ -109,6 +111,7 @@ const Products = () => {
                   <div
                     className="individual-product-container"
                     key={product.id}
+                    onClick={() => navigate(`/products/productdetail/${product.id}`)}
                   >
                     <div className="product-image-container">
                       <img src={product.image_url} alt={product.name} />

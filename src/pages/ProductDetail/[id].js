@@ -2,11 +2,63 @@ import "../../style/productdetail.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import DirectionIcon from "../../modules/icons/direction";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import {
+  GET_PRODUCT_BY_ID,
+  GET_PRODUCTS_BY_SUBCATEGORY,
+  GET_SUBCATEGORY_BY_PRODUCT_ID,
+} from "../../graphql/queries/productQueries";
+
+const convertStringToArray = (text) => {
+  return text.split(",");
+};
 
 const ProductDetail = () => {
+  const { id } = useParams();
+  const { data: product_by_pk, loading: fetchProduct } = useQuery(
+    GET_PRODUCT_BY_ID,
+    {
+      variables: { id: id },
+    }
+  );
+  const { data: subcategory, loading: fetchSubCategory } = useQuery(
+    GET_SUBCATEGORY_BY_PRODUCT_ID,
+    {
+      variables: { id: id },
+    }
+  );
+
+  if (fetchProduct) return <div>Loading</div>;
+  if (fetchSubCategory) return <div>Loading</div>;
+
+  const productData = product_by_pk ? product_by_pk : [];
+  const category = productData.product_by_pk.category.category_name || "";
+  const subCategory =
+    productData.product_by_pk.subcategory.subcategory_name || "";
+  const productName = productData.product_by_pk.name || "";
+  const model = productData.product_by_pk.model;
+  const description = productData.product_by_pk.product_description || "";
+  const descriptionList = convertStringToArray(description);
+  const specification = productData.product_by_pk.product_specification || "";
+  const specificationList = convertStringToArray(specification);
+
+  const relatedCategory = subcategory ? subcategory.subcategory : [];
+
   return (
     <div>
       <Header />
+      <div className="product-sub-nav-link">
+        <div className="product-sub-nav-link-layout">
+          <p>Home</p>
+          <span>/</span>
+          <p>{category}</p>
+          <span>/</span>
+          <p>{subCategory}</p>
+          <span>/</span>
+          <p style={{ color: "#4A4CCD" }}>{model}</p>
+        </div>
+      </div>
       <div className="prodcut-detail-container">
         <div className="product-detail-layout">
           <div className="product-detail-images-container">
@@ -15,48 +67,37 @@ const ProductDetail = () => {
                 <img src="/product2.png" alt="sub-img" />
               </div>
               <div className="product-subimg">
-              <img src="/product3.png" alt="sub-img" />
+                <img src="/product3.png" alt="sub-img" />
               </div>
               <div className="product-subimg">
-              <img src="/product4.png" alt="sub-img" />
+                <img src="/product4.png" alt="sub-img" />
               </div>
             </div>
             <div className="product-mainimg-container">
-                <img src="/product1.png" alt="main-img" />
+              <img src="/product1.png" alt="main-img" />
             </div>
             <div className="product-mvp-container">
               <div className="product-mvp-heading">
                 <div className="product-heading">
-                    <h4>Electric Kettle ALKTL170</h4>
+                  <h4>{`${productName} ${model}`}</h4>
                 </div>
                 <div className="prodcut-sub-heading">
-                    <p>Brand: <span className="brand-name">Alpha</span></p>
-                    <div className="price">KS <span className="price-number">38,000</span></div>
+                  <p className="brand">
+                    Brand: <span className="brand-name">Alpha</span>
+                  </p>
+                  <div className="price">
+                    <p>KS</p> <span className="price-number">38,000</span>
+                  </div>
                 </div>
               </div>
               <div className="product-mvp-text">
-                <p>
-                  -ရေစစ်ပါဝင်တဲ့အတွက် မတော်တဆ ပါဝင်သော အမှုန်အမွှားများကို
-                  ဖယ်ရှားပေးနိုင်။
-                </p>
-                <p>
-                  -အဖုံးအဖွင့်/အပိတ်အတွက်ကို အပူမလောင်စေရန် လက်ကိုင်တွင်
-                  ခလုတ်ပါရှိ။
-                </p>
-                <p>
-                  -ရေချိန်တိုင်း ကိရိယာကြောင့် ဖွင့်/ပိတ် လိုက်လုပ်စရာမလိုပဲ
-                  ရေရှိ/မရှိ ကြည့်နိုင်။
-                </p>
-                <p>
-                  -မတော်တဆရွေ့လျားမသွားအောင် အောက်ခံရာဘာအလုံးတွေမှ
-                  ထိန်းညှိထားပေး။
-                </p>
-                <p> -1.7L ထိရေဖြည့်နိုင်။</p>
+                {descriptionList &&
+                  descriptionList.map((description) => <p>- {description}</p>)}
               </div>
               <div className="product-mvp-button">
                 <button>
-                    <p>Find Store Location</p>
-                    <DirectionIcon width={24} height={24}/>
+                  <p>Find Store Location</p>
+                  <DirectionIcon width={24} height={24} />
                 </button>
               </div>
             </div>
@@ -64,8 +105,12 @@ const ProductDetail = () => {
           <div className="product-bottom-description-container">
             <h1>Product details of Alpha 1.7L Electric Kettle ALKT170L</h1>
             <div className="description-list-container">
-                <ul>
-                    <li>Power – 1500W</li>
+              <ul>
+                {specificationList &&
+                  specificationList.map((specification) => (
+                    <li>{specification}</li>
+                  ))}
+                {/* <li>Power – 1500W</li>
                     <li>Capacity – 1.7L</li>
                     <li>Size – 24.5×17×22.5cm</li>
                     <li>Net Weight – 0.94Kg</li>
@@ -74,21 +119,25 @@ const ProductDetail = () => {
                     <li>Water Level Scale</li>
                     <li>Manual Switch</li>
                     <li>360-degree Rotation</li>
-                    <li>One Year Warranty</li>
-                </ul>
+                    <li>One Year Warranty</li> */}
+              </ul>
             </div>
           </div>
           <div className="related-products-container">
             <h1>Related Products</h1>
             <div className="related-products">
-                <div className="related-products-layout">
-                    <div className="related-product-layout">
-                    <div className="related-product"></div>
-                    <div className="related-product"></div>
-                    <div className="related-product"></div>
-                    <div className="related-product"></div>
-                   </div>                    
+              <div className="related-products-layout">
+                <div className="related-product-layout">
+                {relatedCategory.map((subcategory) =>
+                  subcategory.products.map((product) => (
+                    <div className="related-product" key={product.id}>
+                      <img src={product.image_url} alt={product.name} />
+                    </div>
+                  ))
+                )}
+                  
                 </div>
+              </div>
             </div>
           </div>
         </div>

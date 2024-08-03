@@ -5,7 +5,6 @@ export const GET_PRODUCTS = gql`
     product {
       id
       name
-      category
       model
       price
       image_url
@@ -145,10 +144,10 @@ export const GET_CATEGORY_BY_NAME = gql`
           price
           image_url
         }
-           category {
-        id
-        category_name
-      }
+        category {
+          id
+          category_name
+        }
       }
     }
   }
@@ -168,6 +167,22 @@ export const GET_SUBCATEGORIES = gql`
     subcategory {
       id
       subcategory_name
+    }
+  }
+`;
+
+export const GET_SUBCATEGORY_BY_PRODUCT_ID = gql`
+  query getSubCategory($id: uuid!) {
+    subcategory(where: { products: { id: { _eq: $id } } }) {
+      id
+      subcategory_name
+      products {
+        id
+        name
+        model
+        price
+        image_url
+      }
     }
   }
 `;

@@ -90,8 +90,8 @@ const CreateProduct = () => {
             image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
               image.name
             )}`,
-            product_specification: credential.description,
-            product_description:  credential.specification
+            product_specification: credential.specification,
+            product_description:  credential.description
           },
         });
         toast("Product created");
