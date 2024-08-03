@@ -37,6 +37,8 @@ const ProductDetail = () => {
       id: "",
       subcategory_name: "",
     },
+    product_specification: "",
+    product_description: ""
   });
 
   useEffect(() => {
@@ -75,10 +77,15 @@ const ProductDetail = () => {
       const inputs = document.querySelectorAll(
         ".edit-form-input-container input"
       );
+
+      const textareas = document.querySelectorAll(
+        ".edit-form-input-container textarea"
+      );
+
       const submitButton = document.querySelector(
         ".edit-save-button-container button"
       );
-      if (!submitButton || !inputs.length) return;
+      if (!submitButton || !inputs.length || !textareas.length) return;
 
       inputs.forEach((input) => {
         if (checkbox.checked) {
@@ -89,6 +96,17 @@ const ProductDetail = () => {
           input.classList.remove("editable");
           submitButton.classList.remove("editable-button");
           setEditable(false);
+        }
+      });
+     textareas.forEach((textarea) => {
+        if (checkbox.checked) {
+          textarea.classList.add("editable");
+          submitButton.classList.add("editable-button");
+       //   setEditable(true);
+        } else {
+          textarea.classList.remove("editable");
+          submitButton.classList.remove("editable-button");
+        //  setEditable(false);
         }
       });
     };
@@ -115,7 +133,9 @@ const ProductDetail = () => {
           price: productData.price,
           image_url:productData.image_url,
           category_id: productData.category.id,
-          subcategory_id: productData.subcategory.id
+          subcategory_id: productData.subcategory.id,
+          product_specification: productData.product_specification,
+          product_description: productData.product_description,
         },
       });
       toast("Update Success");
@@ -194,6 +214,33 @@ const ProductDetail = () => {
                         //   required: "price is required",
                         // })}
                         value={productData.price}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div className="edit-form-input-container textarea-container">
+                      <label htmlFor="">Product Description</label>
+                      <textarea
+                        name="product_description"
+                        
+                        placeholder={productData.product_description}
+                        disabled={!editable}
+                        // {...register("price", {
+                        //   required: "price is required",
+                        // })}
+                        value={productData.product_description}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div className="edit-form-input-container  textarea-container">
+                      <label htmlFor="">Product Sepcification</label>
+                      <textarea
+                        name="product_specification"
+                        placeholder={productData.product_specification}
+                        disabled={!editable}
+                        // {...register("price", {
+                        //   required: "price is required",
+                        // })}
+                        value={productData.product_specification}
                         onChange={handleInputChange}
                       />
                     </div>

@@ -8,6 +8,8 @@ export const CREATE_PRODUCT = gql`
     $image_url: String
     $category_id: uuid
     $subcategory_id: uuid
+    $product_specification: String
+    $product_description: String
   ){
      insert_product_one (
         object: {
@@ -17,6 +19,8 @@ export const CREATE_PRODUCT = gql`
           image_url: $image_url
           category_id: $category_id
           subcategory_id: $subcategory_id
+          product_specification: $product_specification
+          product_description: $product_description
         }
      ){
        name
@@ -38,6 +42,8 @@ export const CREATE_PRODUCT = gql`
         id
         subcategory_name
       } 
+      product_specification
+      product_description
      }
   }
 `;
@@ -51,6 +57,8 @@ export const UPDATE_PRODUCT = gql`
     $image_url: String
     $category_id: uuid
     $subcategory_id: uuid
+    $product_specification: String
+    $product_description: String
   ) {
     update_product_by_pk(
       pk_columns: { id: $id },
@@ -61,6 +69,8 @@ export const UPDATE_PRODUCT = gql`
         image_url: $image_url,
         category_id: $category_id,
         subcategory_id: $subcategory_id
+        product_specification: $product_specification
+        product_description: $product_description
       }
     ) {
       id
@@ -78,6 +88,8 @@ export const UPDATE_PRODUCT = gql`
         id
         subcategory_name
       }
+      product_specification
+      product_description
     }
   }
 `;

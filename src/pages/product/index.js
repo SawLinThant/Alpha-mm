@@ -1,13 +1,13 @@
 import { Routes,Route } from "react-router-dom"
 import Home from "../Home"
-import KitchenProduct from "./kitchen";
+import Products from "./[category]";
 
 const Product = () => {
     return(
         <div>
             <Routes>
                 <Route path="*" element={<Home/>}/>
-                <Route path="kitchen" element={<KitchenProduct/>}/>
+                <Route path="/:category" element={<Products/>}/>
             </Routes>
         </div>
     )

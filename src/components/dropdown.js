@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_CATEGORIES_WITHOUT_SUB, GET_SUBCATEGORIES } from "../graphql/queries/productQueries";
 
 
-const CustomDropdown = ({ isMain, setCategory, setSubCategory, initialValue }) => {
+const CustomDropdown = ({ isMain, setCategory, setSubCategory, initialValue, label }) => {
   const [selectedOption, setSelectedOption] = useState();
 
   const { data:category, loading } = useQuery(GET_CATEGORIES_WITHOUT_SUB);
@@ -47,7 +47,7 @@ const CustomDropdown = ({ isMain, setCategory, setSubCategory, initialValue }) =
 
   return (
     <div className="dropdown-container">
-      <p>Select Category</p>
+      <p>{label}</p>
       <Dropdown
         options={isMain?categoryOptions:subCategoryoptions}
         onChange={handleSelect}

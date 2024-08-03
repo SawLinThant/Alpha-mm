@@ -3,15 +3,12 @@ import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from "@apollo/client";
-import {
-  CREATE_PRODUCT,
-} from "../../graphql/mutation/productMutations";
+import { CREATE_PRODUCT } from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 import ImageUploadField from "../../components/image-upload-field";
 import { useNavigate } from "react-router-dom";
 import AWS from "aws-sdk";
 import CustomDropdown from "../../components/dropdown";
-
 
 const CreateProduct = () => {
   const {
@@ -22,11 +19,11 @@ const CreateProduct = () => {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const [createProduct, { loading }] = useMutation(CREATE_PRODUCT);
-  const [category,setCategory] = useState()
-  const [subCategory,setSubCategory] = useState()
+  const [category, setCategory] = useState();
+  const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
 
-  console.log(subCategory)
+  console.log(subCategory);
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -93,6 +90,8 @@ const CreateProduct = () => {
             image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
               image.name
             )}`,
+            product_specification: credential.description,
+            product_description:  credential.specification
           },
         });
         toast("Product created");
@@ -109,17 +108,19 @@ const CreateProduct = () => {
       <Toaster />
       <div className="create-product-container">
         <div className="create-product-layout">
+          <div className="create-form-heading">
           <div className="back-button-container">
-            <button onClick={() => navigate(-1)}>
+            <button onClick={() => navigate("dashboard")}>
               <IoArrowBackOutline />
               <p>Back</p>
             </button>
           </div>
           <h2>Create New Product</h2>
+          </div>
           <div className="product-form-container">
             <form action="" onSubmit={handleCreate}>
               <div className="create-product-form-layout">
-                <div className="create-product-form-left">
+                <div className="create-product-form">
                   <div className="input-field">
                     <label htmlFor="">Product Name</label>
                     <input
@@ -131,7 +132,12 @@ const CreateProduct = () => {
                       })}
                     />
                   </div>
-                  <CustomDropdown  isMain={true} setCategory={setCategory} setSubCategory={setSubCategory}/>
+                  <CustomDropdown
+                  label="Select Category"
+                    isMain={true}
+                    setCategory={setCategory}
+                    setSubCategory={setSubCategory}
+                  />
 
                   <div className="input-field">
                     <label htmlFor="">Price</label>
@@ -157,8 +163,39 @@ const CreateProduct = () => {
                     />
                   </div>
                 </div>
-                <div className="create-product-form-right">
-                <CustomDropdown  isMain={false} setCategory={setCategory} setSubCategory={setSubCategory}/>
+                <div className="form-divider"></div>
+                <div className="create-product-form">
+                  <CustomDropdown
+                  label="Select Subcategory"
+                    isMain={false}
+                    setCategory={setCategory}
+                    setSubCategory={setSubCategory}
+                  />
+                  <div className="input-field">
+                    <label htmlFor="">product Description</label>
+                    <textarea
+                      name="description"
+                      type="text"
+                      placeholder="Enter Product Description"
+                      {...register("description", {
+                        required: "description is required",
+                      })}
+                    />
+                  </div>
+                  <div className="input-field">
+                    <label htmlFor="">product Sepcification</label>
+                    <textarea
+                      name="specification"
+                      type="text"
+                      placeholder="Enter Product Specification"
+                      {...register("specification", {
+                        required: "dspecification is required",
+                      })}
+                    />
+                  </div>
+                </div>
+                <div className="form-divider"></div>
+                <div className="create-product-form">
                   <div className="img-btn-container">
                     <div className="image-upload-field-container">
                       <ImageUploadField
@@ -167,13 +204,12 @@ const CreateProduct = () => {
                         imageUrl={imageUrl}
                       />
                     </div>
-                    
                   </div>
                 </div>
               </div>
               <div className="submit-button-container">
-                      <button type="submit">Submit</button>
-                    </div>
+                <button type="submit">Submit</button>
+              </div>
             </form>
           </div>
         </div>
