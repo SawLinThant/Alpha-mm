@@ -88,10 +88,24 @@ nav{
     }
 }
 
+@media screen and (max-width: 1100px){
+    nav{
+        justify-content: space-between;
+        width: 93%;
+    }
+    .nav-right{
+        display: none;
+    }
+
+    .nav-left{
+        padding-left: 0;
+    }
+}
+
 @media screen and (max-width: 844px){
     nav{
         justify-content: space-between;
-        width: 85%;
+        width: 93%;
     }
     .nav-right{
         display: none;

@@ -114,3 +114,12 @@
     height: 6rem;
 }
 
+@media screen and (max-width: 844px){
+    .individual-product-container{
+        height: 12rem;
+        width: 12rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+

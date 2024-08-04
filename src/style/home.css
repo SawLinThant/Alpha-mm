@@ -1177,6 +1177,126 @@
   }
 }
 
+
+
+@media screen and (max-width: 1024px){
+  .mvp-container{
+    height: 63rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .mvp {    
+    flex-direction: column !important;
+    height: 100%!important;
+    gap: 2rem !important;
+  }
+
+  .mvp-description{
+    width: 100% !important;
+    height: 30rem !important;
+  }
+
+  .mvp-heading{
+    height: 10rem !important;
+  }
+
+  .mvp-image-container{
+    width: 100% !important;
+  }
+
+  .mvp-image{
+    width: 30% !important;
+  }
+
+  .mvp-image img{
+    width: 100% !important;
+  }
+
+  .mvp-heading h2{
+    line-height: normal !important;
+  }
+
+  .showcase{
+    height: auto !important;
+    margin-top: 2rem !important;
+  }
+
+  .showcase-layout {
+    grid-template-columns: 1fr !important;
+    row-gap: 2rem; 
+  }
+
+  .showcase-left {
+    grid-column: span 12 !important; 
+    grid-template-columns: 1fr !important; 
+    transform: translateY(0%) !important;
+    transform: translateX(100%) !important;
+  }
+
+  .showcase-right {
+    grid-column: span 12 !important; 
+    grid-template-columns: repeat(2,1fr) !important; 
+    transform: translateY(0%) !important;
+    transform: translateX(100%) !important;
+  }
+
+  .advertise-container{
+    gap: 2rem;
+  }
+
+  .phone-icon-container{
+    width: 100% !important;
+  }
+
+  .download-description{
+    padding: 0 10px 0 10px;
+  }
+
+  .download-text{
+    padding: 0 10px 0 10px;
+  }
+
+  .download-app-icon{
+    gap: 0.5rem !important;
+  }
+
+  .badge-container{
+    height: 13vh;
+    margin-top: 1rem;
+    margin-bottom: 55rem;
+  }
+
+  .find-us-container{
+    height: 110vh;
+  }
+  
+  .find-us{
+    height: 100% !important;
+    flex-direction: column !important;
+    margin-top: 0 !important;
+  }
+
+  .find-us-text{
+    width: 90% !important;
+  }
+
+  .find-us-section{
+    width: 100% !important;
+    height: 50rem !important;
+  }
+
+  .animate-left {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+  
+  .animate-right {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+
+}
+
 @media screen and (max-width: 844px){
   .mvp-container{
     height: 48rem !important;

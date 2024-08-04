@@ -5,7 +5,7 @@ import "../style/aboutus.css";
 const AboutUs = () => {
   return (
     <div className="aboutus-container">
-      <Header/>
+      <Header />
       <section className="about-alpha">
         <div className="about-alpha-layout">
           <div className="about-alpha-logo-container">
@@ -102,27 +102,32 @@ const AboutUs = () => {
           <div className="aim-container">
             <div className="sub-aim-container">
               <div className="aim">
-                <h4>Our Vision</h4>
-                <p>
-                  To be a globally recognised corporation for excellence,
-                  governance, consumer delight and fairness to each stakeholder
-                  including the society and environment we operate in
-                </p>
+                <div className="aim-layout">
+                  <h4>Our Vision</h4>
+                  <p>
+                    To be a globally recognised corporation for excellence,
+                    governance, consumer delight and fairness to each
+                    stakeholder including the society and environment we operate
+                    in
+                  </p>
+                </div>
               </div>
               <div className="aim">
-                <h4>Our Mission</h4>
-                <p>
-                  To achieve our vision through business ethics, global reach,
-                  technological expertise, building long-term relationships with
-                  all our associates, customers, partners and employees.
-                </p>
+                <div className="aim-layout">
+                  <h4>Our Mission</h4>
+                  <p>
+                    To achieve our vision through business ethics, global reach,
+                    technological expertise, building long-term relationships
+                    with all our associates, customers, partners and employees.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
       <div className="blank-separator"></div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

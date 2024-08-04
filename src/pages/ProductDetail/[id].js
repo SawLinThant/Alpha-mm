@@ -34,10 +34,11 @@ const ProductDetail = () => {
 
   const productData = product_by_pk ? product_by_pk : [];
   const category = productData.product_by_pk.category.category_name || "";
-  const subCategory =
-    productData.product_by_pk.subcategory.subcategory_name || "";
+  const subCategory = productData.product_by_pk.subcategory.subcategory_name || "";
   const productName = productData.product_by_pk.name || "";
   const model = productData.product_by_pk.model;
+  const price = productData.product_by_pk.price || ";"
+  const image_url = productData.product_by_pk.image_url || "";
   const description = productData.product_by_pk.product_description || "";
   const descriptionList = convertStringToArray(description);
   const specification = productData.product_by_pk.product_specification || "";
@@ -62,6 +63,7 @@ const ProductDetail = () => {
       <div className="prodcut-detail-container">
         <div className="product-detail-layout">
           <div className="product-detail-images-container">
+            <div className="product-detail-images-layout">
             <div className="product-subimg-container">
               <div className="product-subimg">
                 <img src="/product2.png" alt="sub-img" />
@@ -74,8 +76,10 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="product-mainimg-container">
-              <img src="/product1.png" alt="main-img" />
+              <img src={image_url} alt="main-img" />
             </div>
+            </div>
+            
             <div className="product-mvp-container">
               <div className="product-mvp-heading">
                 <div className="product-heading">
@@ -86,7 +90,7 @@ const ProductDetail = () => {
                     Brand: <span className="brand-name">Alpha</span>
                   </p>
                   <div className="price">
-                    <p>KS</p> <span className="price-number">38,000</span>
+                    <p>KS</p> <span className="price-number">{price}</span>
                   </div>
                 </div>
               </div>

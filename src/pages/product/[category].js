@@ -13,12 +13,12 @@ import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 
 const Products = () => {
   const { category } = useParams();
-  const itemsPerPage = 5; // Number of items per page
+  const itemsPerPage = 2; // Number of items per page
 
   const navigate = useNavigate();
 
   // State to manage pagination for each subcategory
-  const [pagination, setPagination] = useState({});
+  const [pagination, setPagination] = useState();
 
   const { data, loading, error } = useQuery(GET_PRODUCTS_BY_SUBCATEGORY, {
     variables: { subcategory: "kettle" },
@@ -87,7 +87,7 @@ const Products = () => {
               {subCategory.products.length>itemsPerPage?(
               <div className="pagination-controls">
               <button
-                onClick={() => handlePageChange(subCategory.id, "prev")}
+                onClick={()=> handlePageChange(subCategory.id, "prev")}
                 disabled={currentPage === 1}
               >
                <div className="prev-btn-icon-div"><PaginationArrowIcon width={24} height={24}/></div>
