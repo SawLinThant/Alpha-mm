@@ -13,16 +13,8 @@ import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 
 const Products = () => {
   const { category } = useParams();
-  const itemsPerPage = 2; // Number of items per page
-
+  const itemsPerPage = 2;
   const navigate = useNavigate();
-
-  // State to manage pagination for each subcategory
-  const [pagination, setPagination] = useState();
-
-  const { data, loading, error } = useQuery(GET_PRODUCTS_BY_SUBCATEGORY, {
-    variables: { subcategory: "kettle" },
-  });
 
   const { data: get_category, loading: fetchCategory } = useQuery(
     GET_CATEGORY_BY_NAME,
@@ -31,26 +23,25 @@ const Products = () => {
     }
   );
 
-  const fetchedSubCategory =
-    get_category && get_category.category.length > 0
-      ? get_category.category[0].subcategories
-      : [];
+  const [pagination, setPagination] = useState({});
 
-  if (loading || fetchCategory) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  // Use useCallback to ensure handlePageChange doesn't get recreated on every render
-  const handlePageChange = ((subCategoryId, direction) => {
+  const handlePageChange = useCallback((subCategoryId, direction) => {
     setPagination((prevPagination) => {
       const currentPage = prevPagination[subCategoryId] || 1;
-      const newPage =
-        direction === "next" ? currentPage + 1 : currentPage - 1;
+      const newPage = direction === "next" ? currentPage + 1 : currentPage - 1;
       return {
         ...prevPagination,
         [subCategoryId]: newPage,
       };
     });
   }, []);
+
+  const fetchedSubCategory =
+    get_category && get_category.category.length > 0
+      ? get_category.category[0].subcategories
+      : [];
+
+  if (fetchCategory) return <p>Loading...</p>;
 
   return (
     <div>
@@ -64,9 +55,11 @@ const Products = () => {
       </div>
       {fetchedSubCategory.map((subCategory, index) => {
         const currentPage = pagination[subCategory.id] || 1;
-        const totalPages = Math.ceil(subCategory.products.length / itemsPerPage);
+        const totalPages = Math.ceil(
+          subCategory.products.length / itemsPerPage
+        );
         const currentProducts = subCategory.products.slice(
-          (currentPage - 1) * itemsPerPage,
+          (currentPage - 1) * itemsPerPage, 
           currentPage * itemsPerPage
         );
 
@@ -76,42 +69,64 @@ const Products = () => {
         return (
           <section
             className={`product-container ${
-              index % 2 === 0 ? "product-container-white" : "product-container-gray"
+              index % 2 === 0
+                ? "product-container-white"
+                : "product-container-gray"
             }`}
             key={subCategory.id}
           >
-            
             <div className="product-container-layout">
               <div className="product-container-heading-container">
-              <h2>{subCategory.subcategory_name}s</h2>
-              {subCategory.products.length>itemsPerPage?(
-              <div className="pagination-controls">
-              <button
-                onClick={()=> handlePageChange(subCategory.id, "prev")}
-                disabled={currentPage === 1}
-              >
-               <div className="prev-btn-icon-div"><PaginationArrowIcon width={24} height={24}/></div>
-              </button>
-              {/* <span>
+                <h2>{subCategory.subcategory_name}s</h2>
+                {subCategory.products.length > itemsPerPage ? (
+                  <div className="pagination-controls">
+                    <button
+                      onClick={() => handlePageChange(subCategory.id, "prev")}
+                      disabled={currentPage === 1}
+                    >
+                      <div
+                        className="prev-btn-icon-div"
+                        style={{
+                          filter: currentPage == 1 ? "brightness(70%)" : "none",
+                        }}
+                      >
+                        <PaginationArrowIcon width={24} height={24} />
+                      </div>
+                    </button>
+                    {/* <span>
                 Page {currentPage} of {totalPages}
               </span> */}
-              <button
-                onClick={() => handlePageChange(subCategory.id, "next")}
-                disabled={currentPage === totalPages}
-              >
-                <div className="next-btn-icon-div"><PaginationArrowIcon width={24} height={24}/></div>
-              </button>
-            </div>
-              ):(<div></div>)}
-              
+                    <button
+                      onClick={() => handlePageChange(subCategory.id, "next")}
+                      disabled={currentPage === totalPages}
+                    >
+                      <div
+                        style={{
+                          filter:
+                            currentPage === totalPages
+                              ? "brightness(50%)"
+                              : "none",
+                        }}
+                        className="next-btn-icon-div
+                "
+                      >
+                        <PaginationArrowIcon width={24} height={24} />
+                      </div>
+                    </button>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
-              
+
               <div className="products-container">
                 {currentProducts.map((product) => (
                   <div
                     className="individual-product-container"
                     key={product.id}
-                    onClick={() => navigate(`/products/productdetail/${product.id}`)}
+                    onClick={() =>
+                      navigate(`/products/productdetail/${product.id}`)
+                    }
                   >
                     <div className="product-image-container">
                       <img src={product.image_url} alt={product.name} />
@@ -119,7 +134,6 @@ const Products = () => {
                   </div>
                 ))}
               </div>
-             
             </div>
           </section>
         );

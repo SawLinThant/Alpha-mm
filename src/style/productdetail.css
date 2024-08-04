@@ -219,6 +219,10 @@
     border: 1px solid gray;
 }
 
+.related-product:hover{
+    cursor: pointer;
+}
+
 .related-product img{
     width: 100%;
     height: 100%;

@@ -2,7 +2,7 @@ import "../../style/productdetail.css";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import DirectionIcon from "../../modules/icons/direction";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {
   GET_PRODUCT_BY_ID,
@@ -28,6 +28,8 @@ const ProductDetail = () => {
       variables: { id: id },
     }
   );
+
+  const navigate = useNavigate();
 
   if (fetchProduct) return <div>Loading</div>;
   if (fetchSubCategory) return <div>Loading</div>;
@@ -134,8 +136,12 @@ const ProductDetail = () => {
                 <div className="related-product-layout">
                 {relatedCategory.map((subcategory) =>
                   subcategory.products.map((product) => (
-                    <div className="related-product" key={product.id}>
-                      <img src={product.image_url} alt={product.name} />
+                    <div 
+                  //  onClick={() => navigate(`/products/productdetail/${product.id}`)} 
+                    className="related-product" 
+                    key={product.id}
+                    >
+                     <a href={`/products/productdetail/${product.id}`}><img src={product.image_url} alt={product.name} /></a> 
                     </div>
                   ))
                 )}
