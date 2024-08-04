@@ -173,6 +173,12 @@
   margin-bottom: 2px;
 }
 
+.mvp-button a{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .mvp-image-container {
   width: 60%;
   height: 100%;
@@ -228,8 +234,11 @@
   background-color: #4a4ccd;
   color: white;
   border-radius: 1.5rem;
-  padding: 6px 10px 8px 10px;
-  text-align: center;
+  padding: 0 11px 0 10px;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 8px;
 }
 
 .showcase-left-image-icon {
@@ -1297,7 +1306,13 @@
 
 }
 
-@media screen and (max-width: 844px){
+@media screen and (max-width: 840px){
+  .badge-container{
+    margin-bottom: 45rem;
+  }
+}
+
+@media screen and (max-width: 720px){
   .mvp-container{
     height: 48rem !important;
     margin-top: 2rem !important;
@@ -1349,6 +1364,14 @@
     grid-template-columns: 1fr !important; 
     transform: translateY(0%) !important;
     transform: translateX(100%) !important;
+  }
+
+  .showcaseleft-img-text a{
+    padding: 0 0px 0 10px;
+  }
+
+  .showcaseleft-img-text a p{
+    line-height: 16px;
   }
 
   .advertise-container{

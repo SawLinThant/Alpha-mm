@@ -95,6 +95,12 @@
     height: 13.375rem;
 }
 
+@media screen and (max-width: 1040px){
+    .left-description{
+        padding-bottom: 1rem;
+    }
+}
+
 @media screen and (max-width: 844px){
     .left-description{
         padding-bottom: 1rem;

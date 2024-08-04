@@ -168,6 +168,7 @@
     font-size: 20px;
     font-weight: 700;
     margin-top: 0;
+    line-height: 30px;
 }
 
 .product-bottom-description-container ul{
@@ -315,13 +316,13 @@
 }
 
 .related-product-layout{
-    column-gap: 1rem;
-    row-gap: 1rem;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
  }
 
 .related-product{
-    width: 11rem;
-    height: 11rem;
+    width: 10rem;
+    height: 10rem;
     border: 1px solid gray;
 }
 

@@ -13,6 +13,7 @@ import Smile from "../modules/icons/smile";
 import JoinHand from "../modules/icons/joinhand";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import RightArrrow from "../modules/icons/rightarrow";
 
 const Home = () => {
   const KITCHEN_ITEMS = [
@@ -107,7 +108,7 @@ const Home = () => {
             </div>
             <div className="mvp-button">
               <a href="/">
-                Read More <span>&rarr;</span>
+              <p>Read More</p><RightArrrow width={24} height={24}/>
               </a>
             </div>
           </div>
@@ -137,7 +138,7 @@ const Home = () => {
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
                   <a href="/">
-                    View All <span>&rarr;</span>
+                  <p>View All</p><RightArrrow width={24} height={24}/>
                   </a>
                 </div>
               </div>

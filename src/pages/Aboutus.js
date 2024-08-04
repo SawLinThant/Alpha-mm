@@ -1,5 +1,6 @@
 import Footer from "../components/footer";
 import Header from "../components/header";
+import RightArrrow from "../modules/icons/rightarrow";
 import "../style/aboutus.css";
 
 const AboutUs = () => {
@@ -59,7 +60,7 @@ const AboutUs = () => {
             </div>
             <div className="mvp-button">
               <a href="/">
-                Read More <span>&rarr;</span>
+                <p>Read More</p><RightArrrow width={24} height={24}/>
               </a>
             </div>
           </div>

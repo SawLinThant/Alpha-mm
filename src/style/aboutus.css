@@ -260,7 +260,11 @@
   .mvp-button a {
     text-decoration: none;
     color: white;
-    margin-bottom: 2px
+    margin-bottom: 2px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
   
   .mvp-image-container {
@@ -288,7 +292,7 @@
 
   @media screen and (max-width: 844px){
     .about-alpha{
-      height: 90vh !important;
+      height: 103vh !important;
     }
 
     .about-alpha-layout{
@@ -323,10 +327,18 @@
       row-gap: 1rem !important;
     }
 
+    .reason-text{
+      margin-bottom: 3rem;
+    }
+
     .aim{
       padding: 0 1rem 0 1rem !important;
       width: 92% !important;
       height: 100% !important;
+    }
+
+    .aim p{
+      padding-bottom: 2rem;
     }
   }
 

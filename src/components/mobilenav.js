@@ -114,7 +114,7 @@ const Sidebar = () => {
           <FaProductHunt /> <a href="/products"><p>Products</p><CiCircleChevRight size={20}/></a>
           </div>
           <div className="nav-link-container">
-          <ImProfile /> <a href="/aboutus"><p>About Us Us</p><CiCircleChevRight size={20}/></a>
+          <ImProfile /> <a href="/aboutus"><p>About Us</p><CiCircleChevRight size={20}/></a>
           </div>
           <div className="nav-link-container">
           <MdContactPhone /> <a href="/contactus"><p>Contact Us</p><CiCircleChevRight color="#262626" size={20}/></a>
