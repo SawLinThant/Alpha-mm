@@ -48,7 +48,7 @@ const Products = () => {
       <Header />
       <div className="product-sub-nav-link">
         <div className="product-sub-nav-link-layout">
-          <p>Home</p>
+          <p onClick={() => navigate('/')}>Home</p>
           <span>/</span>
           <p style={{ color: "#4A4CCD" }}>{category}</p>
         </div>

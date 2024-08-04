@@ -114,7 +114,11 @@ footer{
     margin-left: 5px;
 }
 
-@media screen and (max-width: 844px){
+@media screen and (max-width: 1024px){
+
+}
+
+@media screen and (max-width: 720px){
     .footer-container-main{
         flex-direction: column !important;
     }

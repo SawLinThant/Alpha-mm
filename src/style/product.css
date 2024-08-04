@@ -19,6 +19,10 @@
     color: #737373;
 }
 
+.product-sub-nav-link-layout p:hover{
+   cursor: pointer;
+}
+
 .product-container{
     width: 100%;
     display: flex;
@@ -112,6 +116,27 @@
 
 .product-divider-footer{
     height: 6rem;
+}
+
+.half-footer{
+    width: 100%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+}
+
+.half-footer-layout{
+    width: 93%;
+    padding: 10px 0 10px 0;
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.half-footer-layout p{
+    text-align: center;
 }
 
 @media screen and (max-width: 844px){

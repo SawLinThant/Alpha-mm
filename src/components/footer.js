@@ -7,6 +7,7 @@ import YoutubeLogo from "../modules/icons/social-icons/youtube";
 import "../style/footer.css";
 
 const Footer = () => {
+  
   return (
     <footer>
       <div className="footer-container">
@@ -15,7 +16,7 @@ const Footer = () => {
             <div className="location">
               <div className="location-layout">
               <div className="location-logo">
-                <AlphaLogo width={275} height={80}/>
+              <AlphaLogo width={200} height={75} />
               </div>
               <div className="location-description">
                 <div className="location-icon"><LocationIcon width={24} height={24}/></div>

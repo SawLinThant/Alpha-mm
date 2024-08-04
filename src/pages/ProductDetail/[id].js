@@ -36,10 +36,11 @@ const ProductDetail = () => {
 
   const productData = product_by_pk ? product_by_pk : [];
   const category = productData.product_by_pk.category.category_name || "";
-  const subCategory = productData.product_by_pk.subcategory.subcategory_name || "";
+  const subCategory =
+    productData.product_by_pk.subcategory.subcategory_name || "";
   const productName = productData.product_by_pk.name || "";
   const model = productData.product_by_pk.model;
-  const price = productData.product_by_pk.price || ";"
+  const price = productData.product_by_pk.price || ";";
   const image_url = productData.product_by_pk.image_url || "";
   const description = productData.product_by_pk.product_description || "";
   const descriptionList = convertStringToArray(description);
@@ -53,11 +54,13 @@ const ProductDetail = () => {
       <Header />
       <div className="product-sub-nav-link">
         <div className="product-sub-nav-link-layout">
-          <p>Home</p>
+          <p onClick={() => navigate("/")}>Home</p>
           <span>/</span>
-          <p>{category}</p>
+          <p onClick={() => navigate(`/products/${category}`)}>{category}</p>
           <span>/</span>
-          <p>{subCategory}</p>
+          <p onClick={() => navigate(`/products/subcategory/${subCategory}`)}>
+            {subCategory}
+          </p>
           <span>/</span>
           <p style={{ color: "#4A4CCD" }}>{model}</p>
         </div>
@@ -66,22 +69,22 @@ const ProductDetail = () => {
         <div className="product-detail-layout">
           <div className="product-detail-images-container">
             <div className="product-detail-images-layout">
-            <div className="product-subimg-container">
-              <div className="product-subimg">
-                <img src="/product2.png" alt="sub-img" />
+              <div className="product-subimg-container">
+                <div className="product-subimg">
+                  <img src="/product2.png" alt="sub-img" />
+                </div>
+                <div className="product-subimg">
+                  <img src="/product3.png" alt="sub-img" />
+                </div>
+                <div className="product-subimg">
+                  <img src="/product4.png" alt="sub-img" />
+                </div>
               </div>
-              <div className="product-subimg">
-                <img src="/product3.png" alt="sub-img" />
-              </div>
-              <div className="product-subimg">
-                <img src="/product4.png" alt="sub-img" />
+              <div className="product-mainimg-container">
+                <img src={image_url} alt="main-img" />
               </div>
             </div>
-            <div className="product-mainimg-container">
-              <img src={image_url} alt="main-img" />
-            </div>
-            </div>
-            
+
             <div className="product-mvp-container">
               <div className="product-mvp-heading">
                 <div className="product-heading">
@@ -98,7 +101,20 @@ const ProductDetail = () => {
               </div>
               <div className="product-mvp-text">
                 {descriptionList &&
-                  descriptionList.map((description) => <p>- {description}</p>)}
+                  descriptionList.map((description, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "flex-start",
+                        gap: "3px",
+                      }}
+                    >
+                      <p>-</p>
+                      <p>{description}</p>
+                    </div>
+                  ))}
               </div>
               <div className="product-mvp-button">
                 <button>
@@ -113,19 +129,9 @@ const ProductDetail = () => {
             <div className="description-list-container">
               <ul>
                 {specificationList &&
-                  specificationList.map((specification) => (
-                    <li>{specification}</li>
+                  specificationList.map((specification, index) => (
+                    <li key={index}>{specification}</li>
                   ))}
-                {/* <li>Power – 1500W</li>
-                    <li>Capacity – 1.7L</li>
-                    <li>Size – 24.5×17×22.5cm</li>
-                    <li>Net Weight – 0.94Kg</li>
-                    <li>Water Filter</li>
-                    <li>Safe To Open The Lid By Button</li>
-                    <li>Water Level Scale</li>
-                    <li>Manual Switch</li>
-                    <li>360-degree Rotation</li>
-                    <li>One Year Warranty</li> */}
               </ul>
             </div>
           </div>
@@ -134,18 +140,17 @@ const ProductDetail = () => {
             <div className="related-products">
               <div className="related-products-layout">
                 <div className="related-product-layout">
-                {relatedCategory.map((subcategory) =>
-                  subcategory.products.map((product) => (
-                    <div 
-                  //  onClick={() => navigate(`/products/productdetail/${product.id}`)} 
-                    className="related-product" 
-                    key={product.id}
-                    >
-                     <a href={`/products/productdetail/${product.id}`}><img src={product.image_url} alt={product.name} /></a> 
-                    </div>
-                  ))
-                )}
-                  
+                  {relatedCategory.map((subcategory) =>
+                    subcategory.products
+                      .filter((product) => product.id !== id) // Exclude current product
+                      .map((product) => (
+                        <div className="related-product" key={product.id}>
+                          <a href={`/products/productdetail/${product.id}`}>
+                            <img src={product.image_url} alt={product.name} />
+                          </a>
+                        </div>
+                      ))
+                  )}
                 </div>
               </div>
             </div>
@@ -158,3 +163,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
