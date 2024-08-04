@@ -9,6 +9,8 @@ import ImageUploadField from "../../components/image-upload-field";
 import { useNavigate } from "react-router-dom";
 import AWS from "aws-sdk";
 import CustomDropdown from "../../components/dropdown";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import LoadingButton from "../../modules/icons/loading-button";
 
 const CreateProduct = () => {
   const {
@@ -18,7 +20,7 @@ const CreateProduct = () => {
   } = useForm();
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
-  const [createProduct, { loading }] = useMutation(CREATE_PRODUCT);
+  const [createProduct, { loading:createLoading }] = useMutation(CREATE_PRODUCT);
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
@@ -208,7 +210,7 @@ const CreateProduct = () => {
                 </div>
               </div>
               <div className="submit-button-container">
-                <button type="submit">Submit</button>
+                <button type="submit">{createLoading?(<LoadingButton/>):"Submit"}</button>
               </div>
             </form>
           </div>

@@ -93,3 +93,27 @@ export const UPDATE_PRODUCT = gql`
     }
   }
 `;
+
+export const DELETE_PRODUCT = gql`
+  mutation deleteProduct($id: uuid!) {
+    delete_product_by_pk(id: $id) {
+      id
+      name
+      model
+      price
+      image_url
+      category_id
+      subcategory_id
+      category {
+        id
+        category_name
+      }
+      subcategory {
+        id
+        subcategory_name
+      }
+      product_specification
+      product_description
+    }
+  }
+`;

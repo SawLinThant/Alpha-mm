@@ -2,23 +2,49 @@ import "../../../style/detail.css";
 import { FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCT_BY_ID } from "../../../graphql/queries/productQueries";
-import { UPDATE_PRODUCT } from "../../../graphql/mutation/productMutations";
+import {
+  DELETE_PRODUCT,
+  UPDATE_PRODUCT,
+} from "../../../graphql/mutation/productMutations";
 import { useMutation } from "@apollo/client";
 import toast, { Toaster } from "react-hot-toast";
 import ImageUploadField from "../../../components/image-upload-field";
 import CustomDropdown from "../../../components/dropdown";
+import { MdDelete } from "react-icons/md";
+import LoadingButton from "../../../modules/icons/loading-button";
 
 const ProductDetail = () => {
   const { register, handleSubmit } = useForm();
   const { id } = useParams();
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
+  const navigate = useNavigate();
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const { data, loading } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id: id },
   });
+
+  const [deleteProduct, { error: deleteError, loading: deleteLoading }] =
+    useMutation(DELETE_PRODUCT);
+
+  const handleDelete = async () => {
+    try {
+      await deleteProduct({
+        variables: { id: id },
+      });
+      navigate("/dashboard", { state: { refetch: true } });
+    } catch (err) {
+      toast.error("Failed to delete product");
+      throw new Error("Error deleting product");
+    }
+  };
+
+  const toggleDeleteBox = () => {
+    setConfirmDelete(!confirmDelete);
+  };
   const [productData, setProductData] = useState({
     id: "",
     name: "",
@@ -38,7 +64,7 @@ const ProductDetail = () => {
       subcategory_name: "",
     },
     product_specification: "",
-    product_description: ""
+    product_description: "",
   });
 
   useEffect(() => {
@@ -98,15 +124,15 @@ const ProductDetail = () => {
           setEditable(false);
         }
       });
-     textareas.forEach((textarea) => {
+      textareas.forEach((textarea) => {
         if (checkbox.checked) {
           textarea.classList.add("editable");
           submitButton.classList.add("editable-button");
-       //   setEditable(true);
+          //   setEditable(true);
         } else {
           textarea.classList.remove("editable");
           submitButton.classList.remove("editable-button");
-        //  setEditable(false);
+          //  setEditable(false);
         }
       });
     };
@@ -131,7 +157,7 @@ const ProductDetail = () => {
           name: productData.name,
           model: productData.model,
           price: productData.price,
-          image_url:productData.image_url,
+          image_url: productData.image_url,
           category_id: productData.category.id,
           subcategory_id: productData.subcategory.id,
           product_specification: productData.product_specification,
@@ -145,7 +171,7 @@ const ProductDetail = () => {
     }
   });
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <div className="detail-loading"><LoadingButton/>Loading</div>;
 
   if (error) return <div>Error: {error.message}</div>;
 
@@ -154,8 +180,41 @@ const ProductDetail = () => {
       <div className="detail-container">
         <Toaster />
         <div className="detail-container-layout">
-          <div className="detail-description-container">
+          <div
+            className={`delete-message-box ${
+              confirmDelete ? "open-delete-box" : ""
+            }`}
+          >
+            <div className="delete-box-text">
+              {!deleteLoading ? (
+                <h2>Are you sure you want to delete this product?</h2>
+              ) : (
+                <div className="delete-loading-text">
+                  <LoadingButton />
+                  <p>Deleting Product...</p>
+                </div>
+              )}
+            </div>
+            {!deleteLoading ? (
+              <div className="delete-box-btn-container">
+              <button onClick={handleDelete}>Yes</button>
+              <button onClick={toggleDeleteBox}>No</button>
+            </div>
+              
+            ) : (
+              <div></div>
+            )}
+          </div>
+          <div
+            className={`detail-description-container ${
+              confirmDelete ? "blur-detail-description-container" : ""
+            }`}
+          >
             <div className="description-header">
+              <button className="delete-btn" onClick={toggleDeleteBox}>
+                <MdDelete />
+                <p>Delete</p>
+              </button>
               <input type="checkbox" className="edit-checkbox" />
               <div className="edit-label">
                 <p>Edit Mode</p>
@@ -221,7 +280,6 @@ const ProductDetail = () => {
                       <label htmlFor="">Product Description</label>
                       <textarea
                         name="product_description"
-                        
                         placeholder={productData.product_description}
                         disabled={!editable}
                         // {...register("price", {
