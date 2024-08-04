@@ -79,6 +79,11 @@
     font-weight: 400;
 }
 
+.view-btn a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .right-description{
     display: flex;
     place-items: center;
@@ -90,5 +95,9 @@
     height: 13.375rem;
 }
 
-
+@media screen and (max-width: 844px){
+    .left-description{
+        padding-bottom: 1rem;
+    }
+}
 

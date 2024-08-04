@@ -1,7 +1,7 @@
 import ViewAllIcon from "../modules/icons/viewall";
 import "../style/catalouge.css";
 
-const Catalouge = ({ Items }) => {
+const Catalouge = ({ Items}) => {
   return (
     <>
       {Items.map((item) => (
@@ -27,7 +27,7 @@ const Catalouge = ({ Items }) => {
                   </ul>
                 </div>
                 <div className="view-btn">
-                  <a href="/" className="view">
+                  <a href={item.product_link} className="view">
                     View All<ViewAllIcon height={20} width={20}/>
                   </a>
                 </div>

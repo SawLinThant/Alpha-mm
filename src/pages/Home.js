@@ -24,7 +24,8 @@ const Home = () => {
         itemtwo:"Microwave Ovens",
         itemthree:"Blenders",
       },
-      img_url: "/kitchen.png"
+      img_url: "/kitchen.png",
+      product_link: "/products/kitchen"
     },
    
     {
@@ -35,7 +36,8 @@ const Home = () => {
         itemtwo:"Dryers",
         itemthree:"Steamers",
       },
-      img_url: "/laundry.png"
+      img_url: "/laundry.png",
+      product_link: "/products/laundry"
     },
 
     {
@@ -45,7 +47,8 @@ const Home = () => {
         itemone:"Televisions",
         itemtwo:"Sound Systems",
       },
-      img_url: "/entertainment.png"
+      img_url: "/entertainment.png",
+      product_link: "/products/entertainment"
     },
 
     {
@@ -55,7 +58,8 @@ const Home = () => {
         itemone:"Water Purifiers",
         itemtwo:"Air Purifiers",
       },
-      img_url: "/miscellaneous.png"
+      img_url: "/miscellaneous.png",
+      product_link: "/products/miscellaneous"
     },
   ];
   const { ref: showcaseLeftRef, inView: showcaseLeftInView } = useInView({
