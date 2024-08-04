@@ -5,9 +5,10 @@
 }
 
 .dashboard-right-side{
-    width: 100%;
+    width: 85vw;
     height: 100vh;
     display: flex;
     place-items: center;
     justify-content: center;
+    margin-left: 15vw;
 }

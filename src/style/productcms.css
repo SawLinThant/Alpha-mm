@@ -1,12 +1,13 @@
 .product-cms-container{
-    width: 100%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .table-heading{
-    width: 100%;
+    max-width: 86vw;
     height: 3rem;
     display: flex;
     flex-direction: row;
