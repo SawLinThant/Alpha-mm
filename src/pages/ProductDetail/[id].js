@@ -42,6 +42,9 @@ const ProductDetail = () => {
   const model = productData.product_by_pk.model;
   const price = productData.product_by_pk.price || ";";
   const image_url = productData.product_by_pk.image_url || "";
+  const sub_img_one_url =  productData.product_by_pk.sub_img_one_url || "";
+  const sub_img_two_url =  productData.product_by_pk.sub_img_two_url || "";
+  const sub_img_three_url =  productData.product_by_pk.sub_img_three_url || "";
   const description = productData.product_by_pk.product_description || "";
   const descriptionList = convertStringToArray(description);
   const specification = productData.product_by_pk.product_specification || "";
@@ -71,13 +74,13 @@ const ProductDetail = () => {
             <div className="product-detail-images-layout">
               <div className="product-subimg-container">
                 <div className="product-subimg">
-                  <img src="/product2.png" alt="sub-img" />
+                  <img src={sub_img_one_url} alt="sub-img" />
                 </div>
                 <div className="product-subimg">
-                  <img src="/product3.png" alt="sub-img" />
+                  <img src={sub_img_two_url} alt="sub-img" />
                 </div>
                 <div className="product-subimg">
-                  <img src="/product4.png" alt="sub-img" />
+                  <img src={sub_img_three_url} alt="sub-img" />
                 </div>
               </div>
               <div className="product-mainimg-container">

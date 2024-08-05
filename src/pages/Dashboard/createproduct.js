@@ -164,7 +164,7 @@ const CreateProduct = () => {
             product_description:  credential.description,
             sub_img_one_url:`https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageOne.name)}` ,
             sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`,
-            sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`
+            sub_img_three_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`
           },
         });
        toast("Product created");

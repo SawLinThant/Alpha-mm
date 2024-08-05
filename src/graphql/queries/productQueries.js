@@ -24,6 +24,9 @@ export const GET_PRODUCTS = gql`
       }
       product_specification
       product_description
+      sub_img_one_url
+      sub_img_two_url
+      sub_img_three_url
     }
   }
 `;
@@ -53,6 +56,9 @@ export const GET_PRODUCT_BY_ID = gql`
       }
       product_specification
       product_description
+      sub_img_one_url
+      sub_img_two_url
+      sub_img_three_url
     }
   }
 `;
@@ -82,6 +88,9 @@ export const GET_PRODUCTS_BY_CATEGORY = gql`
       }
       product_specification
       product_description
+      sub_img_one_url
+      sub_img_two_url
+      sub_img_three_url
     }
   }
 `;
@@ -112,6 +121,9 @@ export const GET_PRODUCTS_BY_SUBCATEGORY = gql`
       }
       product_specification
       product_description
+      sub_img_one_url
+      sub_img_two_url
+      sub_img_three_url
     }
   }
 `;
