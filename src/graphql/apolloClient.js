@@ -7,9 +7,6 @@ const httpLink = createHttpLink({
   uri: process.env.REACT_APP_HASURA_GRAPHQL_ENDPOINT,
 });
 
-console.log("GraphQL Endpoint:", process.env.REACT_APP_HASURA_GRAPHQL_ENDPOINT);
-console.log("Hasura Admin Secret:", process.env.REACT_APP_HASURA_ADMIN_SECRET);
-
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     console.log("[graphQLErrors]", graphQLErrors);
@@ -33,7 +30,7 @@ const createApolloClient = () => {
         headers: {
           ...headers,
           "x-hasura-admin-secret":
-            "ufBB46MNkGJIJDAenfM0WCCkhfOwGJJ2HpjFPMtZ7yd3MW3b14s7O5w5olc9165C",
+          process.env.REACT_APP_HASURA_ADMIN_SECRET,
         },
       };
     } catch (e) {
