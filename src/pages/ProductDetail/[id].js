@@ -1,5 +1,5 @@
 import "../../style/productdetail.css";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import Footer from "../../components/footer";
 import DirectionIcon from "../../modules/icons/direction";
 import { useNavigate, useParams } from "react-router-dom";

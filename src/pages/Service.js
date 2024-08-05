@@ -1,5 +1,5 @@
 import Footer from "../components/footer";
-import Header from "../components/header";
+import Header from "../components/Header";
 import "../style/serviceandstore.css"
 import ClockIcon from "../modules/icons/clock";
 import DirectionIcon from "../modules/icons/direction";

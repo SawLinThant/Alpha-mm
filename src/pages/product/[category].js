@@ -5,7 +5,7 @@ import {
   GET_PRODUCTS_BY_SUBCATEGORY,
 } from "../../graphql/queries/productQueries";
 import "../../style/product.css";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import Footer from "../../components/footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useCallback } from "react";

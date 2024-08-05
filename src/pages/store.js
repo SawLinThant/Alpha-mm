@@ -1,5 +1,5 @@
 import Footer from "../components/footer";
-import Header from "../components/header";
+import Header from "../components/Header";
 import StoreAndService from "../components/store-and-service";
 import "../style/serviceandstore.css";
 

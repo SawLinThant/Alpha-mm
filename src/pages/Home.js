@@ -11,7 +11,7 @@ import PhoneTwo from "../modules/icons/phone-two";
 import ThumbsUp from "../modules/icons/thumbsup";
 import Smile from "../modules/icons/smile";
 import JoinHand from "../modules/icons/joinhand";
-import Header from "../components/header";
+import Header from "../components/Header";
 import Footer from "../components/footer";
 import RightArrrow from "../modules/icons/rightarrow";
 

@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import Footer from "../components/footer";
-import Header from "../components/header";
+import Header from "../components/Header";
 import LocationIcon from "../modules/icons/location";
 import MailIcon from "../modules/icons/mail-icon";
 import PhoneIcon from "../modules/icons/phone-iocn";

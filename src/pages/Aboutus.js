@@ -1,5 +1,5 @@
 import Footer from "../components/footer";
-import Header from "../components/header";
+import Header from "../components/Header";
 import RightArrrow from "../modules/icons/rightarrow";
 import "../style/aboutus.css";
 
