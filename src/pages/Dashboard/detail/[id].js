@@ -13,6 +13,7 @@ import { useMutation } from "@apollo/client";
 import toast, { Toaster } from "react-hot-toast";
 import ImageUploadField from "../../../components/image-upload-field";
 import CustomDropdown from "../../../components/dropdown";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import LoadingButton from "../../../modules/icons/loading-button";
 
@@ -211,6 +212,8 @@ const ProductDetail = () => {
             }`}
           >
             <div className="description-header">
+              <div onClick={() => navigate("/dashboard",{ state: { refetch: true } })} className="heading-left-container"><button><IoMdArrowRoundBack />back</button></div>
+              <div className="heading-right-container">
               <button className="delete-btn" onClick={toggleDeleteBox}>
                 <MdDelete />
                 <p>Delete</p>
@@ -220,6 +223,8 @@ const ProductDetail = () => {
                 <p>Edit Mode</p>
                 <FaEdit />
               </div>
+              </div>
+             
             </div>
             <div className="edit-detail-container">
               <div className="description-image-container">

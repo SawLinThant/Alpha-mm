@@ -127,9 +127,9 @@ const CustomTable = ({ data }) => {
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody style={{backgroundColor:'white'}}>
           {table.getRowModel()?.rows?.map((row,index) => (
-            <tr key={row.id} className={`data-row ${index % 2 === 0? "row-background-white":"row-background-gray"}`}>
+            <tr key={row.id} className={`data-row ${index % 2 === 0? "row-background-gray":"row-background-white"}`}>
               {row.getVisibleCells().map((cell) => (
                 <td key={cell.id} className="table-data">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

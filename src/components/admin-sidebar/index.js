@@ -25,9 +25,9 @@ const AdminSidebar = () => {
           <div className={`collapse-button-container ${isCollapse?"collapse-button-container-collapsed":"collapse-button-container-not-collapsed"}`}>
             <button className={`collapse-button ${isCollapse?"collapse-state-button":""}`} onClick={handleCollapse}><BsArrowBarLeft size={20}/></button>
           </div>
-          <div className={`side-logo-container ${isCollapse?"ops-sidebar-container-collapse":""}`}>
-            {/* {!isCollapse && <AlphaLogo width={200} height={75} />} */}
-          </div>
+          {/* <div className={`side-logo-container ${isCollapse?"ops-sidebar-container-collapse":""}`}>
+            {!isCollapse && <AlphaLogo width={200} height={75} />}
+          </div> */}
           <div className="ops-sidebar-lists">
             <div className="ops-sidebar-list">
               <a

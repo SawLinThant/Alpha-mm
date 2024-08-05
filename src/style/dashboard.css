@@ -5,10 +5,11 @@
 }
 
 .dashboard-right-side{
+    min-height: 100vh;
     width: 85vw;
-    height: 100vh;
     display: flex;
     place-items: center;
     justify-content: center;
     margin-left: 15vw;
+    overflow: auto;
 }

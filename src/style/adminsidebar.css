@@ -1,8 +1,8 @@
 aside{
     position: absolute;
-    height: 99vh;
+    height:99%;
     width: 15vw;
-    border: 1px solid gray;
+    border: 3px solid gray;
     display: flex;
     place-items: center;
     justify-content: center;
@@ -55,6 +55,10 @@ aside{
     transition-duration: 0.5s;
 }
 
+.collapse-button:hover{
+    cursor: pointer;
+}
+
 .collapse-state-button{
     transform: rotate(180deg);
 }
@@ -70,10 +74,14 @@ aside{
 }
 
 .ops-sidebar-lists{
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
 }
 
 .ops-sidebar-list{
@@ -88,7 +96,6 @@ aside{
 .ops-sidebar-list button{
     border: none;
     background-color: white;
-    margin-top: 4rem;
     border-top: 1px solid rgb(207, 200, 200);
 }
 

@@ -201,7 +201,7 @@ const CreateProduct = () => {
           <div className="create-form-heading">
           <div className="back-button-container">
             <button onClick={() => navigate("/dashboard",{ state: { refetch: true } })}>
-              <IoArrowBackOutline />
+              <IoArrowBackOutline size={24}/>
               <p>Back</p>
             </button>
           </div>

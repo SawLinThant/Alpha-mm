@@ -15,7 +15,8 @@
 .custom-table-layout{
     width: 100%;
     min-height: 70vh;
-    border: 3px solid #737373;
+    border: 3px solid rgb(96, 93, 93);
+    background-color: white;
 }
 
 .column-head{
@@ -24,8 +25,7 @@
 }
 
 .column-head-container{
-    padding: 20px;
-    
+    padding: 40px 20px 40px 20px;
 }
 
 .custom-table-container table{
@@ -94,7 +94,8 @@
 
 .prev-btn, .next-btn{
     border: none;
-    background-color: white;
+    background-color: transparent;
+    color: black;
     flex-direction: row;
     align-items: center;
 }
@@ -104,8 +105,9 @@
 }
 
 .pagination-button{
-    background-color: white;
+    background-color: transparent;
     border: white;
+    color: black;
 }
 
 .pagination-button:hover{

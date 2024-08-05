@@ -3,8 +3,11 @@ import { TfiEmail } from "react-icons/tfi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import { useForm } from "react-hook-form";
 
 const Login = ({ setIsLogin }) => {
+  const {handleSubmit,loading,require} = useForm();
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -24,6 +27,7 @@ const Login = ({ setIsLogin }) => {
       userData.email !== "alphamyanmar@gmail.com" ||
       userData.password !== "alphamyanmar123"
     ) {
+      toast.error("Wrong email or password")
       console.log("wrong credentials");
     } else {
       setIsLogin(true);
@@ -34,6 +38,7 @@ const Login = ({ setIsLogin }) => {
 
   return (
     <div className="login-container">
+      <Toaster/>
       <div className="login-container-layout">
         <div className="login-form-layout">
           <div className="login-heading">
