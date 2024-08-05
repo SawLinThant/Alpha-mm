@@ -13,7 +13,7 @@ import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 
 const Products = () => {
   const { category } = useParams();
-  const itemsPerPage = 2;
+  const itemsPerPage = 3;
   const navigate = useNavigate();
 
   const { data: get_category, loading: fetchCategory } = useQuery(

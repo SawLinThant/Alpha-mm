@@ -212,6 +212,11 @@
   height: 7rem;
 }
 
+.textarea-container label{
+  font-family: sans-serif;
+}
+
+
 .edit-form-input-container input {
   padding: 10px 0px 10px 10px;
   border-radius: 0.25rem;
@@ -227,6 +232,7 @@
   border: none;
   transition-duration: 0.5s;
   height: 100%;
+  font-family: sans-serif;
 }
 
 .edit-form-input-container input.editable {

@@ -143,9 +143,9 @@ const CustomTable = ({ data }) => {
       
       <div className="pagination-control-container">
         <div className="pagination-control-layout">
-          <button className="prev-btn" disabled={pagination=== 1} onClick={() => handlePageChange('prev')}><GrPrevious /></button>
+          <button className={`prev-btn ${pagination === 1?"disable":""}`} disabled={pagination=== 1} onClick={() => handlePageChange('prev')}><GrPrevious /></button>
           {renderPageNumbers()} {/* <div className="pagination-indicator">{pagination}<span>of</span>{totalPages}</div> */}
-          <button className="next-btn" disabled={pagination === totalPages} onClick={() => handlePageChange('next')}><GrNext /></button>
+          <button className={`next-btn ${pagination === totalPages? "disable":""}`} disabled={pagination === totalPages} onClick={() => handlePageChange('next')}><GrNext /></button>
           
         </div>
       </div>
