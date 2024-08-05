@@ -5,9 +5,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import bcrypt from 'bcryptjs';
 
 const Login = ({ setIsLogin }) => {
-  const {handleSubmit,loading,require} = useForm();
+  const {handleSubmit,loading,register} = useForm();
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -22,19 +23,44 @@ const Login = ({ setIsLogin }) => {
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (
-      userData.email !== "alphamyanmar@gmail.com" ||
-      userData.password !== "alphamyanmar123"
-    ) {
-      toast.error("Wrong email or password")
-      console.log("wrong credentials");
-    } else {
-      setIsLogin(true);
-      navigate("/dashboard");
-      localStorage.setItem("user", JSON.stringify(userData));
+  // const handleLogin = handleSubmit(async(credentials) => {
+  //   if (
+  //     userData.email !== "alphamyanmar@gmail.com" ||
+  //     userData.password !== "alphamyanmar123"
+  //   ) {
+  //     toast.error("Wrong email or password")
+  //     console.log("wrong credentials");
+  //   } else {
+  //     setIsLogin(true);
+  //     navigate("/dashboard");
+  //     localStorage.setItem("user", JSON.stringify(userData));
+  //   }
+  // };
+
+  const handleLogin = handleSubmit(async(credentials) => {
+    try{
+        if(
+          credentials.email !== "alphamyanmar@gmail.com" || credentials.password !=="alphamyanmar123"
+        ){
+          toast.error("Wrong email or password")
+        }
+
+        if(credentials.email === "alphamyanmar@gmail.com" & credentials.password ==="alphamyanmar123"){
+         
+          const hashedPassword = await bcrypt.hash(credentials.password, 10);
+          const updatedUserData = ({
+            email: credentials.email,
+            password: hashedPassword,
+          })
+          setUserData(updatedUserData)
+          setIsLogin(true);
+          localStorage.setItem("user", JSON.stringify(userData));
+          navigate('/dashboard')
+        }
+    }catch(err){
+      throw new Error("error logging in")
     }
-  };
+  })
 
   return (
     <div className="login-container">
@@ -44,7 +70,7 @@ const Login = ({ setIsLogin }) => {
           <div className="login-heading">
             <h2>Login</h2>
           </div>
-          <form action="">
+          <form action="" onSubmit={ handleLogin}>
             <div className="login-input-field">
               {/* <label htmlFor="">Email</label> */}
               <div className="login-input-icon">
@@ -55,7 +81,10 @@ const Login = ({ setIsLogin }) => {
                 type="text"
                 placeholder="Enter email"
                 //  defaultValue={userData.email}
-                onChange={handleChange}
+               // onChange={handleChange}
+                {...register("email", {
+                  required: "email is required",
+                })}
               />
             </div>
             <div className="login-input-field">
@@ -68,10 +97,16 @@ const Login = ({ setIsLogin }) => {
                 type="text"
                 placeholder="Enter password"
                 //  defaultValue={userData.email}
-                onChange={handleChange}
+                //onChange={handleChange}
+                {...register("password", {
+                  required: "password is required",
+                })}
               />
             </div>
-            <button type="submit" onClick={handleLogin}>
+            <button 
+            type="submit" 
+           // onClick={handleLogin}
+            >
               Login
             </button>
           </form>

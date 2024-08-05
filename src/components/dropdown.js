@@ -48,7 +48,7 @@ const CustomDropdown = ({ isMain, setCategory, setSubCategory, initialValue, lab
   return (
     <div className="dropdown-container">
       <p>{label}</p>
-      <Dropdown
+      <Dropdown    
         options={isMain?categoryOptions:subCategoryoptions}
         onChange={handleSelect}
         value={selectedOption}

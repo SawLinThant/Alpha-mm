@@ -46,3 +46,7 @@
     place-items: center;
     justify-content: center;
 }
+
+.file-upload-image-icon-container p{
+    font-family: sans-serif;
+}

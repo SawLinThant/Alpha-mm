@@ -4,17 +4,22 @@
     display: flex;  
     place-items: center;
     justify-content: center;
+    background-image: url('/public/login-bg.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .login-container-layout{
     width: 28rem;
     height: 25rem;
-    border: 1px solid gray;
+    border: 3px solid gray;
     border-radius: 0.25rem;
     display: flex;  
     place-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 4px gray;
+    box-shadow: 0px 1px 1px gray;
+    opacity: 1;
+    background-color: aliceblue;
 }
 
 .login-form-layout{
@@ -52,7 +57,7 @@
     height: 100%;
     border-radius: 0.25rem;
     background-color: rgb(244, 246, 245);
-    border: 1px solid gainsboro;
+    border: 2px solid gainsboro;
     font-size: 14px;
     padding-left: 2rem;
 }
@@ -66,6 +71,7 @@
     background-color: blueviolet;
     transition-duration: 0.5s;
     font-size: 18px;
+    font-family: sans-serif;
 }
 
 .login-form-layout form button:hover{
