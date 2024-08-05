@@ -41,7 +41,7 @@ const SubCategory = () => {
   if (fetchSubCategory) return <div>Loading..</div>;
 
   return (
-    <div>
+    <div className="product-cat-sub-container">
       <Header />
       <div className="product-sub-nav-link">
         <div className="product-sub-nav-link-layout">
@@ -52,7 +52,7 @@ const SubCategory = () => {
           <p style={{ color: "#4A4CCD" }}>{subcategory}s</p>
         </div>
       </div>
-      <section className="product-container" style={{minHeight:"100vh", placeItems:'start'}}>
+      <section className="product-container">
         <div className="product-container-layout">
             <div className="product-container-heading-container">
                 <h2>{subcategory}s</h2>
