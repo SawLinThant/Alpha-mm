@@ -20,6 +20,18 @@ const CreateProduct = () => {
   } = useForm();
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
+
+  const [subImageOne, setSubImageOne] = useState(null);
+  const [subImageOneUrl, setSubImageOneUrl] = useState(null);
+
+  const [subImageTwo, setSubImageTwo] = useState(null);
+  const [subImageTwoUrl, setSubImageTwoUrl] = useState(null);
+
+
+  const [subImageThree, setSubImageThree] = useState(null);
+  const [subImageThreeUrl, setSubImageThreeUrl] = useState(null);
+
+
   const [createProduct, { loading:createLoading }] = useMutation(CREATE_PRODUCT);
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
@@ -34,6 +46,27 @@ const CreateProduct = () => {
     }
   };
 
+  const handleSubImageOneChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSubImageOne(e.target.files[0]);
+      setSubImageOneUrl(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
+  const handleSubImageTwoChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSubImageTwo(e.target.files[0]);
+      setSubImageTwoUrl(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
+  const handleSubImageThreeChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSubImageThree(e.target.files[0]);
+      setSubImageThreeUrl(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
   const sanitizeFileName = (fileName) => {
     return fileName.replace(/[^a-z0-9.]/gi, "_").toLowerCase();
   };
@@ -41,7 +74,42 @@ const CreateProduct = () => {
   const BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
   const REGION = process.env.REACT_APP_AWS_REGION;
 
-  const uploadToS3 = async () => {
+  // const uploadToS3 = async () => {
+  //   AWS.config.update({
+  //     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  //     secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+  //   });
+
+  //   const s3 = new AWS.S3({
+  //     params: { Bucket: BUCKET },
+  //     region: REGION,
+  //   });
+
+  //   const sanatizedImage = sanitizeFileName(image.name);
+
+  //   const params = {
+  //     Bucket: BUCKET,
+  //     Key: `alpha-myanmar-images/${sanatizedImage}`,
+  //     Body: image,
+  //     ContentType: image.type,
+  //   };
+
+  //   var upload = s3
+  //     .putObject(params)
+  //     .on("httpUploadProgress", (evt) => {
+  //       console.log(
+  //         "Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%"
+  //       );
+  //     })
+  //     .promise();
+
+  //   await upload.then((err, data) => {
+  //     console.log(err);
+  //     console.log("File uploaded successfully.");
+  //   });
+  // };
+
+  const uploadToS3 = async (images) => {
     AWS.config.update({
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
@@ -52,36 +120,36 @@ const CreateProduct = () => {
       region: REGION,
     });
 
-    const sanatizedImage = sanitizeFileName(image.name);
+    const uploadPromises = images.map((image) => {
+      const sanitizedImage = sanitizeFileName(image.name);
 
-    const params = {
-      Bucket: BUCKET,
-      Key: `alpha-myanmar-images/${sanatizedImage}`,
-      Body: image,
-      ContentType: image.type,
-    };
+      const params = {
+        Bucket: BUCKET,
+        Key: `alpha-myanmar-images/${sanitizedImage}`,
+        Body: image,
+        ContentType: image.type,
+      };
 
-    var upload = s3
-      .putObject(params)
-      .on("httpUploadProgress", (evt) => {
-        console.log(
-          "Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%"
-        );
-      })
-      .promise();
-
-    await upload.then((err, data) => {
-      console.log(err);
-      console.log("File uploaded successfully.");
+      return s3
+        .putObject(params)
+        .on("httpUploadProgress", (evt) => {
+          console.log("Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%");
+        })
+        .promise();
     });
+
+    return Promise.all(uploadPromises);
   };
 
   const handleCreate = handleSubmit(async (credential) => {
+    
     try {
-      if (!image) {
-        toast("Please upload an image");
-      } else {
-        uploadToS3();
+      const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
+    if (images.length < 4) {
+      toast("Please upload at least four images");
+      return;
+    }else {
+        uploadToS3(images);
         await createProduct({
           variables: {
             name: credential.name,
@@ -93,11 +161,15 @@ const CreateProduct = () => {
               image.name
             )}`,
             product_specification: credential.specification,
-            product_description:  credential.description
+            product_description:  credential.description,
+            sub_img_one_url:`https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageOne.name)}` ,
+            sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`,
+            sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`
           },
         });
-        toast("Product created");
-        // console.log("product created");
+       toast("Product created");
+       toast("images uploaded");
+       console.log("product created");
       }
     } catch (err) {
       toast("Product creation failed");
@@ -112,7 +184,7 @@ const CreateProduct = () => {
         <div className="create-product-layout">
           <div className="create-form-heading">
           <div className="back-button-container">
-            <button onClick={() => navigate("dashboard")}>
+            <button onClick={() => navigate("/dashboard")}>
               <IoArrowBackOutline />
               <p>Back</p>
             </button>
@@ -197,15 +269,53 @@ const CreateProduct = () => {
                   </div>
                 </div>
                 <div className="form-divider"></div>
-                <div className="create-product-form">
+                <div className="create-product-form-img-upload">
                   <div className="img-btn-container">
                     <div className="image-upload-field-container">
                       <ImageUploadField
                         handleImageChange={handleImageChange}
                         image={image}
                         imageUrl={imageUrl}
+                        label="Main Image"
+                        size={40}
                       />
                     </div>
+                  </div>
+                  <div className="sub-image-upload-container">
+                    <div className="sub-image-upload-container-layout">
+                    <ImageUploadField
+                        handleImageChange={handleSubImageOneChange}
+                        image={subImageOne}
+                        imageUrl={subImageOneUrl}
+                        label="Side Image"
+                        fontsize="10px"
+                        size={25}
+                      />
+                    </div>
+                    <div className="sub-image-upload-container-layout">
+                    <ImageUploadField
+                        handleImageChange={handleSubImageTwoChange}
+                        image={subImageTwo}
+                        imageUrl={subImageTwoUrl}
+                         label="Side Image"
+                         fontsize="10px"
+                         size={25}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sub-image-upload-container">
+                    <div className="sub-image-upload-container-layout">
+                    <ImageUploadField
+                        handleImageChange={ handleSubImageThreeChange}
+                        image={subImageThree}
+                        imageUrl={subImageThreeUrl}
+                         label="Side Image"
+                         fontsize="10px"
+                         size={25}
+                      />
+                    </div>
+                    <div className="sub-image-upload-container-layout"></div>
                   </div>
                 </div>
               </div>

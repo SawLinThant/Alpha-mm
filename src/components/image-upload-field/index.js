@@ -2,7 +2,7 @@ import { useRef } from "react";
 import "../../style/image-upload.css";
 import { LuUpload } from "react-icons/lu";
 
-const ImageUploadField = ({ handleImageChange, imageUrl, image }) => {
+const ImageUploadField = ({ handleImageChange, imageUrl, image , label,fontsize, size}) => {
     const fileRef = useRef(null);
     const handleContainerClick = () => {
         if(fileRef.current){
@@ -28,8 +28,8 @@ const ImageUploadField = ({ handleImageChange, imageUrl, image }) => {
           />
         ):
         (<div className="file-upload-image-icon-container">
-            <LuUpload size={40}/>
-            <p>Upload Image</p>
+            <LuUpload size={size}/>
+            <p style={{fontSize: fontsize}}>{label}</p>
         </div>)
         }
       </div>
