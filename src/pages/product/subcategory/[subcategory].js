@@ -66,7 +66,8 @@ const SubCategory = () => {
                       <div
                         className="prev-btn-icon-div"
                         style={{
-                          filter: pagination === 1 ? "brightness(70%)" : "none",
+                          backgroundColor: pagination === 1? "#D9D9D9" : ""
+                          //filter: pagination === 1 ? "back" : "none",
                         }}
                       >
                         <PaginationArrowIcon width={24} height={24} />
@@ -81,10 +82,7 @@ const SubCategory = () => {
                     >
                       <div
                         style={{
-                          filter:
-                            pagination === totalPages
-                              ? "brightness(50%)"
-                              : "none",
+                          backgroundColor: pagination === totalPages? "#D9D9D9" : ""
                         }}
                         className="next-btn-icon-div
                 "

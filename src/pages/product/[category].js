@@ -88,7 +88,7 @@ const Products = () => {
                       <div
                         className="prev-btn-icon-div"
                         style={{
-                          filter: currentPage == 1 ? "brightness(70%)" : "none",
+                           backgroundColor: currentPage === 1? "#D9D9D9" : ""
                         }}
                       >
                         <PaginationArrowIcon width={24} height={24} />
@@ -103,10 +103,7 @@ const Products = () => {
                     >
                       <div
                         style={{
-                          filter:
-                            currentPage === totalPages
-                              ? "brightness(50%)"
-                              : "none",
+                           backgroundColor: currentPage === totalPages? "#D9D9D9" : ""
                         }}
                         className="next-btn-icon-div
                 "
