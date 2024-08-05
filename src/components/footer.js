@@ -32,10 +32,10 @@ const Footer = () => {
               <div className="section one">
                 <h3>Link</h3>
                 <ul className="links">
-                  <li className="link"><RightArrowCircle width={20} height={20}/>Home</li>
-                  <li className="link"><RightArrowCircle width={20} height={20}/>Products</li>
-                  <li className="link"><RightArrowCircle width={20} height={20}/>About Us</li>
-                  <li className="link"><RightArrowCircle width={20} height={20}/>Contact Us</li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/><a href="/">Home</a></li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/><a href="/products/kitchen">Products</a></li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/><a href="/aboutus">About Us</a></li>
+                  <li className="link"><RightArrowCircle width={20} height={20}/><a href="/contactus">ContactUs</a></li>
                 </ul>
               </div>
               <div className="section two">

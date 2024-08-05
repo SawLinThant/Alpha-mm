@@ -109,6 +109,11 @@ footer{
     font-family: 'Sansation', sans-serif;
 }
 
+.section li a{
+    text-decoration: none;
+    color: #737373;
+}
+
 .link, .call, .follow{
     display: flex;
     flex-direction: row;

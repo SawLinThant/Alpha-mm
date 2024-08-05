@@ -5,21 +5,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import bcrypt from 'bcryptjs';
 
 const Login = ({ setIsLogin }) => {
-  const {handleSubmit,loading,register} = useForm();
+  const {handleSubmit,register} = useForm();
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
   console.log(userData);
-  const handleChange = (e) => {
-    setUserData({
-      ...userData,
-      [e.target.name]: e.target.value,
-    });
-  };
+ 
 
   const navigate = useNavigate();
 
@@ -47,10 +41,10 @@ const Login = ({ setIsLogin }) => {
 
         if(credentials.email === "alphamyanmar@gmail.com" & credentials.password ==="alphamyanmar123"){
          
-          const hashedPassword = await bcrypt.hash(credentials.password, 10);
+          //const hashedPassword = await bcrypt.hash(credentials.password, 10);
           const updatedUserData = ({
             email: credentials.email,
-            password: hashedPassword,
+            password: credentials.password,
           })
           setUserData(updatedUserData)
           setIsLogin(true);
