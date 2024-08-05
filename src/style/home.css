@@ -255,7 +255,6 @@
 
 .download-container {
   width: 100%;
-  height: 35.1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-image: url("/public/download-bg.png");
@@ -264,6 +263,7 @@
 }
 
 .icon {
+  height: 35.125rem;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -294,6 +294,7 @@
 
 .download-description {
   display: flex;
+  height: 35.125rem;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
@@ -358,11 +359,10 @@
 
 .badge-container {
   width: 93%;
-  height: 25vh;
-  position: absolute;
+  height: 9.5rem;
+  transform: translateY(-20%);
   opacity: 10;
   background-color: rgb(251, 251, 251);
-  margin-bottom: 1.5rem;
   z-index: 1;
   border-radius: 1rem;
   box-shadow: 1px 2px 8px gray;
@@ -419,17 +419,17 @@
 
 .find-us-container {
   width: 100%;
-  height: 95vh;
+  height: 39.125rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 100px, 56px, 100px, 56px
 }
 
 .find-us {
   width: 93%;
-  height: 60%;
-  margin-top: 12rem;
+  height: 26.625rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1185,6 +1185,7 @@
   }
 }
 
+
 @media screen and (max-width: 1024px){
   .mvp-container{
     height: 63rem !important;
@@ -1245,10 +1246,6 @@
     transform: translateX(100%) !important;
   }
 
-  .advertise-container{
-    gap: 2rem;
-  }
-
   .phone-icon-container{
     width: 100% !important;
   }
@@ -1263,12 +1260,6 @@
 
   .download-app-icon{
     gap: 0.5rem !important;
-  }
-
-  .badge-container{
-    height: 13vh;
-    margin-top: 1rem;
-    margin-bottom: 55rem;
   }
 
   .find-us-container{
@@ -1302,16 +1293,8 @@
 
 }
 
-@media screen and (max-width: 1000px){
-  .badge-container{
-    margin-bottom: 16rem;
-  }
-}
 
 @media screen and (max-width: 840px){
-  .badge-container{
-    margin-bottom: 45rem;
-  }
 }
 
 @media screen and (max-width: 720px){
@@ -1402,12 +1385,6 @@
     gap: 0.5rem !important;
   }
 
-  .badge-container{
-    position:  relative !important;
-    margin-bottom: 0 !important;
-    width: 93%;
-  }
-
   .badge-container-open{
     animation: none !important;
   }
@@ -1432,22 +1409,12 @@
   }
 
   .badge-container{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    height: 50vh;
-    justify-content: center;
-    column-gap: 5px;
+    height: 10.5rem;
+    transform: translateY(-30%);
   }
 
   .property-logo{
-    width: 45vw !important;
-    height: 20vh !important;
-    padding: 20px 0 20px 0;
-  }
-
-  .property-logo-container{
-    border-bottom: 1px solid #b7afaf;
-    border-right: none;   
+    padding: 10px 0 10px 0;
   }
 
   .animate-left {
