@@ -19,7 +19,7 @@ const Home = () => {
   const KITCHEN_ITEMS = [
     {
       id: "1",
-      name: "Kitchen",
+      name: "Kitchens",
       items: {
         itemone:"Electric Kettles",
         itemtwo:"Microwave Ovens",

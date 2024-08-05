@@ -98,8 +98,6 @@
 }
 
 .mvp-description {
-  width: 41rem;
-  height: 23.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -115,7 +113,7 @@
 }
 
 .mvp-text p {
-  font-family: sans-serif;
+  font-family: 'Sansation', sans-serif;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -133,25 +131,22 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
   align-self: stretch;
 }
 
 .mvp-heading h3 {
-  font-family: sans-serif;
+  font-family: 'Sansation', sans-serif;
   font-size: 27px;
   font-style: normal;
   font-weight: 400;
-  line-height: 0;
   color: #262626;
 }
 
 .mvp-heading h2 {
-  font-family: sans-serif;
+  font-family: 'Sansation', sans-serif;
   font-size: 33px;
   font-style: normal;
   font-weight: 700;
-  line-height: 0;
   margin-top: 10px;
   color: #262626;
 }
@@ -218,7 +213,7 @@
 
 .showcaseleft-img-text h2 {
   font-size: 30px;
-  font-family: sans-serif;
+  font-family: 'Sansation', sans-serif;
   font-weight: 700;
 }
 
@@ -307,13 +302,13 @@
 .download-description h2 {
   font-weight: 700;
   font-size: 35px;
-  font-family: sans-serif;
+  font-family: 'Sansation', sans-serif;
 }
 
 .download-text {
   font-weight: 400;
   font-size: 19px;
-  font-family: sans-serif;
+  font-family: 'Sansation', sans-serif;
 }
 
 .download-app-icon {
@@ -404,6 +399,7 @@
   transform: translateY(70%);
   font-weight: 700;
   font-size: 17px;
+  font-family: 'Sansation', sans-serif;
 }
 
 .easy-image,
@@ -418,6 +414,7 @@
 .effortless p {
   text-align: center;
   width: 100%;
+  font-family: 'Sansation', sans-serif;
 }
 
 .find-us-container {
@@ -459,6 +456,7 @@
   font-weight: 700;
   line-height: 42px;
   margin-bottom: 0;
+  font-family: 'Sansation', sans-serif;
 }
 
 .find-us-descritpion {
@@ -469,6 +467,7 @@
   font-size: 17px;
   font-weight: 400;
   line-height: 27px;
+  font-family: 'Sansation', sans-serif;
 }
 
 
@@ -1186,8 +1185,6 @@
   }
 }
 
-
-
 @media screen and (max-width: 1024px){
   .mvp-container{
     height: 63rem !important;
@@ -1202,7 +1199,6 @@
 
   .mvp-description{
     width: 100% !important;
-    height: 30rem !important;
   }
 
   .mvp-heading{
@@ -1304,6 +1300,12 @@
     opacity: 1 !important;
   }
 
+}
+
+@media screen and (max-width: 1000px){
+  .badge-container{
+    margin-bottom: 16rem;
+  }
 }
 
 @media screen and (max-width: 840px){
