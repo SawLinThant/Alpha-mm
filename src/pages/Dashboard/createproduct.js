@@ -2,21 +2,20 @@ import { useState } from "react";
 import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { CREATE_PRODUCT } from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 import ImageUploadField from "../../components/image-upload-field";
 import { useNavigate } from "react-router-dom";
 import AWS from "aws-sdk";
 import CustomDropdown from "../../components/dropdown";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import LoadingButton from "../../modules/icons/loading-button";
 
 const CreateProduct = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
   } = useForm();
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -31,11 +30,29 @@ const CreateProduct = () => {
   const [subImageThree, setSubImageThree] = useState(null);
   const [subImageThreeUrl, setSubImageThreeUrl] = useState(null);
 
-
   const [createProduct, { loading:createLoading }] = useMutation(CREATE_PRODUCT);
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
+
+  const resetFormFields = () => {
+    // Reset form inputs
+    reset();
+
+    // Reset image states
+    setImage(null);
+    setImageUrl(null);
+    setSubImageOne(null);
+    setSubImageOneUrl(null);
+    setSubImageTwo(null);
+    setSubImageTwoUrl(null);
+    setSubImageThree(null);
+    setSubImageThreeUrl(null);
+
+    // Reset dropdown states
+    setCategory(null);
+    setSubCategory(null);
+  };
 
   console.log(subCategory);
 
@@ -168,8 +185,7 @@ const CreateProduct = () => {
           },
         });
        toast("Product created");
-       toast("images uploaded");
-       console.log("product created");
+       resetFormFields();
       }
     } catch (err) {
       toast("Product creation failed");
@@ -184,7 +200,7 @@ const CreateProduct = () => {
         <div className="create-product-layout">
           <div className="create-form-heading">
           <div className="back-button-container">
-            <button onClick={() => navigate("/dashboard")}>
+            <button onClick={() => navigate("/dashboard",{ state: { refetch: true } })}>
               <IoArrowBackOutline />
               <p>Back</p>
             </button>

@@ -14,7 +14,7 @@ import { FaRegEdit } from "react-icons/fa";
 const CustomTable = ({ data }) => {
   const navigate = useNavigate();
   const [pagination, setPagination] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const currentItems = useMemo(() => {
     const start = (pagination - 1) * itemsPerPage;

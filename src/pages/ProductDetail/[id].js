@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {
   GET_PRODUCT_BY_ID,
-  GET_PRODUCTS_BY_SUBCATEGORY,
   GET_SUBCATEGORY_BY_PRODUCT_ID,
 } from "../../graphql/queries/productQueries";
 
@@ -51,6 +50,7 @@ const ProductDetail = () => {
   const specificationList = convertStringToArray(specification);
 
   const relatedCategory = subcategory ? subcategory.subcategory : [];
+  const relatedPorudct = subcategory && subcategory.subcategory ? subcategory.subcategory[0].products : [];
 
   return (
     <div>
@@ -138,7 +138,8 @@ const ProductDetail = () => {
               </ul>
             </div>
           </div>
-          <div className="related-products-container">
+          {relatedPorudct.length <= 1? (<div></div>):(
+            <div className="related-products-container">
             <h1>Related Products</h1>
             <div className="related-products">
               <div className="related-products-layout">
@@ -158,6 +159,8 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
+          )}
+          
         </div>
       </div>
       <Footer />
