@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS_BY_SUBCATEGORY } from "../../../graphql/queries/productQueries";
 import { useState } from "react";
 import PaginationArrowIcon from "../../../modules/icons/pagination-arrow";
+import LoadingButton from "../../../modules/icons/loading-button";
 
 const SubCategory = () => {
   const { subcategory } = useParams();
@@ -38,7 +39,7 @@ const SubCategory = () => {
     })
   })
 
-  if (fetchSubCategory) return <div>Loading..</div>;
+  if (fetchSubCategory) return <div className="loading-container"><LoadingButton/>Loading...</div>;
 
   return (
     <div className="product-cat-sub-container">

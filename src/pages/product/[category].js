@@ -10,10 +10,11 @@ import Footer from "../../components/footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useCallback } from "react";
 import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
+import LoadingButton from "../../modules/icons/loading-button";
 
 const Products = () => {
   const { category } = useParams();
-  const itemsPerPage = 3;
+  const itemsPerPage = 2;
   const navigate = useNavigate();
 
   const { data: get_category, loading: fetchCategory } = useQuery(
@@ -41,7 +42,7 @@ const Products = () => {
       ? get_category.category[0].subcategories
       : [];
 
-  if (fetchCategory) return <p>Loading...</p>;
+  if (fetchCategory) return <div className="loading-container"><LoadingButton/>Loading...</div>;
 
   return (
     <div>

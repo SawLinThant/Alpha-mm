@@ -8,6 +8,7 @@ import {
   GET_PRODUCT_BY_ID,
   GET_SUBCATEGORY_BY_PRODUCT_ID,
 } from "../../graphql/queries/productQueries";
+import LoadingButton from "../../modules/icons/loading-button";
 
 const convertStringToArray = (text) => {
   return text.split(",");
@@ -30,8 +31,8 @@ const ProductDetail = () => {
 
   const navigate = useNavigate();
 
-  if (fetchProduct) return <div>Loading</div>;
-  if (fetchSubCategory) return <div>Loading</div>;
+  if (fetchProduct) return <div className="loading-container"><LoadingButton/>Loading...</div>;
+  if (fetchSubCategory) return <div className="loading-container"><LoadingButton/>Loading...</div>;
 
   const productData = product_by_pk ? product_by_pk : [];
   const category = productData.product_by_pk.category.category_name || "";
