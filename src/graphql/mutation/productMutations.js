@@ -138,3 +138,20 @@ export const DELETE_PRODUCT = gql`
     }
   }
 `;
+
+export const CREATE_MESSAGE = gql`
+  mutation createMessage(
+    $username: String
+    $ph_number: numeric
+    $message: String
+  ) {
+    insert_message_one(
+      object: { username: $username, ph_number: $ph_number, message: $message }
+    ){
+      message_id
+      username
+      ph_number
+      message  
+    }
+  }
+`;
