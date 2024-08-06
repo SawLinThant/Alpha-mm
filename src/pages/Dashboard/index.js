@@ -8,6 +8,10 @@ import ProductDetail from "./detail/[id]";
 const Dashboard = () => {
 
   return (
+    <>
+    <div className="feature-restrict-label">
+        <p>This feature is not supported for mobile devices yet!</p>
+      </div>
     <div className="dashboard-container">
       <AdminSidebar />
       <div className="dashboard-right-side">
@@ -18,6 +22,7 @@ const Dashboard = () => {
         </Routes>
       </div>
     </div>
+    </>
   );
 };
 

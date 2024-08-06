@@ -80,3 +80,9 @@
     border:1px solid gray;
     cursor: pointer;
 }
+
+@media (max-width: 720px){
+    .login-container-layout{
+        width: 90%;
+    }
+}
