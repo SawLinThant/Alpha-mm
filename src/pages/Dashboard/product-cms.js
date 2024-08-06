@@ -46,11 +46,12 @@ const ManageProduct = () => {
       <div
         role="status"
         style={{
-          width: "100px",
-          height: "10px",
+          width: "100vw",
+          height: "100vh",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          justifyContent:'center',
           gap: "0.5rem",
         }}
       >

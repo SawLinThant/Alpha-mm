@@ -1,6 +1,6 @@
 .detail-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -17,12 +17,13 @@
 .detail-description-container {
   width: 60vw;
   min-height: 90%;
-  border: 1px solid rgb(129, 122, 122);
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   border-radius: 0.25rem;
   transition-duration: 0.5s;
+  box-shadow: 0 2px 2px black;
 }
 
 .blur-detail-description-container{
@@ -38,7 +39,7 @@
   gap: 10px;
   justify-content: space-between;
   border-bottom: 1px solid gainsboro;
-  background-color: blueviolet;
+  background: linear-gradient(to right, #11343b, #625aa7, #271f57);
 }
 
 .heading-right-container{
@@ -78,7 +79,7 @@
   width: 16rem;
   height: 10rem;
   background-color: white;
-  border: 2px solid rgb(101, 99, 99);
+  border: 2px solid black;
   z-index: 10;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -94,7 +95,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  width: 100%;
+  height: 100vh;
 }
 
 .delete-box-text h2{
@@ -113,16 +117,18 @@
 
 .delete-box-btn-container button{
   padding: 0.5rem;
-  background-color: gainsboro;
+  background: linear-gradient(to right, #11343b, #625aa7, #271f57);
   border-radius: 0.5rem;
   border: none;
   transition-duration: 0.5s;
+  color: white;
 }
 
 .delete-box-btn-container button:hover{
   cursor: pointer;
-  background-color: white;
-  border: 1px solid gainsboro;
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .delete-btn{
@@ -259,7 +265,7 @@
   height: 70%;
   margin-bottom: 1.5rem;
   border-radius: 0.25rem;
-  background-color: blueviolet;
+  background: linear-gradient(to right, #11343b, #625aa7, #271f57);
   border: none;
   color: white;
   opacity: 0;

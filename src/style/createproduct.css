@@ -1,10 +1,11 @@
 .create-product-container{
-    width: 100%;
-    height: 95%;
+    width: 80vw;
+    min-height: 100vh;
     display: flex;
     place-items: center;
     justify-content: center;
     border-radius: 1rem;
+    overflow: auto;
 }
 
 .create-product-layout{
@@ -12,9 +13,10 @@
     height: 93%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    border: 3px solid gainsboro;
+    gap: 1.5rem;
+    border: 1px solid black;
     border-radius: 0.25rem;
+    box-shadow: 0 2px 2px black;
 }
 
 .back-button-container{
@@ -60,14 +62,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
+    background: linear-gradient(to right, #11343b, #625aa7, #271f57);
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
 }
 
 .product-form-container{
     width: 100%;
-    height: 100%;
+    min-height: 63vh;
     display: flex;
     flex-direction: column;
     gap:  1.5rem;
@@ -128,7 +130,7 @@
     height: 2rem;
     border-radius: 0.25rem;
     padding-left: 1rem;
-    border: 2px solid gainsboro;
+    border: 1.5px solid black;
 }
 
 .input-field textarea{
@@ -136,7 +138,7 @@
     border-radius: 0.25rem;
     padding-top: 1rem;
     padding-left: 1rem;
-    border: 2px solid gainsboro;
+    border: 1.5px solid black;
     font-family: sans-serif;
 }
 
@@ -153,7 +155,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: start;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 .submit-button-container button{
@@ -161,7 +163,7 @@
     width: 8rem;
     border-radius: 0.25rem;
     color: white;
-    background-color: blueviolet;
+    background: linear-gradient(to right, #11343b, #625aa7, #271f57);
     border: none;
     margin-left: 1rem;
 }

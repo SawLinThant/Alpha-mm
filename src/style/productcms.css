@@ -1,13 +1,13 @@
 .product-cms-container{
-    width: 90%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .table-heading{
-    max-width: 86vw;
+    width: 80vw;
     height: 5rem;
     display: flex;
     flex-direction: row;
@@ -23,19 +23,24 @@
     text-align: center;
     gap: 0.5rem;
     border-radius: 0.25rem;
-    border: none;
-    background-color: blueviolet;
-    color: white;
+    background-color: white;
+    border: 2px solid black;
     transition-duration: 0.5s;
     padding: 7px 9px 7px 9px;
     font-size: 16px;
+    box-shadow: 0 2px 2px gray;
 }
 
 .table-heading button:hover{
     cursor: pointer;
-    background-color: rgb(116, 49, 180);
+    background-color: rgb(49, 66, 151);
+    color: white;
 }
 
 .table-heading button p{
     line-height: 0;
+}
+
+.table-container{
+    width: 80vw;
 }

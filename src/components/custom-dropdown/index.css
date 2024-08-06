@@ -1,25 +1,49 @@
 .custom-dropdown-container {
-    width: 9rem;
-    padding: 7px 10px;
+    width: 11rem;
+    height: 3rem;
     border-radius: 0.25rem;
-    background-color: blueviolet;
+    background-color: white;
     position: relative;
     cursor: pointer;
-    color: white;
+    color: black;
     font-family: sans-serif;
     font-size: 16px;
+    border: 2px solid black;
+    box-shadow: 0 2px 2px gray;
+    transition-duration: 0.5s;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
+
+  .custom-dropdown-container:hover{
+    cursor: pointer;
+    background-color: rgb(49, 66, 151);
+    color: white;
   }
   
   .filter-select {
-    width: 100%;
-    color: white;
+    width: 98%;
+    height: 98%;
+    color: black;
     height: 100%;
     text-align: center;
-    background-color: blueviolet;
+    background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    transition-duration: 0.5s;
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    justify-content: space-around;
+  }
+
+  .filter-select:hover{
+    cursor: pointer;
+    background-color: rgb(49, 66, 151);
+    color: white;
   }
 
   .filter-select p{
@@ -45,7 +69,7 @@
   }
   
   .dropdown-option:hover {
-    background-color: rgb(59, 139, 231);
+    background-color: rgb(60, 59, 61);
     color: white;
   }
 
