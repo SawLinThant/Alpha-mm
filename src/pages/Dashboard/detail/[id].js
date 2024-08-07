@@ -16,6 +16,8 @@ import CustomDropdown from "../../../components/dropdown";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import LoadingButton from "../../../modules/icons/loading-button";
+import AWS from "aws-sdk";
+import { prettyDOM } from "@testing-library/react";
 
 const ProductDetail = () => {
   const { register, handleSubmit } = useForm();
@@ -24,9 +26,15 @@ const ProductDetail = () => {
   const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
+  const REGION = process.env.REACT_APP_AWS_REGION;
   const { data, loading } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id: id },
   });
+
+  const sanitizeFileName = (fileName) => {
+    return fileName.replace(/[^a-z0-9.]/gi, "_").toLowerCase();
+  };
 
   const [deleteProduct, { error: deleteError, loading: deleteLoading }] =
     useMutation(DELETE_PRODUCT);
@@ -66,6 +74,9 @@ const ProductDetail = () => {
     },
     product_specification: "",
     product_description: "",
+    sub_img_one_url: "",
+    sub_img_two_url: "",
+    sub_img_three_url: "",
   });
 
   useEffect(() => {
@@ -73,7 +84,6 @@ const ProductDetail = () => {
       setProductData(data.product_by_pk);
       setCategory(data.product_by_pk.category.id);
       setSubCategory(data.product_by_pk.subcategory.id);
-      console.log(productData);
     }
   }, [data]);
 
@@ -88,14 +98,105 @@ const ProductDetail = () => {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
+  const [subImageOne, setSubImageOne] = useState(null);
+  const [subImageOneUrl, setSubImageOneUrl] = useState(null);
+
+  const [subImageTwo, setSubImageTwo] = useState(null);
+  const [subImageTwoUrl, setSubImageTwoUrl] = useState(null);
+
+
+  const [subImageThree, setSubImageThree] = useState(null);
+  const [subImageThreeUrl, setSubImageThreeUrl] = useState(null);
+
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0].name);
+      setImage(e.target.files[0]);
       setImageUrl(URL.createObjectURL(e.target.files[0]));
+      setProductData({
+        ...productData,
+        image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+          e.target.files[0].name
+        )}`,
+      });
+    }   
+  };
+
+  const handleSubImageTwoChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSubImageTwo(e.target.files[0]);
+      setSubImageTwoUrl(URL.createObjectURL(e.target.files[0]));
+      setProductData({
+        ...productData,
+        sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+          e.target.files[0].name
+        )}`,
+      });
     }
   };
 
-  const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT);
+  const handleSubImageThreeChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSubImageThree(e.target.files[0]);
+      setSubImageThreeUrl(URL.createObjectURL(e.target.files[0]));
+      setProductData({
+        ...productData,
+        sub_img_three_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+          e.target.files[0].name
+        )}`,
+      });
+    }
+  };
+
+  const handleSubImageOneChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSubImageOne(e.target.files[0]);
+      setSubImageOneUrl(URL.createObjectURL(e.target.files[0]));
+      setProductData({
+        ...productData,
+        sub_img_one_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+          e.target.files[0].name
+        )}`,
+      });
+    }
+  };
+
+
+  const uploadToS3 = async (images) => {
+    AWS.config.update({
+      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    });
+
+    const s3 = new AWS.S3({
+      params: { Bucket: BUCKET },
+      region: REGION,
+    });
+
+    console.log(images)
+
+    const uploadPromises = images.map((image) => {
+      const sanitizedImage = sanitizeFileName(image.name);
+
+      const params = {
+        Bucket: BUCKET,
+        Key: `alpha-myanmar-images/${sanitizedImage}`,
+        Body: image,
+        ContentType: image.type,
+      };
+
+      return s3
+        .putObject(params)
+        .on("httpUploadProgress", (evt) => {
+          console.log("Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%");
+        })
+        .promise();
+    });
+
+    return Promise.all(uploadPromises);
+  };
+
+
+  const [updateProduct, { error,loading:updateLoading }] = useMutation(UPDATE_PRODUCT);
 
   const [editable, setEditable] = useState(false);
 
@@ -152,7 +253,9 @@ const ProductDetail = () => {
 
   const handleUpdate = handleSubmit(async (credential) => {
     try {
-      updateProduct({
+      const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
+      uploadToS3(images)
+      await updateProduct({
         variables: {
           id: id, // replace with the actual product ID
           name: productData.name,
@@ -163,6 +266,9 @@ const ProductDetail = () => {
           subcategory_id: productData.subcategory.id,
           product_specification: productData.product_specification,
           product_description: productData.product_description,
+          sub_img_one_url: productData.sub_img_one_url,
+          sub_img_two_url: productData.sub_img_two_url,
+          sub_img_three_url: productData.sub_img_three_url,
         },
       });
       toast("Update Success");
@@ -172,7 +278,13 @@ const ProductDetail = () => {
     }
   });
 
-  if (loading) return <div className="detail-loading"><LoadingButton/>Loading</div>;
+  if (loading)
+    return (
+      <div className="detail-loading">
+        <LoadingButton />
+        Loading
+      </div>
+    );
 
   if (error) return <div>Error: {error.message}</div>;
 
@@ -198,10 +310,9 @@ const ProductDetail = () => {
             </div>
             {!deleteLoading ? (
               <div className="delete-box-btn-container">
-              <button onClick={handleDelete}>Yes</button>
-              <button onClick={toggleDeleteBox}>No</button>
-            </div>
-              
+                <button onClick={handleDelete}>Yes</button>
+                <button onClick={toggleDeleteBox}>No</button>
+              </div>
             ) : (
               <div></div>
             )}
@@ -212,28 +323,77 @@ const ProductDetail = () => {
             }`}
           >
             <div className="description-header">
-              <div onClick={() => navigate("/dashboard",{ state: { refetch: true } })} className="heading-left-container"><button><IoMdArrowRoundBack />back</button></div>
+              <div
+                onClick={() =>
+                  navigate("/dashboard", { state: { refetch: true } })
+                }
+                className="heading-left-container"
+              >
+                <button>
+                  <IoMdArrowRoundBack />
+                  back
+                </button>
+              </div>
               <div className="heading-right-container">
-              <button className="delete-btn" onClick={toggleDeleteBox}>
-                <MdDelete />
-                <p>Delete</p>
-              </button>
-              <input type="checkbox" className="edit-checkbox" />
-              <div className="edit-label">
-                <p>Edit Mode</p>
-                <FaEdit />
+                <button className="delete-btn" onClick={toggleDeleteBox}>
+                  <MdDelete />
+                  <p>Delete</p>
+                </button>
+                <input type="checkbox" className="edit-checkbox" />
+                <div className="edit-label">
+                  <p>Edit Mode</p>
+                  <FaEdit />
+                </div>
               </div>
-              </div>
-             
             </div>
             <div className="edit-detail-container">
               <div className="description-image-container">
                 <div className="description-image-layout">
-                  <img
-                    className="description-detail-image"
-                    src={productData.image_url}
-                    alt="product image"
-                  />
+                  {editable ? (
+
+                    <div className="description-image-layout-container">
+                      <div className="update-main-image-container">
+                      <ImageUploadField
+                        handleImageChange={handleImageChange}
+                        image={image}
+                        imageUrl={imageUrl}
+                        label="Update Image"
+                      />
+                      </div>
+                     
+                      <div className="sub-img-update-field">
+                        <ImageUploadField
+                         handleImageChange={handleSubImageOneChange}
+                         image={subImageOne}
+                         imageUrl={subImageOneUrl}
+                        label="Update Image"
+                        fontsize="12px"
+                        />
+                        <ImageUploadField 
+                         handleImageChange={handleSubImageTwoChange}
+                         image={subImageTwo}
+                         imageUrl={subImageTwoUrl}
+                         label="Update Image"
+                         fontsize="12px"
+                        />
+                      </div>
+                      <div className="sub-img-update-field">
+                        <ImageUploadField 
+                          handleImageChange={ handleSubImageThreeChange}
+                          image={subImageThree}
+                          imageUrl={subImageThreeUrl}
+                         label="Update Image"
+                         fontsize="12px"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      className="description-detail-image"
+                      src={productData.image_url}
+                      alt="product image"
+                    />
+                  )}
                 </div>
               </div>
               <div className="description-text-container">
@@ -317,7 +477,7 @@ const ProductDetail = () => {
                       }}
                     /> */}
                     <div className="edit-save-button-container">
-                      <button type="submit">Save</button>
+                      <button type="submit">{updateLoading?(<LoadingButton/>):"Update"}</button>
                     </div>
                   </form>
                 </div>

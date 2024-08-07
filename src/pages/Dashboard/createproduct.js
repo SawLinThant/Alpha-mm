@@ -67,6 +67,7 @@ const CreateProduct = () => {
     if (e.target.files && e.target.files[0]) {
       setSubImageOne(e.target.files[0]);
       setSubImageOneUrl(URL.createObjectURL(e.target.files[0]));
+      console.log(e.target.files[0])
     }
   };
 
