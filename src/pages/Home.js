@@ -137,7 +137,7 @@ const Home = () => {
               <div className="showcaseleft-img-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
-                  <a href="/">
+                  <a href="/products">
                   <p>View All</p><RightArrrow width={24} height={24}/>
                   </a>
                 </div>
