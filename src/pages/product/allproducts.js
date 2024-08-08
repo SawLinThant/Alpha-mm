@@ -2,7 +2,7 @@ import "../../style/product.css";
 import Header from "../../components/Header";
 import Footer from "../../components/footer";
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { GET_CATEGORIES } from "../../graphql/queries/productQueries";
 import { useNavigate } from "react-router-dom";
 import LoadingButton from "../../modules/icons/loading-button";
@@ -11,17 +11,20 @@ import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 const AllProducts = () => {
   const navigate = useNavigate();
   const itemsPerPage = 4;
-  const [pagination, setPagination] = useState(1);
+  const [pagination, setPagination] = useState({});
 
   const { data: categeories, loading: fetchCategory } =
     useQuery(GET_CATEGORIES);
   const categoryType = categeories ? categeories.category : [];
 
-  const handlePageChange = ((direction) => {
+  const handlePageChange = useCallback((categoryId,direction) => {
     setPagination((prevPagination) => {
-        const currentPage = prevPagination;
+        const currentPage = prevPagination[categoryId] || 1;
         const newPage = direction === 'next' ? currentPage + 1 : currentPage - 1;
-        return newPage;
+        return {
+          ...prevPagination,
+          [categoryId]: newPage,
+        };
     })
   })
 
@@ -46,7 +49,7 @@ const AllProducts = () => {
         categoryType.map((category, index) => {
             const productsByCategory = category.products || [];
             console.log(productsByCategory)
-          const currentPage = pagination;
+          const currentPage = pagination[category.id] || 1;
           const totalPages = Math.ceil(
             productsByCategory.length / itemsPerPage
           );
@@ -75,7 +78,7 @@ const AllProducts = () => {
                   {productsByCategory.length > itemsPerPage ? (
                     <div className="pagination-controls">
                       <button
-                        onClick={() => handlePageChange( "prev")}
+                        onClick={() => handlePageChange(category.id, "prev")}
                         disabled={currentPage === 1}
                       >
                         <div
@@ -88,7 +91,7 @@ const AllProducts = () => {
                         </div>
                       </button>
                       <button
-                        onClick={() => handlePageChange( "next")}
+                        onClick={() => handlePageChange( category.id,"next")}
                         disabled={currentPage === totalPages}
                       >
                         <div

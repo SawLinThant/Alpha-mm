@@ -11,7 +11,7 @@ const Product = () => {
         <Route path="*" element={<AllProducts/>} />
         <Route path="/:category" element={<Products />} />
         <Route path="/subcategory/:subcategory" element={<SubCategory />} />
-        <Route path="*" element={<Navigate to="/kitchen" />} />
+        {/* <Route path="*" element={<Navigate to="/kitchen" />} /> */}
       </Routes>
     </div>
   );
