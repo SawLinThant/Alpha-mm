@@ -21,6 +21,7 @@ const Products = () => {
     GET_CATEGORY_BY_NAME,
     {
       variables: { category_name: category },
+      pollInterval: 500
     }
   );
 

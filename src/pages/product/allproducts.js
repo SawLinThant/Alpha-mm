@@ -14,7 +14,9 @@ const AllProducts = () => {
   const [pagination, setPagination] = useState({});
 
   const { data: categeories, loading: fetchCategory } =
-    useQuery(GET_CATEGORIES);
+    useQuery(GET_CATEGORIES,{
+      pollInterval: 500
+    });
   const categoryType = categeories ? categeories.category : [];
 
   const handlePageChange = useCallback((categoryId,direction) => {

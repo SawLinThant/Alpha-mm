@@ -14,6 +14,7 @@ const SubCategory = () => {
     GET_PRODUCTS_BY_SUBCATEGORY,
     {
       variables: { subcategory: subcategory },
+      pollInterval: 500
     }
   );
   const navigate = useNavigate();

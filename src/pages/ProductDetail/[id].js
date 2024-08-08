@@ -20,12 +20,14 @@ const ProductDetail = () => {
     GET_PRODUCT_BY_ID,
     {
       variables: { id: id },
+      pollInterval: 500
     }
   );
   const { data: subcategory, loading: fetchSubCategory } = useQuery(
     GET_SUBCATEGORY_BY_PRODUCT_ID,
     {
       variables: { id: id },
+      pollInterval: 500
     }
   );
 

@@ -1,5 +1,23 @@
 import { gql } from "@apollo/client";
 
+
+export const PRODUCT_SUBSCRIPTION = gql`
+  subscription OnProductAdded {
+    productAdded {
+      id
+      name
+      category_id
+      subcategory_id
+      image_url
+      product_specification
+      product_description
+      sub_img_one_url
+      sub_img_two_url
+      sub_img_three_url
+    }
+  }
+`;
+
 export const CREATE_PRODUCT = gql`
   mutation createProduct(
     $name: String

@@ -3,7 +3,7 @@ import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT } from "../../graphql/mutation/productMutations";
+import { CREATE_PRODUCT} from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 import ImageUploadField from "../../components/image-upload-field";
 import { useNavigate } from "react-router-dom";
@@ -92,40 +92,6 @@ const CreateProduct = () => {
   const BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
   const REGION = process.env.REACT_APP_AWS_REGION;
 
-  // const uploadToS3 = async () => {
-  //   AWS.config.update({
-  //     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-  //     secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-  //   });
-
-  //   const s3 = new AWS.S3({
-  //     params: { Bucket: BUCKET },
-  //     region: REGION,
-  //   });
-
-  //   const sanatizedImage = sanitizeFileName(image.name);
-
-  //   const params = {
-  //     Bucket: BUCKET,
-  //     Key: `alpha-myanmar-images/${sanatizedImage}`,
-  //     Body: image,
-  //     ContentType: image.type,
-  //   };
-
-  //   var upload = s3
-  //     .putObject(params)
-  //     .on("httpUploadProgress", (evt) => {
-  //       console.log(
-  //         "Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%"
-  //       );
-  //     })
-  //     .promise();
-
-  //   await upload.then((err, data) => {
-  //     console.log(err);
-  //     console.log("File uploaded successfully.");
-  //   });
-  // };
 
   const uploadToS3 = async (images) => {
     AWS.config.update({

@@ -7,6 +7,7 @@ const httpLink = createHttpLink({
   uri: process.env.REACT_APP_HASURA_GRAPHQL_ENDPOINT,
 });
 
+
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     console.log("[graphQLErrors]", graphQLErrors);
