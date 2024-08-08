@@ -111,7 +111,7 @@ const Sidebar = () => {
           <BiHome /> <a href="/"><p>Home</p><CiCircleChevRight size={20}/></a>
           </div>
           <div className="nav-link-container">
-          <FaProductHunt /> <a href="/products/kitchen"><p>Products</p><CiCircleChevRight size={20}/></a>
+          <FaProductHunt /> <a href="/products"><p>Products</p><CiCircleChevRight size={20}/></a>
           </div>
           <div className="nav-link-container">
           <ImProfile /> <a href="/aboutus"><p>About Us</p><CiCircleChevRight size={20}/></a>
