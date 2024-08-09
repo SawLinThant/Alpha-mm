@@ -1304,6 +1304,10 @@
     margin-top: 2rem !important;
   }
 
+  .hero-container{
+    height: 20rem;
+  }
+
   .mvp {    
     flex-direction: column !important;
     height: 100%!important;
