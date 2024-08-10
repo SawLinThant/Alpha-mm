@@ -203,10 +203,11 @@ const Home = () => {
           <div className="download-description">
             <h2>Get the App Today!</h2>
             <div className="download-text">
-              <p>Discover convenience at your fingertips with our app!</p>
+              <p>Discover convenience at your fingertips with our app! Enjoy seamless navigation, exclusive features, and instant updates. Download now and elevate your experience!</p>
+              {/* <p>Discover convenience at your fingertips with our app!</p>
               <p>Enjoy seamless navigation, exclusive features, and</p>
               <p>instant updates. Download now and elevate your </p>
-              <p>experience!</p>
+              <p>experience!</p> */}
             </div>
             <div className="download-app-icon">
               <div className="playstore-container">
