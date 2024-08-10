@@ -4,7 +4,6 @@
 
 .showcase {
   width: 100%;
-  height: 34.25rem;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -12,7 +11,7 @@
 
 .showcase-layout {
   width: 93%;
-  height: 95%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
@@ -25,7 +24,56 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-height: 100%;
 }
+
+.showcase-left-img img{
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.showcaseleft-img-text {
+position: relative;
+display: flex;
+flex-direction: column;
+width: 90%;
+margin-top: 1rem;
+}
+
+.showcaseleft-img-text h2 {
+font-size: 30px;
+font-family: 'Sansation', sans-serif;
+font-weight: 700;
+}
+
+.left-img-button-container {
+width: 113px;
+height: 40px;
+padding-right: 1.5rem;
+margin-top: 2rem;
+}
+
+.showcaseleft-img-text a {
+text-decoration: none;
+background-color: #4a4ccd;
+color: white;
+border-radius: 1.5rem;
+padding: 0 11px 0 10px;
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 8px;
+}
+
+/* .showcase-left-image-icon {
+width: 90%;
+height: 13rem;
+background-image: url("/public/htoo.png");
+background-position: center;
+background-size: cover;
+} */
 
 .showcase-left {
   opacity: 0;
@@ -58,7 +106,6 @@
 .showcase-left-img {
   width: 100%;
   height: 100%;
-  background-color: rgb(238, 235, 231);
   border-radius: 1rem;
 }
 
@@ -69,6 +116,19 @@
   row-gap: 1rem;
   column-gap: 1rem;
 }
+
+.showcase-category{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.showcase-category img{
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.showcase-category
 
 .hero-container {
   width: 100%;
@@ -82,7 +142,7 @@
 
 .mvp-container {
   width: 100%;
-  height: 42.5rem;
+  height: 37.5rem;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -94,10 +154,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
 }
 
 .mvp-description {
+  width: 41rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -176,74 +238,36 @@
 }
 
 .mvp-image-container {
-  width: 60%;
-  height: 100%;
+  width: 39.5rem;
+  height: 25rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .mvp-image {
-  width: 12.5rem;
+  width: 100%;
   height: 100%;
-  border: 1px solid gray;
   margin-right: 0;
 }
 
 .mvp-image img {
-  height: 100%;
+  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
 }
 
-.showcase-left-img {
-  background-image: url("/public/show-left.jpg");
+/* .showcase-left-img {
+  background-image: url("/public/left-showcasebg.jpg");
   background-position: center;
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
-.showcaseleft-img-text {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin-top: 1rem;
-}
 
-.showcaseleft-img-text h2 {
-  font-size: 30px;
-  font-family: 'Sansation', sans-serif;
-  font-weight: 700;
-}
-
-.left-img-button-container {
-  width: 113px;
-  height: 40px;
-  padding-right: 1.5rem;
-  margin-top: 2rem;
-}
-
-.showcaseleft-img-text a {
-  text-decoration: none;
-  background-color: #4a4ccd;
-  color: white;
-  border-radius: 1.5rem;
-  padding: 0 11px 0 10px;
- display: flex;
- flex-direction: row;
- align-items: center;
- gap: 8px;
-}
-
-.showcase-left-image-icon {
-  width: 90%;
-  height: 13rem;
-  background-image: url("/public/htoo.png");
-  background-position: center;
-  background-size: cover;
-}
 
 .advertise-container {
   width: 100%;
@@ -251,7 +275,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  background-color: #D9D9D9;
 }
 
 .download-container {
@@ -395,6 +419,17 @@
   border-right: 1px solid gainsboro;
 }
 
+.showcase-left-image-icon{
+  width: 100%;
+  height: 100%;
+}
+
+.showcase-left-image-icon img{
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .property-logo-container p {
   margin-bottom: 0;
   transform: translateY(70%);
@@ -425,30 +460,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px, 56px, 100px, 56px
+  background-color: #D9D9D9;
 }
 
 .find-us {
   width: 93%;
   height: 26.625rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 40px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  column-gap: 24px;
+  
 }
 
 .find-us-text {
-  width: 26.667rem;
-  height: 12.813rem;
+  height: 100%;
+  grid-column: span 4;
   display: flex;
   flex-direction: column;
-  justify-items: center;
   justify-content: center;
 }
 
+.branch-container{
+   grid-column: span 8;
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   column-gap: 24px;
+}
+
 .find-us-section {
-  width: 26.667rem;
   height: 100%;
 }
 
@@ -1188,36 +1227,56 @@
 
 
 @media screen and (max-width: 1024px){
+
   .mvp-container{
-    height: 63rem !important;
-    margin-top: 2rem !important;
+    height: 27.375rem;
+  }
+ 
+  .mvp-image{
+    display: flex;
+    place-items: center;
   }
 
-  .mvp {    
+  .mvp-image img{
+    width: 100%;
+    height: 14.375rem;
+  }
+
+  .showcase{
+    margin-top: 1rem;
+  }
+
+  .find-us{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    gap: 24px;
+  }
+
+  .find-us-text{
+    height: 6.688rem;
+  }
+
+  .find-us-descritpion{
+    margin-top: 0;
+  }
+
+  .branch-container{
+    height: 26.625rem;
+  }
+
+  /* .mvp {    
     flex-direction: column !important;
     height: 100%!important;
     gap: 2rem !important;
   }
 
-  .mvp-description{
-    width: 100% !important;
-  }
+ 
 
   .mvp-heading{
     height: 10rem !important;
   }
 
-  .mvp-image-container{
-    width: 100% !important;
-  }
-
-  .mvp-image{
-    width: 30% !important;
-  }
-
-  .mvp-image img{
-    width: 100% !important;
-  }
 
   .mvp-heading h2{
     line-height: normal !important;
@@ -1290,7 +1349,7 @@
   .animate-right {
     transform: translateY(0) !important;
     opacity: 1 !important;
-  }
+  } */
 
 }
 

@@ -9,7 +9,7 @@ const Header = () => {
       <nav>
         <div className="nav-left">
             <div className="logo">
-                <AlphaLogo width={150} height={56}/>
+                <a href="/"><AlphaLogo width={150} height={56}/></a>
             </div>
         </div>
         <Sidebar/>

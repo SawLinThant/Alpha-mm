@@ -65,15 +65,15 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="mvp-image-container">
-            <div className="mvp-image">
-              <img src="/mvp1.jpg" alt="mvp1" />
+          <div className="mvp-image">
+              <img src="/mvpimg.png" alt="mvp1" />
             </div>
-            <div className="mvp-image">
+            {/* <div className="mvp-image">
               <img src="/mvp2.jpg" alt="mvp2" />
             </div>
             <div className="mvp-image">
               <img src="/mvp3.jpg" alt="mvp3" />
-            </div>
+            </div> */}
           </div>
         </section>
       </section>

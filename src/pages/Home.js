@@ -63,6 +63,24 @@ const Home = () => {
       product_link: "/products/miscellaneous"
     },
   ];
+  const SHOWCASES = [
+    {
+      id: "1",
+      image_url: "/product-category/homeappliance.jpg"
+    },
+    {
+      id: "2",
+      image_url: "/product-category/cooling.lpg"
+    },
+    {
+      id: "3",
+      image_url: "/product-category/entertainment.jpg"
+    },
+    {
+      id: "4",
+      image_url: "/product-category/commercial.jpg"
+    }
+  ]
   const { ref: showcaseLeftRef, inView: showcaseLeftInView } = useInView({
     triggerOnce: false,
   });
@@ -114,14 +132,14 @@ const Home = () => {
           </div>
           <div className="mvp-image-container">
             <div className="mvp-image">
-              <img src="/mvp1.jpg" alt="mvp1" />
+              <img src="/mvpimg.jpg" alt="mvp1" />
             </div>
-            <div className="mvp-image">
+            {/* <div className="mvp-image">
               <img src="/mvp2.jpg" alt="mvp2" />
             </div>
             <div className="mvp-image">
               <img src="/mvp3.jpg" alt="mvp3" />
-            </div>
+            </div> */}
           </div>
         </section>
       </section>
@@ -134,14 +152,15 @@ const Home = () => {
             }`}
           >
             <div className="showcase-left-img">
-              <div className="showcaseleft-img-text">
+              <img src="/left-showcasebg.jpg" alt=""/>
+              {/* <div className="showcaseleft-img-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
                   <a href="/products">
                   <p>View All</p><RightArrrow width={24} height={24}/>
                   </a>
                 </div>
-              </div>
+              </div> */}
               <div className="showcase-left-image-icon"></div>
             </div>
           </div>
@@ -151,7 +170,21 @@ const Home = () => {
               showcaseRightInView ? "animate-right" : ""
             }`}
           >
-            <Catalouge Items={KITCHEN_ITEMS} />
+            {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
+            
+              <div className="showcase-category">
+                <img src='/product-category/homeappliance.jpg' alt="img"/>
+              </div>
+              <div className="showcase-category">
+                <img src='/product-category/cooling.jpg' alt="img"/>
+              </div>
+              <div className="showcase-category">
+                <img src='/product-category/entertainment.png' alt="img"/>
+              </div>
+              <div className="showcase-category">
+                <img src='/product-category/commercial.png' alt="img"/>
+              </div>
+            
           </div>
         </div>
       </section>
@@ -250,6 +283,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
+            <div className="branch-container">
             {branch.map((branch) => (
               <div key={branch.id} className="find-us-section">
                 <BrachDescription
@@ -259,6 +293,8 @@ const Home = () => {
                 />
               </div>
             ))}
+            </div>
+           
           </div>
         </div>
       </section>
