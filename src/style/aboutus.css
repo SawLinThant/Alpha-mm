@@ -7,7 +7,7 @@
     display: flex;
     place-items: center;
     justify-content: center;
-    background-image: url("/public/download-bg.png");
+    background-image: url("/public/download-bg.jpg");
     background-position: center;
     background-size: cover;
 }

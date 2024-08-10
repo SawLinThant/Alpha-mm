@@ -193,10 +193,11 @@ const Home = () => {
           <div className="icon">
             <div className="phone-icon-container">
               <div className="phone-icon1">
-                <PhoneOne width={320} height={320} />
+                <img src="/ph1.png"/>
               </div>
               <div className="phone-icon2">
-                <PhoneTwo width={220} height={440} />
+                {/* <PhoneTwo width={220} height={440} /> */}
+                <img src="/ph2.png"/>
               </div>
             </div>
           </div>

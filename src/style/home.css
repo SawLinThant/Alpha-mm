@@ -276,13 +276,14 @@ background-size: cover;
   align-items: center;
   justify-content: center;
   background-color: #D9D9D9;
+  margin-top: 4rem;
 }
 
 .download-container {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-image: url("/public/download-bg.png");
+  background-image: url("/public/download-bg.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -290,31 +291,34 @@ background-size: cover;
 .icon {
   height: 35.125rem;
   display: flex;
-  place-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .phone-icon-container {
   position: relative;
   width: 28rem;
-  height: 27rem;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 }
 
 .phone-icon1 {
-  width: 20.5rem;
-  height: 20.5rem;
+  width: 375px;
+  height: 375px;
 }
 
 .phone-icon2 {
   z-index: 2;
   position: absolute;
   margin-right: 2rem;
-  height: 27rem;
-  width: 12rem;
+  height: 450px;
+  width: 240px;
   right: 0;
+}
+
+.phone-icon1 img, .phone-icon2 img{
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .download-description {
@@ -330,6 +334,7 @@ background-size: cover;
   font-size: 35px;
   font-family: 'Sansation', sans-serif;
   line-height: 0;
+  color: white;
 }
 
 .download-text {
@@ -341,6 +346,7 @@ background-size: cover;
 
 .download-text p{
   line-height: 30px;
+  color: white;
 }
 
 .download-app-icon {
@@ -1378,12 +1384,25 @@ background-size: cover;
 
   .icon{
     width: 100%;
-    height: 30rem;
+    height: 20rem;
     justify-content: flex-start;
   }
 
   .phone-icon-container{
     margin-left: 2rem;
+    align-items: center;
+    transform: translateY(25%);
+  }
+
+  .phone-icon1{
+    width: 300px;
+    height: 300px;
+  }
+
+  .phone-icon2{
+    height: 400px;
+    width: 200px;
+    margin-right: 3rem;
   }
 
   .download-description{
@@ -1431,7 +1450,7 @@ background-size: cover;
   }
 
   .mvp-image{
-    width: 30% !important;
+    width: 100% !important;
   }
 
   .mvp-image img{
@@ -1468,54 +1487,73 @@ background-size: cover;
   }
 
   .advertise-container{
-    height: 160rem !important;
     gap: 2rem;
+    justify-content: flex-start;
   }
 
   .download-container{
     grid-template-columns: 1fr !important;
-    height: 70rem !important;
+    height: 42.926rem !important;
   }
 
-  .phone-icon-container{
+  /* .phone-icon-container{
     width: 100% !important;
+    height: 19.489rem;
+  } */
+
+  .phone-icon-container{
+    margin-left: 1rem;
+    align-items: center;
+    transform: translateY(5%);
+  }
+
+  .phone-icon1{
+    width: 259.85px;
+    height: 259.85px;
+    margin-top: 2rem;
+  }
+
+  .phone-icon2{
+    width: 166.3px;
+    height: 311.82px;
+    margin-right: 5rem;
+  }
+
+  .phone-icon1 img, .phone-icon2 img{
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .download-description{
-    padding: 0 10px 0 10px;
-  }
-
-  .download-text{
-    padding: 0 10px 0 10px;
+    margin-left: 1rem;
+    max-width: 90%;
   }
 
   .download-app-icon{
     gap: 0.5rem !important;
   }
 
+  .find-us-container{
+    height: 75rem;
+    padding-bottom: 2rem;
+  }
+
+  .find-us{
+    height: 100%;
+    justify-content: space-around;
+  }
+
+  .branch-container{
+    grid-template-columns: repeat(1,1fr);
+    height: 85%;
+    row-gap: 24px;
+  }
+
   .badge-container-open{
     animation: none !important;
   }
 
-  .find-us-container{
-    height: 110vh;
-  }
   
-  .find-us{
-    height: 100% !important;
-    flex-direction: column !important;
-    margin-top: 0 !important;
-  }
-
-  .find-us-text{
-    width: 90% !important;
-  }
-
-  .find-us-section{
-    width: 100% !important;
-    height: 50rem !important;
-  }
-
   .badge-container{
     height: 10.5rem;
     transform: translateY(-30%);
