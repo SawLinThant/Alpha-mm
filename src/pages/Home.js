@@ -63,24 +63,7 @@ const Home = () => {
       product_link: "/products/miscellaneous"
     },
   ];
-  const SHOWCASES = [
-    {
-      id: "1",
-      image_url: "/product-category/homeappliance.jpg"
-    },
-    {
-      id: "2",
-      image_url: "/product-category/cooling.lpg"
-    },
-    {
-      id: "3",
-      image_url: "/product-category/entertainment.jpg"
-    },
-    {
-      id: "4",
-      image_url: "/product-category/commercial.jpg"
-    }
-  ]
+
   const { ref: showcaseLeftRef, inView: showcaseLeftInView } = useInView({
     triggerOnce: false,
   });
@@ -94,6 +77,22 @@ const Home = () => {
   });
 
   const { ref: badgeRef, inView: badgeInView } = useInView({
+    triggerOnce: false,
+  });
+
+  const { ref: mobileCategoryTopRef1, inView: mobileCategoryTopInView1 } = useInView({
+    triggerOnce: false,
+  });
+  const { ref: mobileCategoryTopRef2, inView: mobileCategoryTopInView2 } = useInView({
+    triggerOnce: false,
+  });
+  const { ref: mobileCategoryMidRef, inView: mobileCategoryMidInView } = useInView({
+    triggerOnce: false,
+  });
+  const { ref: mobileCategoryBottomRef1, inView: mobileCategoryBottomInView1 } = useInView({
+    triggerOnce: false,
+  });
+  const { ref: mobileCategoryBottomRef2, inView: mobileCategoryBottomInView2 } = useInView({
     triggerOnce: false,
   });
 
@@ -126,7 +125,8 @@ const Home = () => {
             </div>
             <div className="mvp-button">
               <a href="/">
-              <p>Read More</p><RightArrrow width={24} height={24}/>
+                <p>Read More</p>
+                <RightArrrow width={24} height={24} />
               </a>
             </div>
           </div>
@@ -152,7 +152,7 @@ const Home = () => {
             }`}
           >
             <div className="showcase-left-img">
-              <img src="/left-showcasebg.jpg" alt=""/>
+              <img src="/left-showcasebg.jpg" alt="" />
               {/* <div className="showcaseleft-img-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
@@ -171,40 +171,68 @@ const Home = () => {
             }`}
           >
             {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
-            
-              <div className="showcase-category">
-                <img src='/product-category/homeappliance.jpg' alt="img"/>
-              </div>
-              <div className="showcase-category">
-                <img src='/product-category/cooling.jpg' alt="img"/>
-              </div>
-              <div className="showcase-category">
-                <img src='/product-category/entertainment.png' alt="img"/>
-              </div>
-              <div className="showcase-category">
-                <img src='/product-category/commercial.png' alt="img"/>
-              </div>
-            
+
+            <div className="showcase-category">
+              <img src="/product-category/homeappliance.jpg" alt="img" />
+            </div>
+            <div className="showcase-category">
+              <img src="/product-category/cooling.jpg" alt="img" />
+            </div>
+            <div className="showcase-category">
+              <img src="/product-category/entertainment.png" alt="img" />
+            </div>
+            <div className="showcase-category">
+              <img src="/product-category/commercial.png" alt="img" />
+            </div>
           </div>
         </div>
       </section>
+      <section className="mobile-showcase">
+      <div className="mobile-showcase-layout">
+        <div className="mobile-showcase-top-container">
+          <div ref={mobileCategoryTopRef1} className={`mobile-showcase-category ${mobileCategoryTopInView1 ? "slide-mobile-category" : ""}`}>
+            <img src="/product-category/homeappliance.jpg" alt="img" />
+          </div>
+          <div ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
+            <img src="/product-category/entertainment.png" alt="img" />
+          </div>
+        </div>
+        <div className="mobile-showcase-mid-container">
+          <div ref={mobileCategoryMidRef} className={`mobile-showcase-mid ${mobileCategoryMidInView ? "slide-mobile-category" : ""}`}>
+            <img src="/left-showcasebg.jpg" alt="img" />
+          </div>
+        </div>
+        <div className="mobile-showcase-bottom-container">
+          <div ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
+            <img src="/product-category/cooling.jpg" alt="img" />
+          </div>
+          <div ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
+            <img src="/product-category/commercial.png" alt="img" />
+          </div>
+        </div>
+      </div>
+    </section>
       <section className="advertise-container">
         <div className="download-container">
           <div className="icon">
             <div className="phone-icon-container">
               <div className="phone-icon1">
-                <img src="/ph1.png"/>
+                <img src="/ph1.png" />
               </div>
               <div className="phone-icon2">
                 {/* <PhoneTwo width={220} height={440} /> */}
-                <img src="/ph2.png"/>
+                <img src="/ph2.png" />
               </div>
             </div>
           </div>
           <div className="download-description">
             <h2>Get the App Today!</h2>
             <div className="download-text">
-              <p>Discover convenience at your fingertips with our app! Enjoy seamless navigation, exclusive features, and instant updates. Download now and elevate your experience!</p>
+              <p>
+                Discover convenience at your fingertips with our app! Enjoy
+                seamless navigation, exclusive features, and instant updates.
+                Download now and elevate your experience!
+              </p>
               {/* <p>Discover convenience at your fingertips with our app!</p>
               <p>Enjoy seamless navigation, exclusive features, and</p>
               <p>instant updates. Download now and elevate your </p>
@@ -220,7 +248,7 @@ const Home = () => {
                 >
                   <li className="playstore-link">
                     <a href="/">
-                      <PlayStore width={194} height={57} />
+                      <PlayStore width={180} height={57} />
                     </a>
                   </li>
                 </div>
@@ -234,7 +262,7 @@ const Home = () => {
                 >
                   <li className="apple-link">
                     <a href="/">
-                      <AppleStore width={194} height={57} />
+                      <AppleStore width={180} height={57} />
                     </a>
                   </li>
                 </div>
@@ -286,21 +314,20 @@ const Home = () => {
               </div>
             </div>
             <div className="branch-container">
-            {branch.map((branch) => (
-              <div key={branch.id} className="find-us-section">
-                <BrachDescription
-                  name={branch.name}
-                  buttontext={branch.buttontext}
-                  img_url={branch.img_url}
-                />
-              </div>
-            ))}
+              {branch.map((branch) => (
+                <div key={branch.id} className="find-us-section">
+                  <BrachDescription
+                    name={branch.name}
+                    buttontext={branch.buttontext}
+                    img_url={branch.img_url}
+                  />
+                </div>
+              ))}
             </div>
-           
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
