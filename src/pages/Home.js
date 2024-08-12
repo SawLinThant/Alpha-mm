@@ -322,6 +322,7 @@ const Home = () => {
                     name={branch.name}
                     buttontext={branch.buttontext}
                     img_url={branch.img_url}
+                    route={branch.route}
                   />
                 </div>
               ))}

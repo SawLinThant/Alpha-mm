@@ -46,6 +46,11 @@
   padding: 12px 20px 12px 20px;
 }
 
+.branch-description-text button:hover{
+  cursor: pointer;
+  background-color: blueviolet
+}
+
 .branch-description-text-layout {
   width: 90%;
   height: 100%;

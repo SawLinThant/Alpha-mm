@@ -7,6 +7,7 @@ import { ImProfile } from "react-icons/im";
 import { MdContactPhone } from "react-icons/md";
 import { CiCircleChevRight } from "react-icons/ci";
 import { GoSidebarExpand } from "react-icons/go";
+import SidebarToggleIcon from "../modules/icons/sidebar-toggle";
 
 const Sidebar = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -38,7 +39,8 @@ const Sidebar = () => {
           //setToggleContent("")
         }}
       >
-        <GoSidebarExpand size={25}/>
+        {/* <GoSidebarExpand size={25}/> */}
+        <SidebarToggleIcon width={25}height={25}/>
       </button>
       <div className={`side-bar ${isSidebarVisible ? "visible" : ""}`}>
         <div className="top-sidebar">

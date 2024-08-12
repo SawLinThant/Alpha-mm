@@ -145,3 +145,13 @@
         height: 18rem;
     }
 }
+
+@media screen and (max-width: 490px){
+    .store-service-detail-text{
+        justify-content: flex-start;
+    }
+
+    .store-service-btn-container{
+        margin-top: 0;
+    }
+  }
