@@ -14,8 +14,10 @@ import JoinHand from "../modules/icons/joinhand";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import RightArrrow from "../modules/icons/rightarrow";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const KITCHEN_ITEMS = [
     {
       id: "1",
@@ -161,7 +163,7 @@ const Home = () => {
                   </a>
                 </div>
               </div> */}
-              <div className="showcase-left-image-icon"></div>
+              {/* <div className="showcase-left-image-icon"></div> */}
             </div>
           </div>
           <div
@@ -172,16 +174,16 @@ const Home = () => {
           >
             {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
 
-            <div className="showcase-category">
+            <div onClick={() =>navigate('/products/kitchen')} className="showcase-category">
               <img src="/product-category/homeappliance.jpg" alt="img" />
             </div>
-            <div className="showcase-category">
+            <div onClick={() =>navigate('/products/laundry')} className="showcase-category">
               <img src="/product-category/cooling.jpg" alt="img" />
             </div>
-            <div className="showcase-category">
+            <div onClick={() =>navigate('/products/entertainment')} className="showcase-category">
               <img src="/product-category/entertainment.png" alt="img" />
             </div>
-            <div className="showcase-category">
+            <div onClick={() =>navigate('/products/miscellaneous')} className="showcase-category">
               <img src="/product-category/commercial.png" alt="img" />
             </div>
           </div>
@@ -190,10 +192,10 @@ const Home = () => {
       <section className="mobile-showcase">
       <div className="mobile-showcase-layout">
         <div className="mobile-showcase-top-container">
-          <div ref={mobileCategoryTopRef1} className={`mobile-showcase-category ${mobileCategoryTopInView1 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/products/kitchen')} ref={mobileCategoryTopRef1} className={`mobile-showcase-category ${mobileCategoryTopInView1 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/homeappliance.jpg" alt="img" />
           </div>
-          <div ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/products/laundry')} ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/entertainment.png" alt="img" />
           </div>
         </div>
@@ -203,10 +205,10 @@ const Home = () => {
           </div>
         </div>
         <div className="mobile-showcase-bottom-container">
-          <div ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/products/entertainment')} ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/cooling.jpg" alt="img" />
           </div>
-          <div ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/products/miscellaneous')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/commercial.png" alt="img" />
           </div>
         </div>

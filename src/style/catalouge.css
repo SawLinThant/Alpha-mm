@@ -17,6 +17,7 @@
 .left-description{
     display: flex;
     flex-direction: column;
+   
 }
 
 .description-text{
