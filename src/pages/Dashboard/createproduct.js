@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import AWS from "aws-sdk";
 import CustomDropdown from "../../components/dropdown";
 import LoadingButton from "../../modules/icons/loading-button";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 const CreateProduct = () => {
   const {
@@ -92,7 +94,6 @@ const CreateProduct = () => {
   const BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
   const REGION = process.env.REACT_APP_AWS_REGION;
 
-
   const uploadToS3 = async (images) => {
     AWS.config.update({
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
@@ -125,15 +126,106 @@ const CreateProduct = () => {
     return Promise.all(uploadPromises);
   };
 
+  const DO_BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
+  const DO_REGION = process.env.REACT_APP_DIGITALOCEAN_REGION;
+
+   //digital ocean s3 setup
+   const s3Client = new S3Client({
+    endpoint: "https://sgp1.digitaloceanspaces.com", 
+    region: DO_REGION, // 
+    credentials: {
+        accessKeyId: process.env.REACT_APP_DIGITALOCEAN_ACCESS_KEY_ID,
+        secretAccessKey: process.env.REACT_APP_DIGITALOCEAN_SECRET_ACCESS_KEY
+    }
+  });
+
+
+  // const uploadToDigitalOcean = async (images) => {
+  //   const uploadPromises = images.map(async (image) => {
+  //     const sanitizedImage = sanitizeFileName(image.name);
+  
+  //     const params = {
+  //       Bucket: DO_BUCKET, 
+  //       Key: `bonchon-erp/alpha-website/${sanitizedImage}`, 
+  //       Body: image,
+  //       ContentType: image.type,
+  //       ACL: 'public-read', 
+  //     };
+  
+  //     try {
+  //       const command = new PutObjectCommand(params);
+  //       const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
+        
+  //       const response = await fetch(url, {
+  //         method: 'PUT',
+  //         headers: {
+  //           'Content-Type': image.type,
+  //         },
+  //         body: image,
+  //       });
+  
+  //       if (response.ok) {
+  //         console.log(`${sanitizedImage} uploaded successfully to DigitalOcean Spaces`);
+  //       } else {
+  //         console.error(`Failed to upload ${sanitizedImage}: ${response.statusText}`);
+  //       }
+  //     } catch (err) {
+  //       console.error(`Failed to upload ${sanitizedImage}:`, err);
+  //     }
+  //   });
+  
+  //   return Promise.all(uploadPromises);
+  // };
+
+  const uploadToDigitalOcean = async (images) => {
+    const uploadPromises = images.map(async (image) => {
+      const sanitizedImage = sanitizeFileName(image.name);
+  
+      const params = {
+        Bucket: DO_BUCKET, 
+        Key: `bonchon-erp/alpha-website/${sanitizedImage}`, 
+        Body: image,
+        ContentType: image.type,
+        ACL: 'public-read', // Ensure public-read is set
+      };
+  
+      try {
+        const command = new PutObjectCommand(params);
+        const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
+        
+        const response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': image.type,
+            'x-amz-acl': 'public-read', // Ensure ACL is set in headers too
+          },
+          body: image,
+        });
+  
+        if (response.ok) {
+          console.log(`${sanitizedImage} uploaded successfully to DigitalOcean Spaces`);
+        } else {
+          console.error(`Failed to upload ${sanitizedImage}: ${response.statusText}`);
+        }
+      } catch (err) {
+        console.error(`Failed to upload ${sanitizedImage}:`, err);
+      }
+    });
+  
+    return Promise.all(uploadPromises);
+  };
+  
+  
+
   const handleCreate = handleSubmit(async (credential) => {
     
     try {
       const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
     if (images.length < 4) {
-      toast("Please upload at least four images");
+      toast("Please upload all images");
       return;
     }else {
-        uploadToS3(images);
+        uploadToDigitalOcean(images)
         await createProduct({
           variables: {
             name: credential.name,
@@ -141,14 +233,14 @@ const CreateProduct = () => {
             price: parseInt(credential.price),
             category_id: category,
             subcategory_id: subCategory,
-            image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+            image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
               image.name
-            )}`,
+            )}`,//https://axra.sgp1.digitaloceanspaces.com/axra-tv/$
             product_specification: credential.specification,
             product_description:  credential.description,
-            sub_img_one_url:`https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageOne.name)}` ,
-            sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`,
-            sub_img_three_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`
+            sub_img_one_url:`https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(subImageOne.name)}` ,
+            sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(subImageTwo.name)}`,
+            sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(subImageTwo.name)}`
           },
         });
        toast("Product created");
@@ -159,6 +251,41 @@ const CreateProduct = () => {
       throw new Error("error creating product");
     }
   });
+
+  // const handleCreate = handleSubmit(async (credential) => {
+    
+  //   try {
+  //     const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
+  //   if (images.length < 4) {
+  //     toast("Please upload at least four images");
+  //     return;
+  //   }else {
+  //       uploadToS3(images);
+  //       await createProduct({
+  //         variables: {
+  //           name: credential.name,
+  //           model: credential.model,
+  //           price: parseInt(credential.price),
+  //           category_id: category,
+  //           subcategory_id: subCategory,
+  //           image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+  //             image.name
+  //           )}`,
+  //           product_specification: credential.specification,
+  //           product_description:  credential.description,
+  //           sub_img_one_url:`https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageOne.name)}` ,
+  //           sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`,
+  //           sub_img_three_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`
+  //         },
+  //       });
+  //      toast("Product created");
+  //      resetFormFields();
+  //     }
+  //   } catch (err) {
+  //     toast("Product creation failed");
+  //     throw new Error("error creating product");
+  //   }
+  // });
 
   return (
     <>
@@ -303,7 +430,7 @@ const CreateProduct = () => {
                 </div>
               </div>
               <div className="submit-button-container">
-                <button type="submit">{createLoading?(<LoadingButton/>):"Submit"}</button>
+                <button type="submit">{createLoading?(<LoadingButton/>):"Create"}</button>
               </div>
             </form>
           </div>
