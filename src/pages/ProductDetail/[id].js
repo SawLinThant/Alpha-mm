@@ -62,12 +62,12 @@ const ProductDetail = () => {
         <div className="product-sub-nav-link-layout">
           <p onClick={() => navigate("/")}>Home</p>
           <span>/</span>
-          <p onClick={() => navigate(`/products/${category}`)}>{category}</p>
+          <p onClick={() => navigate(`/productbycategory/${category}`)}>{category}</p>
           <span>/</span>
-          <p onClick={() => navigate(`/products/subcategory/${subCategory}`)}>
+          {/* <p onClick={() => navigate(`/products/subcategory/${subCategory}`)}>
             {subCategory}
           </p>
-          <span>/</span>
+          <span>/</span> */}
           <p style={{ color: "#4A4CCD" }}>{model}</p>
         </div>
       </div>

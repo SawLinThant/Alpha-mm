@@ -187,6 +187,32 @@ export const GET_CATEGORY_BY_NAME = gql`
           category_name
         }
       }
+      products{
+         id
+      name
+      model
+      price
+      image_url
+      category_id
+      subcategory_id
+      category {
+        id
+        category_name
+        subcategories {
+          id
+          subcategory_name
+        }
+      }
+      subcategory {
+        id
+        subcategory_name
+      }
+      product_specification
+      product_description
+      sub_img_one_url
+      sub_img_two_url
+      sub_img_three_url
+      }
     }
   }
 `;

@@ -10,6 +10,7 @@ import { useState } from "react";
 import Service from "./pages/Service";
 import Store from "./pages/store";
 import ProductDetail from "./pages/ProductDetail/[id]";
+import ProductByCategory from "./pages/prouductbycategory/[category]";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -24,6 +25,7 @@ function App() {
         <Route path="login" element={<Login setIsLogin={setIsLogin} />} />
         <Route path="*" element={<Home />} />
         <Route path="aboutus" element={<AboutUs />} />
+        <Route path="productbycategory/:category" element={<ProductByCategory />} />
         <Route path="contactus" element={<ContactUs />} />
         <Route path="products/*" element={<Product />} />
         <Route path="service" element={<Service />} />

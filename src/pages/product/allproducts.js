@@ -18,26 +18,26 @@ const AllProducts = () => {
   const KITCHEN_ITEMS = [
     {
       id: "1",
-      name: "Kitchens",
+      name: "Home Appliance",
       items: {
         itemone:"Electric Kettles",
         itemtwo:"Microwave Ovens",
         itemthree:"Blenders",
       },
       img_url: "/kitchen.png",
-      product_link: "/products/kitchen"
+      product_link: "/productbycategory/kitchen"
     },
    
     {
       id: "2",
-      name: "Laundry",
+      name: "Cooling Electronic",
       items: {
         itemone:"Washing Machines",
         itemtwo:"Dryers",
         itemthree:"Steamers",
       },
       img_url: "/laundry.png",
-      product_link: "/products/laundry"
+      product_link: "/productbycategory/cooling"
     },
 
     {
@@ -48,7 +48,7 @@ const AllProducts = () => {
         itemtwo:"Sound Systems",
       },
       img_url: "/entertainment.png",
-      product_link: "/products/entertainment"
+      product_link: "/productbycategory/entertainment"
     },
 
     {
@@ -59,7 +59,7 @@ const AllProducts = () => {
         itemtwo:"Air Purifiers",
       },
       img_url: "/miscellaneous.png",
-      product_link: "/products/miscellaneous"
+      product_link: "/productbycategory/commercial"
     },
   ];
 
@@ -280,16 +280,16 @@ const AllProducts = () => {
           >
             {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
 
-            <div onClick={() =>navigate('/products/kitchen')} className="showcase-category">
+            <div onClick={() =>navigate('/productbycategory/kitchen')} className="showcase-category">
               <img src="/product-category/homeappliance.jpg" alt="img" />
             </div>
-            <div onClick={() =>navigate('/products/entertainment')} className="showcase-category">
+            <div onClick={() =>navigate('/productbycategory/cooling')} className="showcase-category">
               <img src="/product-category/cooling.jpg" alt="img" />
             </div>
-            <div onClick={() =>navigate('/products/entertainment')} className="showcase-category">
+            <div onClick={() =>navigate('/productbycategory/entertainment')} className="showcase-category">
               <img src="/product-category/entertainment.png" alt="img" />
             </div>
-            <div onClick={() =>navigate('/products/miscellaneous')} className="showcase-category">
+            <div onClick={() =>navigate('/productbycategory/commercial')} className="showcase-category">
               <img src="/product-category/commercial.png" alt="img" />
             </div>
           </div>
@@ -298,10 +298,10 @@ const AllProducts = () => {
       <section className="mobile-showcase">
       <div className="mobile-showcase-layout">
         <div className="mobile-showcase-top-container">
-          <div onClick={() =>navigate('/products/kitchen')} ref={mobileCategoryTopRef1} className={`mobile-showcase-category ${mobileCategoryTopInView1 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/productbycategory/kitchen')} ref={mobileCategoryTopRef1} className={`mobile-showcase-category ${mobileCategoryTopInView1 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/homeappliance.jpg" alt="img" />
           </div>
-          <div onClick={() =>navigate('/products/entertainmen')} ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/productbycategory/cooling')} ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/entertainment.png" alt="img" />
           </div>
         </div>
@@ -311,10 +311,10 @@ const AllProducts = () => {
           </div>
         </div>
         <div className="mobile-showcase-bottom-container">
-          <div onClick={() =>navigate('/products/entertainment')} ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/productbycategory/entertainment')} ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/cooling.jpg" alt="img" />
           </div>
-          <div onClick={() =>navigate('/products/miscellaneous')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/productbycategory/commercial')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/commercial.png" alt="img" />
           </div>
         </div>
