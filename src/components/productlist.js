@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS_BY_SUBCATEGORY } from "../graphql/queries/productQueries";
 import LoadingButton from "../modules/icons/loading-button";
-import { useState,useMemo } from "react";
+import { useState,useMemo, useEffect } from "react";
 import PaginationArrowIcon from "../modules/icons/pagination-arrow";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,9 @@ const ProductList = ({subCategory='kettle'}) => {
         pollInterval: 500
     }
   );
+  useEffect(() => {
+
+  },[subCategory])
   const products = getSubcategory ? getSubcategory.product : [];
   const [pagination, setPagination] = useState(1);
   const itemsPerPage = 4;

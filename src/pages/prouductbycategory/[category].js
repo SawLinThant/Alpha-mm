@@ -6,11 +6,12 @@ import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 import { useQuery } from "@apollo/client";
 import { GET_CATEGORY_BY_NAME } from "../../graphql/queries/productQueries";
 import ProductList from "../../components/productlist";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingButton from "../../modules/icons/loading-button";
 import Footer from "../../components/footer";
 import { useMemo } from "react";
 import SidebarToggleIcon from "../../modules/icons/sidebar-toggle";
+import Sidebar from "../../components/mobilenav";
 
 const ProductByCategory = () => {
   const { category } = useParams();
@@ -44,6 +45,10 @@ const ProductByCategory = () => {
     get_category && get_category.category.length > 0
       ? get_category.category[0].subcategories
       : [];
+
+  useEffect(() => {
+
+  },[subCategory])
 
   const [pagination, setPagination] = useState(1);
   const [typePagination,setTypePagination] = useState(1);
@@ -79,6 +84,7 @@ const ProductByCategory = () => {
 
   const handleTypePageChange = (direction) => {
     console.log(direction);
+    setActiveBtn(null)
     setTypePagination((prevPagination) => {
       const currentPage = prevPagination;
       const newPage =
@@ -239,7 +245,11 @@ const ProductByCategory = () => {
             </button>
           </div>
           <div className="showmore-btn-container">
-            <button><p>Show More</p> <SidebarToggleIcon height={24} width={24}/></button>
+            <button className="showmore-btn">
+              <p className="showmore-btn-text">Show More</p> 
+            <Sidebar showMore="true" subCategory={subCategoryList} Category={category} setSubcategory={setSubcategory} setIsAllProducts={setIsAllProducts}/>
+            {/* <SidebarToggleIcon height={24} width={24}/> */}
+            </button>
           </div>
         </div>
       </div>
@@ -304,7 +314,7 @@ const ProductByCategory = () => {
           </div>
         </div>
       ) : (
-        <ProductList subCategory={subCategory} />
+        <ProductList key={subCategory} subCategory={subCategory} />
       )}
       <div className="divider"></div>
       <Footer />
