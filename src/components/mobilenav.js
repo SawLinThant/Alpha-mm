@@ -67,31 +67,31 @@ const Sidebar = ({
         {!showMore ? (
           <div className="mobile-nav-wrap">
             <div className="nav-link-container">
-              <BiHome />{" "}
+              {/* <BiHome />{" "} */}
               <a href="/">
                 <p>Home</p>
-                <CiCircleChevRight size={20} />
+                {/* <CiCircleChevRight size={20} /> */}
               </a>
             </div>
             <div className="nav-link-container">
-              <FaProductHunt />{" "}
+              {/* <FaProductHunt />{" "} */}
               <a href="/products">
                 <p>Products</p>
-                <CiCircleChevRight size={20} />
+                {/* <CiCircleChevRight size={20} /> */}
               </a>
             </div>
             <div className="nav-link-container">
-              <ImProfile />{" "}
+              {/* <ImProfile />{" "} */}
               <a href="/aboutus">
                 <p>About Us</p>
-                <CiCircleChevRight size={20} />
+                {/* <CiCircleChevRight size={20} /> */}
               </a>
             </div>
             <div className="nav-link-container">
-              <MdContactPhone />{" "}
+              {/* <MdContactPhone />{" "} */}
               <a href="/contactus">
                 <p>Contact Us</p>
-                <CiCircleChevRight color="#262626" size={20} />
+                {/* <CiCircleChevRight color="#262626" size={20} /> */}
               </a>
             </div>
           </div>
