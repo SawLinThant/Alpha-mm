@@ -87,6 +87,8 @@ const ProductDetail = () => {
     }
   }, [data]);
 
+  console.log(subCategory)
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProductData({
@@ -104,7 +106,6 @@ const ProductDetail = () => {
   const [subImageTwo, setSubImageTwo] = useState(null);
   const [subImageTwoUrl, setSubImageTwoUrl] = useState(null);
 
-
   const [subImageThree, setSubImageThree] = useState(null);
   const [subImageThreeUrl, setSubImageThreeUrl] = useState(null);
 
@@ -118,7 +119,7 @@ const ProductDetail = () => {
           e.target.files[0].name
         )}`,
       });
-    }   
+    }
   };
 
   const handleSubImageTwoChange = (e) => {
@@ -160,7 +161,6 @@ const ProductDetail = () => {
     }
   };
 
-
   const uploadToS3 = async (images) => {
     AWS.config.update({
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
@@ -172,7 +172,7 @@ const ProductDetail = () => {
       region: REGION,
     });
 
-    console.log(images)
+    console.log(images);
 
     const uploadPromises = images.map((image) => {
       const sanitizedImage = sanitizeFileName(image.name);
@@ -187,7 +187,9 @@ const ProductDetail = () => {
       return s3
         .putObject(params)
         .on("httpUploadProgress", (evt) => {
-          console.log("Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%");
+          console.log(
+            "Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%"
+          );
         })
         .promise();
     });
@@ -195,8 +197,8 @@ const ProductDetail = () => {
     return Promise.all(uploadPromises);
   };
 
-
-  const [updateProduct, { error,loading:updateLoading }] = useMutation(UPDATE_PRODUCT);
+  const [updateProduct, { error, loading: updateLoading }] =
+    useMutation(UPDATE_PRODUCT);
 
   const [editable, setEditable] = useState(false);
 
@@ -253,8 +255,10 @@ const ProductDetail = () => {
 
   const handleUpdate = handleSubmit(async (credential) => {
     try {
-      const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
-      uploadToS3(images)
+      const images = [image, subImageOne, subImageTwo, subImageThree].filter(
+        Boolean
+      );
+      uploadToS3(images);
       await updateProduct({
         variables: {
           id: id, // replace with the actual product ID
@@ -262,8 +266,10 @@ const ProductDetail = () => {
           model: productData.model,
           price: productData.price,
           image_url: productData.image_url,
-          category_id: productData.category.id,
-          subcategory_id: productData.subcategory.id,
+         // category_id: productData.category.id,
+         category_id: category,
+         // subcategory_id: productData.subcategory.id,
+         subcategory_id: subCategory,
           product_specification: productData.product_specification,
           product_description: productData.product_description,
           sub_img_one_url: productData.sub_img_one_url,
@@ -350,40 +356,39 @@ const ProductDetail = () => {
               <div className="description-image-container">
                 <div className="description-image-layout">
                   {editable ? (
-
                     <div className="description-image-layout-container">
                       <div className="update-main-image-container">
-                      <ImageUploadField
-                        handleImageChange={handleImageChange}
-                        image={image}
-                        imageUrl={imageUrl}
-                        label="Update Image"
-                      />
+                        <ImageUploadField
+                          handleImageChange={handleImageChange}
+                          image={image}
+                          imageUrl={imageUrl}
+                          label="Update Image"
+                        />
                       </div>
-                     
+
                       <div className="sub-img-update-field">
                         <ImageUploadField
-                         handleImageChange={handleSubImageOneChange}
-                         image={subImageOne}
-                         imageUrl={subImageOneUrl}
-                        label="Update Image"
-                        fontsize="12px"
+                          handleImageChange={handleSubImageOneChange}
+                          image={subImageOne}
+                          imageUrl={subImageOneUrl}
+                          label="Update Image"
+                          fontsize="12px"
                         />
-                        <ImageUploadField 
-                         handleImageChange={handleSubImageTwoChange}
-                         image={subImageTwo}
-                         imageUrl={subImageTwoUrl}
-                         label="Update Image"
-                         fontsize="12px"
+                        <ImageUploadField
+                          handleImageChange={handleSubImageTwoChange}
+                          image={subImageTwo}
+                          imageUrl={subImageTwoUrl}
+                          label="Update Image"
+                          fontsize="12px"
                         />
                       </div>
                       <div className="sub-img-update-field">
-                        <ImageUploadField 
-                          handleImageChange={ handleSubImageThreeChange}
+                        <ImageUploadField
+                          handleImageChange={handleSubImageThreeChange}
                           image={subImageThree}
                           imageUrl={subImageThreeUrl}
-                         label="Update Image"
-                         fontsize="12px"
+                          label="Update Image"
+                          fontsize="12px"
                         />
                       </div>
                     </div>
@@ -395,6 +400,32 @@ const ProductDetail = () => {
                     />
                   )}
                 </div>
+                {editable ? (
+                  <div className="category-field-container">
+                    <div className="category-field-container-layout">
+                    <CustomDropdown
+                      label="Select Category"
+                      isMain={true}
+                      setCategory={setCategory}
+                      setSubCategory={setSubCategory}
+                    />
+                    <CustomDropdown
+                      label="Select Subcategory"
+                      isMain={false}
+                      setCategory={setCategory}
+                      setSubCategory={setSubCategory}
+                    />
+                    </div>
+                    
+                  </div>
+                ) : (
+                  <div className="category-field-container">
+                  <div className="category-field-container-layout">
+                    <h3>- {productData.category.category_name}<span style={{color:'blueviolet', padding:'0 5px 0 5px'}}>/</span>{productData.subcategory.subcategory_name}</h3>
+                  </div>
+                  
+                </div>
+                )}
               </div>
               <div className="description-text-container">
                 <div className="description-text-layout">
@@ -477,7 +508,9 @@ const ProductDetail = () => {
                       }}
                     /> */}
                     <div className="edit-save-button-container">
-                      <button type="submit">{updateLoading?(<LoadingButton/>):"Update"}</button>
+                      <button type="submit">
+                        {updateLoading ? <LoadingButton /> : "Update"}
+                      </button>
                     </div>
                   </form>
                 </div>

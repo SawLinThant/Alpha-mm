@@ -4,6 +4,11 @@
     font-family: sans-serif;
 }
 
+.custom-dropdown .Dropdown-menu {
+  max-height: 200px; /* Set the height as per your requirement */
+  overflow-y: auto; /* Enables vertical scrollbar if content exceeds max-height */
+}
+
 .Dropdown-root {
     width: 100%;
     position: relative;
@@ -22,7 +27,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #969393;
     font-size: 14px;
     font-family: sans-serif;
   }
@@ -33,6 +37,7 @@
     width: 99%;
     opacity: 2;
     border: 1px solid #3c3a3a;
+    z-index: 1;
   }
   
   .Dropdown-option {
@@ -42,6 +47,6 @@
   }
   
   .Dropdown-option:hover {
-    background: #7b6fe1;
+    background: linear-gradient(to right, #11343b, #625aa7, #271f57);
     color: white;
   }

@@ -4,9 +4,7 @@
     display: flex;  
     place-items: center;
     justify-content: center;
-    background-image: url('/public/login-bg.jpg');
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(to right, #11343b, #192439, #23176b);
 }
 
 .login-container-layout{
@@ -68,7 +66,7 @@
     color: white;
     border-radius: 0.25rem;
     border: 1px solid gainsboro;
-    background-color: blueviolet;
+    background: linear-gradient(to right, #11343b, #192439, #23176b);
     transition-duration: 0.5s;
     font-size: 18px;
     font-family: sans-serif;
@@ -76,7 +74,7 @@
 
 .login-form-layout form button:hover{
     background-color: white;
-    color: black;
+    color: rgb(183, 162, 162);
     border:1px solid gray;
     cursor: pointer;
 }

@@ -42,12 +42,12 @@ const AdminSidebar = () => {
             <div className="profile-layout">
               <div className="profile-pic-container">
                 <div className="profile-img">
-                  {/* <img src="/alphalogo.png" alt="alpha-logo" /> */}
-                  <h2>A</h2>
+                  <img src="/alpha-logo.png" alt="alpha-logo" />
+                  {/* <h2>A</h2> */}
                 </div>
               </div>
               <div className="email-container">
-              {!isCollapse?(<p>alphamyanmar@gmail.com</p>):(<div></div>)}  
+              {!isCollapse?(<p>Alpha Electroincs</p>):(<div></div>)}  
               </div>
             </div>
           </div>
