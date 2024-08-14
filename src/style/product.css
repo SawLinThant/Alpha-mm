@@ -384,6 +384,10 @@ grid-template-columns: repeat(4,1fr); */
     transform: rotate(180deg);
 }
 
+.footer-divider{
+    height: 27vh;
+}
+
 @media screen and (max-width: 1200px){
     .category-product-list-layout{
         grid-template-columns: repeat(3,1fr);    
@@ -462,6 +466,10 @@ grid-template-columns: repeat(4,1fr); */
 
     .category-individual-product-img{
         height: 21.438rem;
+    }
+
+    .footer-divider{
+        height: 5vh;
     }
 }
 

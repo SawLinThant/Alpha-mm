@@ -76,7 +76,7 @@
   width: 8.25rem;
   height: 3rem;
   padding-right: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 .showcaseleft-img-text a {
@@ -157,8 +157,8 @@ background-size: cover;
 
 .showcase-category img {
   position: relative;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
 }
 

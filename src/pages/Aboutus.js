@@ -58,11 +58,11 @@ const AboutUs = () => {
                 normal distribution of letters
               </p>
             </div>
-            <div className="mvp-button">
+            {/* <div className="mvp-button">
               <a href="/">
                 <p>Read More</p><RightArrrow width={24} height={24}/>
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="mvp-image-container">
           <div className="mvp-image">
