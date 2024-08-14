@@ -35,7 +35,7 @@
 }
 
 .side-bar.visible {
-    right: -10%;
+    right: -5%;
 }
 
 .top-sidebar{
@@ -164,10 +164,18 @@ color: #FAFAFA;
     .side-bar-container{
         display: block;
     }
+
+    .inner-side-button{
+        margin-right: 4.5rem;
+     }
 }
 
 @media (max-width: 576px){
     .side-bar{
         width: 95%;
     }
+
+    .inner-side-button{
+        margin-right: 3.5rem;
+     }
 }

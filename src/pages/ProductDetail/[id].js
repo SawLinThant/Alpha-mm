@@ -56,7 +56,7 @@ const ProductDetail = () => {
   const relatedPorudct = subcategory && subcategory.subcategory ? subcategory.subcategory[0].products : [];
 
   return (
-    <div>
+    <div style={{backgroundColor:'#B1B3B6'}}>
       <Header />
       <div className="product-sub-nav-link">
         <div className="product-sub-nav-link-layout">
@@ -123,7 +123,7 @@ const ProductDetail = () => {
                   ))}
               </div>
               <div className="product-mvp-button">
-                <button>
+                <button onClick={() => navigate('/store')}>
                   <p>Find Store Location</p>
                   <DirectionIcon width={24} height={24} />
                 </button>
@@ -131,7 +131,7 @@ const ProductDetail = () => {
             </div>
           </div>
           <div className="product-bottom-description-container">
-            <h1>Product details of Alpha 1.7L Electric Kettle ALKT170L</h1>
+            <h1>Product details of {`${productName} ${model}`}</h1>
             <div className="description-list-container">
               <ul>
                 {specificationList &&

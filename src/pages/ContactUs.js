@@ -32,7 +32,7 @@ const ContactUs = () => {
     }
   });
   return (
-    <div>
+    <div style={{backgroundColor:'#B1B3B6'}}>
       <Toaster />
       <Header />
       <section className="contact-form-container">

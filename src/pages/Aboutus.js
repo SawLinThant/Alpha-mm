@@ -5,7 +5,7 @@ import "../style/aboutus.css";
 
 const AboutUs = () => {
   return (
-    <div className="aboutus-container">
+    <div className="aboutus-container" style={{backgroundColor:'#B1B3B6'}}>
       <Header />
       <section className="about-alpha">
         <div className="about-alpha-layout">

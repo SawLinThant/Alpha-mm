@@ -50,7 +50,7 @@ const Home = () => {
         itemone:"Televisions",
         itemtwo:"Sound Systems",
       },
-      img_url: "/entertainment.png",
+      img_url: "/entertainment.jpg",
       product_link: "/products/entertainment"
     },
 
@@ -61,7 +61,7 @@ const Home = () => {
         itemone:"Water Purifiers",
         itemtwo:"Air Purifiers",
       },
-      img_url: "/miscellaneous.png",
+      img_url: "/miscellaneous.jpg",
       product_link: "/products/miscellaneous"
     },
   ];
@@ -99,7 +99,7 @@ const Home = () => {
   });
 
   return (
-    <div className="home-container">
+    <div className="home-container" style={{backgroundColor:'#B1B3B6'}}>
       <Header />
       <section className="hero-container">
         <div className="hero">
@@ -126,7 +126,7 @@ const Home = () => {
               </p>
             </div>
             <div className="mvp-button">
-              <a href="/">
+              <a href="/aboutus">
                 <p>Read More</p>
                 <RightArrrow width={24} height={24} />
               </a>
@@ -154,15 +154,15 @@ const Home = () => {
             }`}
           >
             <div className="showcase-left-img">
-              <img src="/left-showcasebg.jpg" alt="" />
-              {/* <div className="showcaseleft-img-text">
+              {/* <img src="/left-showcasebg.jpg" alt="" /> */}
+              <div className="showcaseleft-img-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
                   <a href="/products">
                   <p>View All</p><RightArrrow width={24} height={24}/>
                   </a>
                 </div>
-              </div> */}
+              </div>
               {/* <div className="showcase-left-image-icon"></div> */}
             </div>
           </div>
@@ -181,10 +181,10 @@ const Home = () => {
               <img src="/product-category/cooling.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/entertainment')} className="showcase-category">
-              <img src="/product-category/entertainment.png" alt="img" />
+              <img src="/product-category/entertainment.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/commercial')} className="showcase-category">
-              <img src="/product-category/commercial.png" alt="img" />
+              <img src="/product-category/commercial.jpg" alt="img" />
             </div>
           </div>
         </div>
@@ -196,12 +196,20 @@ const Home = () => {
             <img src="/product-category/homeappliance.jpg" alt="img" />
           </div>
           <div onClick={() =>navigate('/productbycategory/cooling')} ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
-            <img src="/product-category/entertainment.png" alt="img" />
+            <img src="/product-category/entertainment.jpg" alt="img" />
           </div>
         </div>
         <div className="mobile-showcase-mid-container">
           <div ref={mobileCategoryMidRef} className={`mobile-showcase-mid ${mobileCategoryMidInView ? "slide-mobile-category" : ""}`}>
-            <img src="/left-showcasebg.jpg" alt="img" />
+            {/* <img src="/left-showcasebg.jpg" alt="img" /> */}
+            <div className="mobile-showcase-mid-text">
+                <h2>Discover Your Perfect Home Appliance</h2>
+                <div className="mobile-showcase-mid-img-button-container">
+                  <a href="/products">
+                  <p>View All</p><RightArrrow width={24} height={24}/>
+                  </a>
+                </div>
+              </div>
           </div>
         </div>
         <div className="mobile-showcase-bottom-container">
@@ -209,7 +217,7 @@ const Home = () => {
             <img src="/product-category/cooling.jpg" alt="img" />
           </div>
           <div onClick={() =>navigate('/productbycategory/commercial')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
-            <img src="/product-category/commercial.png" alt="img" />
+            <img src="/product-category/commercial.jpg" alt="img" />
           </div>
         </div>
       </div>
