@@ -17,7 +17,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import LoadingButton from "../../../modules/icons/loading-button";
 import AWS from "aws-sdk";
-import { prettyDOM } from "@testing-library/react";
+import { uploadToDigitalOcean } from "../../../utils/s3Service";
 
 const ProductDetail = () => {
   const { register, handleSubmit } = useForm();
@@ -258,7 +258,8 @@ const ProductDetail = () => {
       const images = [image, subImageOne, subImageTwo, subImageThree].filter(
         Boolean
       );
-      uploadToS3(images);
+    //  uploadToS3(images);
+    uploadToDigitalOcean(images)
       await updateProduct({
         variables: {
           id: id, // replace with the actual product ID

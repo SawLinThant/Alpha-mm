@@ -12,6 +12,7 @@ import CustomDropdown from "../../components/dropdown";
 import LoadingButton from "../../modules/icons/loading-button";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { uploadToDigitalOcean } from "../../utils/s3Service";
 
 const CreateProduct = () => {
   const {
@@ -90,132 +91,6 @@ const CreateProduct = () => {
   const sanitizeFileName = (fileName) => {
     return fileName.replace(/[^a-z0-9.]/gi, "_").toLowerCase();
   };
-
-  const BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
-  const REGION = process.env.REACT_APP_AWS_REGION;
-
-  const uploadToS3 = async (images) => {
-    AWS.config.update({
-      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
-    });
-
-    const s3 = new AWS.S3({
-      params: { Bucket: BUCKET },
-      region: REGION,
-    });
-
-    const uploadPromises = images.map((image) => {
-      const sanitizedImage = sanitizeFileName(image.name);
-
-      const params = {
-        Bucket: BUCKET,
-        Key: `alpha-myanmar-images/${sanitizedImage}`,
-        Body: image,
-        ContentType: image.type,
-      };
-
-      return s3
-        .putObject(params)
-        .on("httpUploadProgress", (evt) => {
-          console.log("Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%");
-        })
-        .promise();
-    });
-
-    return Promise.all(uploadPromises);
-  };
-
-  const DO_BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
-  const DO_REGION = process.env.REACT_APP_DIGITALOCEAN_REGION;
-
-   //digital ocean s3 setup
-   const s3Client = new S3Client({
-    endpoint: "https://sgp1.digitaloceanspaces.com", 
-    region: DO_REGION, // 
-    credentials: {
-        accessKeyId: process.env.REACT_APP_DIGITALOCEAN_ACCESS_KEY_ID,
-        secretAccessKey: process.env.REACT_APP_DIGITALOCEAN_SECRET_ACCESS_KEY
-    }
-  });
-
-
-  // const uploadToDigitalOcean = async (images) => {
-  //   const uploadPromises = images.map(async (image) => {
-  //     const sanitizedImage = sanitizeFileName(image.name);
-  
-  //     const params = {
-  //       Bucket: DO_BUCKET, 
-  //       Key: `bonchon-erp/alpha-website/${sanitizedImage}`, 
-  //       Body: image,
-  //       ContentType: image.type,
-  //       ACL: 'public-read', 
-  //     };
-  
-  //     try {
-  //       const command = new PutObjectCommand(params);
-  //       const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
-        
-  //       const response = await fetch(url, {
-  //         method: 'PUT',
-  //         headers: {
-  //           'Content-Type': image.type,
-  //         },
-  //         body: image,
-  //       });
-  
-  //       if (response.ok) {
-  //         console.log(`${sanitizedImage} uploaded successfully to DigitalOcean Spaces`);
-  //       } else {
-  //         console.error(`Failed to upload ${sanitizedImage}: ${response.statusText}`);
-  //       }
-  //     } catch (err) {
-  //       console.error(`Failed to upload ${sanitizedImage}:`, err);
-  //     }
-  //   });
-  
-  //   return Promise.all(uploadPromises);
-  // };
-
-  const uploadToDigitalOcean = async (images) => {
-    const uploadPromises = images.map(async (image) => {
-      const sanitizedImage = sanitizeFileName(image.name);
-  
-      const params = {
-        Bucket: DO_BUCKET, 
-        Key: `bonchon-erp/alpha-website/${sanitizedImage}`, 
-        Body: image,
-        ContentType: image.type,
-        ACL: 'public-read', // Ensure public-read is set
-      };
-  
-      try {
-        const command = new PutObjectCommand(params);
-        const url = await getSignedUrl(s3Client, command, { expiresIn: 3600 });
-        
-        const response = await fetch(url, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': image.type,
-            'x-amz-acl': 'public-read', // Ensure ACL is set in headers too
-          },
-          body: image,
-        });
-  
-        if (response.ok) {
-          console.log(`${sanitizedImage} uploaded successfully to DigitalOcean Spaces`);
-        } else {
-          console.error(`Failed to upload ${sanitizedImage}: ${response.statusText}`);
-        }
-      } catch (err) {
-        console.error(`Failed to upload ${sanitizedImage}:`, err);
-      }
-    });
-  
-    return Promise.all(uploadPromises);
-  };
-  
-  
 
   const handleCreate = handleSubmit(async (credential) => {
     
