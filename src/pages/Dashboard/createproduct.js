@@ -3,7 +3,7 @@ import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT} from "../../graphql/mutation/productMutations";
+import { CREATE_PRODUCT } from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 import ImageUploadField from "../../components/image-upload-field";
 import { useNavigate } from "react-router-dom";
@@ -13,13 +13,13 @@ import LoadingButton from "../../modules/icons/loading-button";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { uploadToDigitalOcean } from "../../utils/s3Service";
+import { CREATE_CATEGORY,CREATE_SUBCATEGORY } from "../../graphql/mutation/productMutations";
 
 const CreateProduct = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+  const { register: registerCategory, handleSubmit: handleSubmitCategory, reset: resetCategory } = useForm(); // Category form
+  const { register: registerSubcategory, handleSubmit: handleSubmitSubcategory, reset: resetSubcategory } = useForm(); // Subcategory form
+
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
@@ -29,14 +29,66 @@ const CreateProduct = () => {
   const [subImageTwo, setSubImageTwo] = useState(null);
   const [subImageTwoUrl, setSubImageTwoUrl] = useState(null);
 
-
   const [subImageThree, setSubImageThree] = useState(null);
   const [subImageThreeUrl, setSubImageThreeUrl] = useState(null);
 
-  const [createProduct, { loading:createLoading }] = useMutation(CREATE_PRODUCT);
+  const [openForm, setOpenForm] = useState(false);
+
+  const [createCategory,{error:createcategoryError, loading:createCategoryLoading}] = useMutation(CREATE_CATEGORY);
+  const [createSubCategory,{error:createSubcategoryError, loading:createSubcategoryLoading}] = useMutation(CREATE_SUBCATEGORY);
+
+  const handleCreateCategory = handleSubmitCategory(async ({ category_name }) => {
+    try {
+      const { data } = await createCategory({
+        variables: { category_name },
+      });
+  
+      if (data?.insert_category_one) {
+        toast("Category created successfully");
+     resetCategory();
+      } else {
+        toast("Failed to create category");
+      }
+    } catch (error) {
+      toast("Error creating category");
+      console.log(createcategoryError)
+      console.error(error);
+    }
+    console.log(category_name)
+  });
+
+  const handleCreateSubCategory = handleSubmitSubcategory(async ({ subcategory_name }) => {
+    try {
+      if (!category) {
+        toast("Please select a category first");
+        return;
+      }
+  
+      const { data } = await createSubCategory({
+        variables: { subcategory_name:  subcategory_name, category_id: category },
+      });
+  
+      if (data?.insert_subcategory_one) {
+        toast("Subcategory created successfully");
+      //  setSubCategory(data.insert_subcategory_one.id); // Set the created subcategory ID
+      resetSubcategory();
+      } else {
+        toast("Failed to create subcategory");
+      }
+    } catch (error) {
+      toast("Error creating subcategory");
+      console.log(createSubcategoryError)
+      console.error(error);
+    }
+  });
+
+  const [createProduct, { loading: createLoading }] =
+    useMutation(CREATE_PRODUCT);
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
+
+  console.log(openForm);
 
   const resetFormFields = () => {
     // Reset form inputs
@@ -70,7 +122,7 @@ const CreateProduct = () => {
     if (e.target.files && e.target.files[0]) {
       setSubImageOne(e.target.files[0]);
       setSubImageOneUrl(URL.createObjectURL(e.target.files[0]));
-      console.log(e.target.files[0])
+      console.log(e.target.files[0]);
     }
   };
 
@@ -93,14 +145,15 @@ const CreateProduct = () => {
   };
 
   const handleCreate = handleSubmit(async (credential) => {
-    
     try {
-      const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
-    if (images.length < 4) {
-      toast("Please upload all images");
-      return;
-    }else {
-        uploadToDigitalOcean(images)
+      const images = [image, subImageOne, subImageTwo, subImageThree].filter(
+        Boolean
+      );
+      if (images.length < 4) {
+        toast("Please upload all images");
+        return;
+      } else {
+        uploadToDigitalOcean(images);
         await createProduct({
           variables: {
             name: credential.name,
@@ -110,16 +163,22 @@ const CreateProduct = () => {
             subcategory_id: subCategory,
             image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
               image.name
-            )}`,//https://axra.sgp1.digitaloceanspaces.com/axra-tv/$
+            )}`, //https://axra.sgp1.digitaloceanspaces.com/axra-tv/$
             product_specification: credential.specification,
-            product_description:  credential.description,
-            sub_img_one_url:`https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(subImageOne.name)}` ,
-            sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(subImageTwo.name)}`,
-            sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(subImageTwo.name)}`
+            product_description: credential.description,
+            sub_img_one_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+              subImageOne.name
+            )}`,
+            sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+              subImageTwo.name
+            )}`,
+            sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+              subImageTwo.name
+            )}`,
           },
         });
-       toast("Product created");
-       resetFormFields();
+        toast("Product created");
+        resetFormFields();
       }
     } catch (err) {
       toast("Product creation failed");
@@ -127,56 +186,101 @@ const CreateProduct = () => {
     }
   });
 
-  // const handleCreate = handleSubmit(async (credential) => {
-    
-  //   try {
-  //     const images = [image, subImageOne, subImageTwo, subImageThree].filter(Boolean);
-  //   if (images.length < 4) {
-  //     toast("Please upload at least four images");
-  //     return;
-  //   }else {
-  //       uploadToS3(images);
-  //       await createProduct({
-  //         variables: {
-  //           name: credential.name,
-  //           model: credential.model,
-  //           price: parseInt(credential.price),
-  //           category_id: category,
-  //           subcategory_id: subCategory,
-  //           image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
-  //             image.name
-  //           )}`,
-  //           product_specification: credential.specification,
-  //           product_description:  credential.description,
-  //           sub_img_one_url:`https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageOne.name)}` ,
-  //           sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`,
-  //           sub_img_three_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(subImageTwo.name)}`
-  //         },
-  //       });
-  //      toast("Product created");
-  //      resetFormFields();
-  //     }
-  //   } catch (err) {
-  //     toast("Product creation failed");
-  //     throw new Error("error creating product");
-  //   }
-  // });
-
   return (
     <>
       <Toaster />
       <div className="create-product-container">
         <div className="create-product-layout">
           <div className="create-form-heading">
-          <div className="back-button-container">
-            <button onClick={() => navigate("/dashboard",{ state: { refetch: true } })}>
-              <IoArrowBackOutline size={24}/>
-              <p>Back</p>
-            </button>
-          </div>
-          <h2>Create New Product</h2>
+            <div className="create-form-heading-layout">
+              <div className="back-button-container">
+                <button
+                  onClick={() =>
+                    navigate("/dashboard", { state: { refetch: true } })
+                  }
+                >
+                  <IoArrowBackOutline size={24} />
+                  <p>Back</p>
+                </button>
+              </div>
+              <h2>Create New Product</h2>
+            </div>
           </div>
           <div className="product-form-container">
+            <div
+              className={`create-category-form-container ${
+                openForm ? "openCategoryForm" : ""
+              }`}
+            >
+              <div className="create-category-form-layout">
+                <form
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                    justifyContent: "start",
+                    paddingLeft: "2rem",
+                    paddingTop: "1rem",
+                  }}
+                  className="category-form"
+                  action=""
+                  onSubmit={handleCreateCategory}
+                >
+                  <div className="input-field">
+                    <label htmlFor="">Category</label>
+                    <input
+                      //  style={{width:''}}
+                      name="category_name"
+                      type="text"
+                      placeholder="Enter category name"
+                      {...registerCategory("category_name", {
+                        required: "category_name is required",
+                      })}
+                    />
+                  </div>
+                  <button type="submit" style={{ marginLeft: "0", background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white' }}>
+                    {createCategoryLoading?(<LoadingButton/>):'Add'}
+                  </button>
+                </form>
+                <form
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                    justifyContent: "start",
+                    paddingLeft: "2rem",
+                    paddingTop: "1rem",
+                  }}
+                  className="subcategory-form"
+                  action=""
+                  onSubmit={handleCreateSubCategory}
+                >
+                  <CustomDropdown
+                    label="Select Related Category"
+                    isMain={true}
+                    setCategory={setCategory}
+                    setSubCategory={setSubCategory}
+                    addable={false}
+                    setOpenForm={setOpenForm}
+                  />
+                  <div className="input-field">
+                    <label htmlFor="">Subcategory</label>
+                    <input
+                      name="subcategory_name"
+                      type="text"
+                      placeholder="Enter subcategory name"
+                      {...registerSubcategory("subcategory_name", {
+                        required: "subcategory_name is required",
+                      })}
+                    />
+                  </div>
+                  <button type="submit" style={{ marginLeft: "0",background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white' }}>
+                  {createSubcategoryLoading?(<LoadingButton/>):'Add'}
+                  </button>
+                </form>
+              </div>
+              <button className="" onClick={() => setOpenForm(false)}>X</button>
+            </div>
             <form action="" onSubmit={handleCreate}>
               <div className="create-product-form-layout">
                 <div className="create-product-form">
@@ -192,10 +296,12 @@ const CreateProduct = () => {
                     />
                   </div>
                   <CustomDropdown
-                  label="Select Category"
+                    label="Select Category"
                     isMain={true}
                     setCategory={setCategory}
                     setSubCategory={setSubCategory}
+                    addable={true}
+                    setOpenForm={setOpenForm}
                   />
 
                   <div className="input-field">
@@ -225,10 +331,12 @@ const CreateProduct = () => {
                 <div className="form-divider"></div>
                 <div className="create-product-form">
                   <CustomDropdown
-                  label="Select Subcategory"
+                    label="Select Subcategory"
                     isMain={false}
                     setCategory={setCategory}
                     setSubCategory={setSubCategory}
+                    addable={true}
+                    setOpenForm={setOpenForm}
                   />
                   <div className="input-field">
                     <label htmlFor="">product Description</label>
@@ -268,7 +376,7 @@ const CreateProduct = () => {
                   </div>
                   <div className="sub-image-upload-container">
                     <div className="sub-image-upload-container-layout">
-                    <ImageUploadField
+                      <ImageUploadField
                         handleImageChange={handleSubImageOneChange}
                         image={subImageOne}
                         imageUrl={subImageOneUrl}
@@ -278,26 +386,26 @@ const CreateProduct = () => {
                       />
                     </div>
                     <div className="sub-image-upload-container-layout">
-                    <ImageUploadField
+                      <ImageUploadField
                         handleImageChange={handleSubImageTwoChange}
                         image={subImageTwo}
                         imageUrl={subImageTwoUrl}
-                         label="Side Image"
-                         fontsize="10px"
-                         size={25}
+                        label="Side Image"
+                        fontsize="10px"
+                        size={25}
                       />
                     </div>
                   </div>
 
                   <div className="sub-image-upload-container">
                     <div className="sub-image-upload-container-layout">
-                    <ImageUploadField
-                        handleImageChange={ handleSubImageThreeChange}
+                      <ImageUploadField
+                        handleImageChange={handleSubImageThreeChange}
                         image={subImageThree}
                         imageUrl={subImageThreeUrl}
-                         label="Side Image"
-                         fontsize="10px"
-                         size={25}
+                        label="Side Image"
+                        fontsize="10px"
+                        size={25}
                       />
                     </div>
                     <div className="sub-image-upload-container-layout"></div>
@@ -305,7 +413,9 @@ const CreateProduct = () => {
                 </div>
               </div>
               <div className="submit-button-container">
-                <button type="submit">{createLoading?(<LoadingButton/>):"Create"}</button>
+                <button type="submit">
+                  {createLoading ? <LoadingButton /> : "Create"}
+                </button>
               </div>
             </form>
           </div>

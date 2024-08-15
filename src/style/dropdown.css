@@ -13,6 +13,33 @@
     width: 100%;
     position: relative;
   }
+
+  .dropdown-label-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .dropdown-label-container button{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: blueviolet;
+  }
+
+  .dropdown-label-container button:hover{
+    cursor: pointer;
+  }
+
+  .dropdown-label-container button p{
+    line-height: 0;
+  }
   
   .Dropdown-control {
     height: 2rem;

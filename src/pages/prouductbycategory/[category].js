@@ -29,7 +29,7 @@ const ProductByCategory = () => {
     setActiveBtn(null);
     setIsAllProducts(true);
   };
-  const { data: get_category, loading: fetchCategory } = useQuery(
+  const { data: get_category, loading: fetchCategory, error:fetchCategoryError } = useQuery(
     GET_CATEGORY_BY_NAME,
     {
       variables: { category_name: category },
@@ -68,6 +68,8 @@ const ProductByCategory = () => {
     const end = start + itemsPerPage;
     return allProducts.slice(start, end);
   }, [allProducts, pagination, itemsPerPage]);
+
+  console.log(currentItems)
 
   const handlePageChange = (direction) => {
     console.log(direction);
@@ -181,6 +183,8 @@ const ProductByCategory = () => {
         Loading...
       </div>
     );
+
+  if(fetchCategoryError) return <div>error fetchinfg data</div>
   return (
     <div style={{backgroundColor:'#B1B3B6'}}>
       <Header />
@@ -265,7 +269,7 @@ const ProductByCategory = () => {
                   </div>
                   <div className="category-individual-product-description">
                     <p className="product-type">
-                      {product.subcategory.subcategory_name}
+                      {product.subcategory?product.subcategory.subcategory_name:''}
                     </p>
                     <p className="product-name">
                       {product.name} {`(${product.model})`}

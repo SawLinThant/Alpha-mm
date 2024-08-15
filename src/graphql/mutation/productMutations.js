@@ -18,6 +18,39 @@ export const PRODUCT_SUBSCRIPTION = gql`
   }
 `;
 
+export const CREATE_CATEGORY = gql`
+  mutation createCategory(
+    $category_name: String
+  ){
+    insert_category_one(
+      object:{
+         category_name: $category_name
+      }
+    ){
+      id
+      category_name  
+    }
+  }
+`
+
+export const CREATE_SUBCATEGORY = gql`
+  mutation createSubCategory(
+    $subcategory_name: String
+    $category_id: uuid
+  ){
+    insert_subcategory_one(
+      object:{
+         subcategory_name: $subcategory_name
+         category_id: $category_id
+      }
+    ){
+      id
+      subcategory_name
+      category_id  
+    }
+  }
+`
+
 export const CREATE_PRODUCT = gql`
   mutation createProduct(
     $name: String

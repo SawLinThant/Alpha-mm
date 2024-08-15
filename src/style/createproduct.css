@@ -13,7 +13,6 @@
     height: 93%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
     border: 1px solid black;
     border-radius: 0.25rem;
     box-shadow: 0 2px 2px black;
@@ -60,11 +59,29 @@
 
 .create-form-heading{
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     background: linear-gradient(to right, #11343b, #625aa7, #271f57);
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+    z-index: 2;
+}
+
+.create-form-heading-layout{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.add-category-btn-container button{
+     background-color: transparent;
+     border: none;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     color: white;
+     font-size: 20px;
 }
 
 .product-form-container{
@@ -73,7 +90,63 @@
     display: flex;
     flex-direction: column;
     gap:  1.5rem;
+    position: relative;
+    margin-top: 1.5rem;
+    z-index: 0;
 }
+
+.create-category-form-container{
+    position: absolute;
+    height: 15rem;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    transform: translateY(-120%);
+    border-bottom: 1px solid gray;
+    background-color: whitesmoke;
+    opacity: 0;
+    transition-duration: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.create-category-form-container button{
+   position: relative;
+   height: 2rem;
+   width: 3rem;
+   border: none;
+   background-color: transparent;
+}
+
+.create-category-form-container button:hover{
+    cursor: pointer;
+    color: #625aa7;
+}
+
+.category-form, .subcategory-form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 1rem;
+}
+
+
+.create-category-form-layout{
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.create-category-form-container.openCategoryForm{
+    opacity: 1;
+    transform: translateY(-10%);
+}
+
+/* transform: translateY(-20%); */
 
 .product-form-container form{
     width: 100%;
