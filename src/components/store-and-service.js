@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import ClockIcon from "../modules/icons/clock";
 import DirectionIcon from "../modules/icons/direction";
 import LocationIcon from "../modules/icons/location";
@@ -6,6 +7,7 @@ import PhoneIcon from "../modules/icons/phone-iocn";
 
 
 const StoreAndService = () => {
+    const navigate = useNavigate();
     return(
         <div className="storeandservice-container">
             <div className="storeandservice-layout">
@@ -30,7 +32,7 @@ const StoreAndService = () => {
                             </div>
                         </div>
                         <div className="store-service-btn-container">
-                            <button> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
+                            <button onClick={() => navigate('/contactus')}> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
                         </div>
                     </div>
                     <div className="store-service-description">
@@ -52,7 +54,7 @@ const StoreAndService = () => {
                             </div>
                         </div>
                         <div className="store-service-btn-container">
-                            <button> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
+                            <button onClick={() => navigate('/contactus')}> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
                         </div>
                     </div>
                 </div>

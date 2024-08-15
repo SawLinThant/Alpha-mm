@@ -43,7 +43,7 @@ const Service = () => {
                             </div>
                         </div>
                         <div className="store-service-btn-container">
-                            <button> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
+                            <button onClick={() => navigate('/contactus')}> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
                         </div>
                     </div>
                     <div className="store-service-description">
@@ -65,7 +65,7 @@ const Service = () => {
                             </div>
                         </div>
                         <div className="store-service-btn-container">
-                            <button> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
+                            <button onClick={() => navigate('/contactus')}> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
                         </div>
                     </div>
                 </div>

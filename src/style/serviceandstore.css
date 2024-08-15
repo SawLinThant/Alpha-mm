@@ -1,7 +1,6 @@
 
 .store-section-container, .service-section-container{
     width: 100%;
-    height: 50.75rem;
 }
 
 .storeandservice-container{
@@ -53,8 +52,7 @@
 }
 
 .store-service-description-container{
-    width: 100%;
-    height: 36.5rem;   
+    width: 100%; 
     place-items: center;
     justify-content: center;
     display: grid;
@@ -67,6 +65,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    padding-bottom: 2rem;
 }
 
 .store-service-description-img-container{
@@ -75,14 +75,14 @@
 }
 
 .store-service-description-img-container img{
-    position: relative;
+   position: relative;
    height: 100%;
    width: 100%;
+   object-fit: cover;
 }
 
 .store-service-description-text{
     width: 100%;
-    height: 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,6 +132,10 @@
     gap: 8px;
 }
 
+.store-service-btn-container button:hover{
+    cursor: pointer;
+}
+
 @media screen and (max-width: 844px){
     .store-service-description-container{
         grid-template-columns: repeat(1,1fr);
@@ -139,17 +143,10 @@
         height: 100%;
     }
 
-    .store-section-container, .service-section-container{
-        height: 99.75rem;
-    }
-
     .storeandservice-layout{
         height: 100%;
     }
 
-    .store-service-description-text{
-        height: 18rem;
-    }
 }
 
 @media screen and (max-width: 490px){

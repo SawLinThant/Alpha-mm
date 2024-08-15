@@ -289,6 +289,10 @@
     width: 10.75rem;
     height: 10.75rem;
    }
+
+   .related-product-layout{
+    justify-content: space-between;
+   }
   /* .pagination-controls{
         gap: 15px;
      }
