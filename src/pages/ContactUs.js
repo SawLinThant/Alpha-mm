@@ -11,10 +11,16 @@ import { CREATE_MESSAGE } from "../graphql/mutation/productMutations";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import LoadingButton from "../modules/icons/loading-button";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const ContactUs = () => {
   const { register, handleSubmit, reset } = useForm();
   const [createMessage, { loading }] = useMutation(CREATE_MESSAGE);
+  const{pathname} = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[pathname])
 
   const handleSubmitMessage = handleSubmit(async (credentials) => {
     try {

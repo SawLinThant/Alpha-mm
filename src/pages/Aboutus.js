@@ -2,8 +2,14 @@ import Footer from "../components/footer";
 import Header from "../components/Header";
 import RightArrrow from "../modules/icons/rightarrow";
 import "../style/aboutus.css";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const AboutUs = () => {
+  const{pathname} = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[pathname])
   return (
     <div className="aboutus-container" style={{backgroundColor:'#B1B3B6'}}>
       <Header />

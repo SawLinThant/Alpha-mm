@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
 import "../../style/product.css";
 import RightArrowCircle from "../../modules/icons/rignt-arrow-circle";
@@ -15,7 +15,9 @@ import Sidebar from "../../components/mobilenav";
 
 const ProductByCategory = () => {
   const { category } = useParams();
+  const{pathname} = useLocation()
   const navigate = useNavigate();
+  
   const [isAllProducts, setIsAllProducts] = useState(true);
   const [activeBtn, setActiveBtn] = useState();
   const [subCategory, setSubcategory] = useState("");
@@ -102,6 +104,10 @@ const ProductByCategory = () => {
   const handlePageChangeByNumber = (pageNumber) => {
     setPagination(pageNumber);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[pathname,pagination])
 
   const renderPageNumbers = () => {
     const pageNumbers = [];

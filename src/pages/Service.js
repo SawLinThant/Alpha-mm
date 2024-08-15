@@ -5,10 +5,15 @@ import ClockIcon from "../modules/icons/clock";
 import DirectionIcon from "../modules/icons/direction";
 import LocationIcon from "../modules/icons/location";
 import PhoneIcon from "../modules/icons/phone-iocn";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Service = () => {
+    const {pathname} = useLocation();
     const navigate = useNavigate();
+    useEffect(() =>{
+        window.scrollTo(0, 0);
+    },[pathname])
   return (
     <div className="service-page-container" style={{backgroundColor:'#B1B3B6'}}>
         <Header/>

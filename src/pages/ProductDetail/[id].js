@@ -2,19 +2,24 @@ import "../../style/productdetail.css";
 import Header from "../../components/Header";
 import Footer from "../../components/footer";
 import DirectionIcon from "../../modules/icons/direction";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {
   GET_PRODUCT_BY_ID,
   GET_SUBCATEGORY_BY_PRODUCT_ID,
 } from "../../graphql/queries/productQueries";
 import LoadingButton from "../../modules/icons/loading-button";
+import { useEffect } from "react";
 
 const convertStringToArray = (text) => {
   return text.split(",");
 };
 
 const ProductDetail = () => {
+  const{pathname} = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[pathname])
   const { id } = useParams();
   const { data: product_by_pk, loading: fetchProduct } = useQuery(
     GET_PRODUCT_BY_ID,
