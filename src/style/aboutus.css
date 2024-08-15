@@ -38,7 +38,7 @@
     font-weight: 400;
     font-size: large;
     font-size: 23px;
-    font-family: 'Sansation', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .about-alpha-logo h1{
@@ -203,7 +203,7 @@
   }
   
   .mvp-text p{
-    font-family: 'Sansation', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
@@ -225,7 +225,7 @@
   }
   
   .mvp-heading h3{
-    font-family: 'Sansation', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 27px;
     font-style: normal;
     font-weight: 400;
@@ -234,7 +234,7 @@
   }
   
   .mvp-heading h2 {
-    font-family: 'Sansation', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 33px;
     font-style: normal;
     font-weight: 700;
