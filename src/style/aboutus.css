@@ -11,8 +11,7 @@
     background-image: url("/public/aboutalphabg.png");
     background-position: center;
     background-size: cover;
-    padding-bottom: 2.5rem;
-    padding-top: 2.5rem;
+    padding:80px 0px 80px 0px;
 }
 
 .about-alpha-layout{
@@ -43,7 +42,7 @@
 
 .about-alpha-logo h1{
     font-weight: 700;
-    font-size: 37px;
+    font-size:2.313rem;
 }
 
 .about-alpha-text-container{
@@ -97,7 +96,6 @@
 
 .reason-description-container{
     width: 90%;
-    height: 90%;
     display: flex;
     flex-direction: column;
 }
@@ -148,7 +146,6 @@
 
 .aim-layout{
   width: 91%;
-  height: 90%;
   display: flex;
   flex-direction: column;
 }
@@ -293,9 +290,13 @@
       height: 100%;
     }
 
-    .vision-container{
-      margin-top: 2rem;
+    .about-alpha-logo h1{
+      font-size: 28px;
     }
+
+    /* .about-alpha-text p{
+      font-size: 16px;
+    } */
 
     .aim{
       padding: 0;

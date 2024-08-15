@@ -29,13 +29,14 @@ const ProductByCategory = () => {
     setActiveBtn(null);
     setIsAllProducts(true);
   };
-  const { data: get_category, loading: fetchCategory, error:fetchCategoryError } = useQuery(
-    GET_CATEGORY_BY_NAME,
-    {
-      variables: { category_name: category },
-      pollInterval: 500,
-    }
-  );
+  const {
+    data: get_category,
+    loading: fetchCategory,
+    error: fetchCategoryError,
+  } = useQuery(GET_CATEGORY_BY_NAME, {
+    variables: { category_name: category },
+    pollInterval: 500,
+  });
   const allProducts =
     get_category && get_category.category.length > 0
       ? get_category.category[0].products
@@ -46,12 +47,12 @@ const ProductByCategory = () => {
       ? get_category.category[0].subcategories
       : [];
 
-  useEffect(() => {
+  useEffect(() => {}, [subCategory,activeBtn]);
 
-  },[subCategory])
+  console.log(activeBtn);
 
   const [pagination, setPagination] = useState(1);
-  const [typePagination,setTypePagination] = useState(1);
+  const [typePagination, setTypePagination] = useState(1);
   const typeItemsPerPage = 2;
   const itemsPerPage = 5;
   const totalTypePages = Math.ceil(subCategoryList.length / typeItemsPerPage);
@@ -69,7 +70,7 @@ const ProductByCategory = () => {
     return allProducts.slice(start, end);
   }, [allProducts, pagination, itemsPerPage]);
 
-  console.log(currentItems)
+  console.log(currentItems);
 
   const handlePageChange = (direction) => {
     console.log(direction);
@@ -86,7 +87,7 @@ const ProductByCategory = () => {
 
   const handleTypePageChange = (direction) => {
     console.log(direction);
-    setActiveBtn(null)
+    setActiveBtn(null);
     setTypePagination((prevPagination) => {
       const currentPage = prevPagination;
       const newPage =
@@ -184,33 +185,52 @@ const ProductByCategory = () => {
       </div>
     );
 
-  if(fetchCategoryError) return <div>error fetchinfg data</div>
+  if (fetchCategoryError) return <div>error fetchinfg data</div>;
   return (
-    <div style={{backgroundColor:'#B1B3B6'}}>
+    <div style={{ backgroundColor: "#B1B3B6" }}>
       <Header />
       <div className="product-sub-nav-link">
         <div className="product-sub-nav-link-layout">
           <p onClick={() => navigate("/")}>Home</p>
           <span>/</span>
-          <p style={{ color: "#4A4CCD" }}>{category}</p>
+          <p style={{ color: "#4A4CCD" }}>
+            {category
+              .split(" ")
+              .map(
+                (word) =>
+                  word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+              )
+              .join(" ")}
+          </p>
         </div>
       </div>
       <div className="divider"></div>
       <div className="category-nav-container">
         <div className="category-nav-container-layout">
           <div className="category-nav-list-container">
-            <button 
-            onClick={() => handleTypePageChange('prev')} 
-            className="category-nav-list-prev-btn"
-            disabled={typePagination === 1}
-            style={{backgroundColor:`${typePagination===1?"#D9D9D9":"#4A4CCD"}`}}
+            <button
+              onClick={() => handleTypePageChange("prev")}
+              className="category-nav-list-prev-btn"
+              disabled={typePagination === 1}
+              style={{
+                backgroundColor: `${
+                  typePagination === 1 ? "#D9D9D9" : "#4A4CCD"
+                }`,
+              }}
             >
-              <PaginationArrowIcon height={24} width={24}  color={`${typePagination === 1 ? "#C1C1C1" : "white"}`}/>
+              <PaginationArrowIcon
+                height={24}
+                width={24}
+                color={`${typePagination === 1 ? "#C1C1C1" : "white"}`}
+              />
             </button>
             <div className="category-nav-lists">
               <div className="category-nav-list-catageory-btn">
                 <button
-                  onClick={() => handleChooseAll()}
+                  onClick={() => {
+                    handleChooseAll();
+                   // setActiveBtn(null)
+                  }}
                   style={{
                     backgroundColor: `${isAllProducts ? "#4A4CCD" : "#D9D9D9"}`,
                   }}
@@ -239,20 +259,37 @@ const ProductByCategory = () => {
                   ))}
               </div>
             </div>
-            <button 
-            onClick={() => handleTypePageChange('next')} 
-            className="category-nav-list-next-btn"
-            disabled={typePagination === totalTypePages}
-            style={{backgroundColor:`${typePagination===totalTypePages?"#D9D9D9":"#4A4CCD"}`}}
+            <button
+              onClick={() => handleTypePageChange("next")}
+              className="category-nav-list-next-btn"
+              disabled={typePagination === totalTypePages}
+              style={{
+                backgroundColor: `${
+                  typePagination === totalTypePages ? "#D9D9D9" : "#4A4CCD"
+                }`,
+              }}
             >
-              <PaginationArrowIcon height={24} width={24}  color={`${typePagination === totalTypePages ? "#C1C1C1" : "white"}`} />
+              <PaginationArrowIcon
+                height={24}
+                width={24}
+                color={`${
+                  typePagination === totalTypePages ? "#C1C1C1" : "white"
+                }`}
+              />
             </button>
           </div>
           <div className="showmore-btn-container">
             <button className="showmore-btn">
-              <p className="showmore-btn-text">Show More</p> 
-            <Sidebar showMore="true" subCategory={subCategoryList} Category={category} setSubcategory={setSubcategory} setIsAllProducts={setIsAllProducts}/>
-            {/* <SidebarToggleIcon height={24} width={24}/> */}
+              <p className="showmore-btn-text">Show More</p>
+              <Sidebar
+                showMore="true"
+                subCategory={subCategoryList}
+                Category={category}
+                setSubcategory={setSubcategory}
+                setIsAllProducts={setIsAllProducts}
+                setActiveBtn={setActiveBtn}
+              />
+              {/* <SidebarToggleIcon height={24} width={24}/> */}
             </button>
           </div>
         </div>
@@ -263,13 +300,20 @@ const ProductByCategory = () => {
             {currentItems &&
               currentItems.map((product) => (
                 //  <div className="category-individual-product-container-layout">
-                <div onClick={() => navigate(`/products/productdetail/${product.id}`)} className="category-individual-product-container">
+                <div
+                  onClick={() =>
+                    navigate(`/products/productdetail/${product.id}`)
+                  }
+                  className="category-individual-product-container"
+                >
                   <div className="category-individual-product-img">
                     <img src={product.image_url} />
                   </div>
                   <div className="category-individual-product-description">
                     <p className="product-type">
-                      {product.subcategory?product.subcategory.subcategory_name:''}
+                      {product.subcategory
+                        ? product.subcategory.subcategory_name
+                        : ""}
                     </p>
                     <p className="product-name">
                       {product.name} {`(${product.model})`}
@@ -282,40 +326,55 @@ const ProductByCategory = () => {
                 // </div>
               ))}
           </div>
-          <div className="pagination-control-container">
-            <div className="pagination-control-layout">
-              <button
-                className={`category-prev-btn ${
-                  pagination === 1 ? "disable" : ""
-                }`}
-                disabled={pagination === 1}
-                onClick={() => handlePageChange("prev")}
-              >
-                {" "}
-                <PaginationArrowIcon
-                  height={24}
-                  width={24}
-                  color={`${pagination === 1 ? "#C1C1C1" : "#262626"}`}
-                />
-              </button>
-              {renderPageNumbers()}{" "}
-              {/* <div className="pagination-indicator">{pagination}<span>of</span>{totalPages}</div> */}
-              <button
-                className={`category-next-btn ${
-                  pagination === totalPages ? "disable" : ""
-                }`}
-                disabled={pagination === totalPages}
-                onClick={() => handlePageChange("next")}
-              >
-                {" "}
-                <PaginationArrowIcon
-                  height={24}
-                  width={24}
-                  color={`${pagination === totalPages ? "#C1C1C1" : "#262626"}`}
-                />
-              </button>
+          {currentItems.length > 0 ? (
+            <div className="pagination-control-container">
+              <div className="pagination-control-layout">
+                <button
+                  className={`category-prev-btn ${
+                    pagination === 1 ? "disable" : ""
+                  }`}
+                  disabled={pagination === 1}
+                  onClick={() => handlePageChange("prev")}
+                >
+                  {" "}
+                  <PaginationArrowIcon
+                    height={24}
+                    width={24}
+                    color={`${pagination === 1 ? "#C1C1C1" : "#262626"}`}
+                  />
+                </button>
+                {renderPageNumbers()}{" "}
+                {/* <div className="pagination-indicator">{pagination}<span>of</span>{totalPages}</div> */}
+                <button
+                  className={`category-next-btn ${
+                    pagination === totalPages ? "disable" : ""
+                  }`}
+                  disabled={pagination === totalPages}
+                  onClick={() => handlePageChange("next")}
+                >
+                  {" "}
+                  <PaginationArrowIcon
+                    height={24}
+                    width={24}
+                    color={`${
+                      pagination === totalPages ? "#C1C1C1" : "#262626"
+                    }`}
+                  />
+                </button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
+          {currentItems.length < 0 ? (
+            <div style={{ width: "100%", height: "100%" }}>
+              <p style={{ color: "red", textAlign: "center" }}>
+                No product yet!
+              </p>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       ) : (
         <ProductList key={subCategory} subCategory={subCategory} />

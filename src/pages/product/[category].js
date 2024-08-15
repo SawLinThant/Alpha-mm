@@ -52,7 +52,7 @@ const Products = () => {
         <div className="product-sub-nav-link-layout">
           <p onClick={() => navigate('/')}>Home</p>
           <span>/</span>
-          <p style={{ color: "#4A4CCD" }}>{category}</p>
+          <p style={{ color: "#4A4CCD" }}>{category.toUpperCase()}</p>
         </div>
       </div>
       {fetchedSubCategory.map((subCategory, index) => {

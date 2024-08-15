@@ -15,7 +15,8 @@ const Sidebar = ({
   subCategory,
   Category,
   setSubcategory,
-  setIsAllProducts
+  setIsAllProducts,
+  setActiveBtn
 }) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [toggleContent, setToggleContent] = useState("");
@@ -23,6 +24,7 @@ const Sidebar = ({
   const handleChooseSubcategory = (subcategory) => {
     setSubcategory(subcategory);
     setIsAllProducts(false)
+    setActiveBtn();
     setIsSidebarVisible(!isSidebarVisible);
   }
 
