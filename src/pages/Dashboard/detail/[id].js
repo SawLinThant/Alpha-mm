@@ -115,7 +115,7 @@ const ProductDetail = () => {
       setImageUrl(URL.createObjectURL(e.target.files[0]));
       setProductData({
         ...productData,
-        image_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+        image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
           e.target.files[0].name
         )}`,
       });
@@ -128,7 +128,7 @@ const ProductDetail = () => {
       setSubImageTwoUrl(URL.createObjectURL(e.target.files[0]));
       setProductData({
         ...productData,
-        sub_img_two_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+        sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
           e.target.files[0].name
         )}`,
       });
@@ -141,7 +141,7 @@ const ProductDetail = () => {
       setSubImageThreeUrl(URL.createObjectURL(e.target.files[0]));
       setProductData({
         ...productData,
-        sub_img_three_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+        sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
           e.target.files[0].name
         )}`,
       });
@@ -154,7 +154,7 @@ const ProductDetail = () => {
       setSubImageOneUrl(URL.createObjectURL(e.target.files[0]));
       setProductData({
         ...productData,
-        sub_img_one_url: `https://alpha-myanmar.s3.ap-southeast-1.amazonaws.com/alpha-myanmar-images/${sanitizeFileName(
+        sub_img_one_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
           e.target.files[0].name
         )}`,
       });
