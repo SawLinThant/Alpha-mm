@@ -291,7 +291,7 @@ const AllProducts = () => {
             <div onClick={() =>navigate('/productbycategory/entertainment')} className="showcase-category">
               <img src="/product-category/entertainment.jpg" alt="img" />
             </div>
-            <div onClick={() =>navigate('/productbycategory/commercial')} className="showcase-category">
+            <div onClick={() =>navigate('/productbycategory/commercial electronics')} className="showcase-category">
               <img src="/product-category/commercial.jpg" alt="img" />
             </div>
           </div>
@@ -316,7 +316,7 @@ const AllProducts = () => {
           <div onClick={() =>navigate('/productbycategory/entertainment')} ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/cooling.jpg" alt="img" />
           </div>
-          <div onClick={() =>navigate('/productbycategory/commercial')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
+          <div onClick={() =>navigate('/productbycategory/commercial electronics')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
             <img src="/product-category/commercial.jpg" alt="img" />
           </div>
         </div>
