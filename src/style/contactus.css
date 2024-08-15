@@ -280,9 +280,9 @@
     /* .contact-from-container{
 
     } */
-
-   
-
+    .contact-from-container{
+        margin-top: 2rem;
+    }
     .contact-location-layout{    
         grid-template-columns: repeat(1,1fr);
        

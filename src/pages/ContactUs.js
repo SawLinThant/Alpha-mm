@@ -65,7 +65,7 @@ const ContactUs = () => {
                     </div>
                     <p>
                       {" "}
-                      <a href="/">info@alphaelectronicmm.com</a>
+                      <a>info@alphaelectronicmm.com</a>
                     </p>
                   </div>
                   <div className="description-detail-container">
