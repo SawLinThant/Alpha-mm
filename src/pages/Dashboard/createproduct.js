@@ -238,7 +238,7 @@ const CreateProduct = () => {
                       })}
                     />
                   </div>
-                  <button type="submit" style={{ marginLeft: "0", background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white' }}>
+                  <button type="submit" style={{ marginLeft: "0", background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white', width:'11.5rem' }}>
                     {createCategoryLoading?(<LoadingButton/>):'Add'}
                   </button>
                 </form>
@@ -266,6 +266,7 @@ const CreateProduct = () => {
                   <div className="input-field">
                     <label htmlFor="">Subcategory</label>
                     <input
+                    style={{width:'13.6rem'}}
                       name="subcategory_name"
                       type="text"
                       placeholder="Enter subcategory name"
@@ -274,8 +275,8 @@ const CreateProduct = () => {
                       })}
                     />
                   </div>
-                  <button type="submit" style={{ marginLeft: "0",background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white' }}>
-                  {createSubcategoryLoading?(<LoadingButton/>):'Add'}
+                  <button type="submit" style={{ marginLeft: "0",background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white', width:'15rem' }}>
+                  {createSubcategoryLoading?(<LoadingButton/>):'Add new Subcategory'}
                   </button>
                 </form>
               </div>
