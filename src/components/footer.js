@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
           <div className="footer-container-bottom">
             <div className="copy-right">
-              <p>Copyright© 2024 Alpha Electronic. All rights reserved.</p>
+              <p>Copyright© 2024 Alpha Electronics. All rights reserved.</p>
             </div>
           </div>
         </div>
