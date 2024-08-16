@@ -88,7 +88,6 @@ const CreateProduct = () => {
   const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
 
-  console.log(openForm);
 
   const resetFormFields = () => {
     // Reset form inputs
