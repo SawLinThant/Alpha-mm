@@ -151,8 +151,13 @@ const CreateProduct = () => {
       if (images.length < 4) {
         toast("Please upload all images");
         return;
-      } else {
-        uploadToDigitalOcean(images);
+      } 
+
+      else if(!category || !subCategory){
+         toast("Please Choose Category")
+      }
+      
+      else{  uploadToDigitalOcean(images);
         await createProduct({
           variables: {
             name: credential.name,
