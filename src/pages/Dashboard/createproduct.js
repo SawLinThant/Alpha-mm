@@ -13,12 +13,23 @@ import LoadingButton from "../../modules/icons/loading-button";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { uploadToDigitalOcean } from "../../utils/s3Service";
-import { CREATE_CATEGORY,CREATE_SUBCATEGORY } from "../../graphql/mutation/productMutations";
+import {
+  CREATE_CATEGORY,
+  CREATE_SUBCATEGORY,
+} from "../../graphql/mutation/productMutations";
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { register: registerCategory, handleSubmit: handleSubmitCategory, reset: resetCategory } = useForm(); // Category form
-  const { register: registerSubcategory, handleSubmit: handleSubmitSubcategory, reset: resetSubcategory } = useForm(); // Subcategory form
+  const {
+    register: registerCategory,
+    handleSubmit: handleSubmitCategory,
+    reset: resetCategory,
+  } = useForm(); // Category form
+  const {
+    register: registerSubcategory,
+    handleSubmit: handleSubmitSubcategory,
+    reset: resetSubcategory,
+  } = useForm(); // Subcategory form
 
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -34,60 +45,72 @@ const CreateProduct = () => {
 
   const [openForm, setOpenForm] = useState(false);
 
-  const [createCategory,{error:createcategoryError, loading:createCategoryLoading}] = useMutation(CREATE_CATEGORY);
-  const [createSubCategory,{error:createSubcategoryError, loading:createSubcategoryLoading}] = useMutation(CREATE_SUBCATEGORY);
+  const [
+    createCategory,
+    { error: createcategoryError, loading: createCategoryLoading },
+  ] = useMutation(CREATE_CATEGORY);
+  const [
+    createSubCategory,
+    { error: createSubcategoryError, loading: createSubcategoryLoading },
+  ] = useMutation(CREATE_SUBCATEGORY);
 
-  const handleCreateCategory = handleSubmitCategory(async ({ category_name }) => {
-    try {
-      const { data } = await createCategory({
-        variables: { category_name },
-      });
-  
-      if (data?.insert_category_one) {
-        toast("Category created successfully");
-     resetCategory();
-      } else {
-        toast("Failed to create category");
-      }
-    } catch (error) {
-      toast("Error creating category");
-      console.log(createcategoryError)
-      console.error(error);
-    }
-    console.log(category_name)
-  });
+  const handleCreateCategory = handleSubmitCategory(
+    async ({ category_name }) => {
+      try {
+        const { data } = await createCategory({
+          variables: { category_name },
+        });
 
-  const handleCreateSubCategory = handleSubmitSubcategory(async ({ subcategory_name }) => {
-    try {
-      if (!category) {
-        toast("Please select a category first");
-        return;
+        if (data?.insert_category_one) {
+          toast("Category created successfully");
+          resetCategory();
+        } else {
+          toast("Failed to create category");
+        }
+      } catch (error) {
+        toast("Error creating category");
+        console.log(createcategoryError);
+        console.error(error);
       }
-  
-      const { data } = await createSubCategory({
-        variables: { subcategory_name:  subcategory_name, category_id: category },
-      });
-  
-      if (data?.insert_subcategory_one) {
-        toast("Subcategory created successfully");
-      //  setSubCategory(data.insert_subcategory_one.id); // Set the created subcategory ID
-      resetSubcategory();
-      } else {
-        toast("Failed to create subcategory");
-      }
-    } catch (error) {
-      toast("Error creating subcategory");
-      console.log(createSubcategoryError)
-      console.error(error);
+      console.log(category_name);
     }
-  });
+  );
+
+  const handleCreateSubCategory = handleSubmitSubcategory(
+    async ({ subcategory_name }) => {
+      try {
+        if (!category) {
+          toast("Please select a category first");
+          return;
+        }
+
+        const { data } = await createSubCategory({
+          variables: {
+            subcategory_name: subcategory_name,
+            category_id: category,
+          },
+        });
+
+        if (data?.insert_subcategory_one) {
+          toast("Subcategory created successfully");
+          //  setSubCategory(data.insert_subcategory_one.id); // Set the created subcategory ID
+          resetSubcategory();
+        } else {
+          toast("Failed to create subcategory");
+        }
+      } catch (error) {
+        toast("Error creating subcategory");
+        console.log(createSubcategoryError);
+        console.error(error);
+      }
+    }
+  );
 
   const [createProduct, { loading: createLoading }] =
     useMutation(CREATE_PRODUCT);
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   const navigate = useNavigate();
-
 
   const resetFormFields = () => {
     // Reset form inputs
@@ -151,44 +174,99 @@ const CreateProduct = () => {
       if (images.length < 4) {
         toast("Please upload all images");
         return;
-      } 
+      }
 
-      else if(!category || !subCategory){
-         toast("Please Choose Category")
+      if (!category || !subCategory) {
+        toast("Please choose a category and subcategory");
+        return;
       }
-      
-      else{  uploadToDigitalOcean(images);
-        await createProduct({
-          variables: {
-            name: credential.name,
-            model: credential.model,
-            price: parseInt(credential.price),
-            category_id: category,
-            subcategory_id: subCategory,
-            image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-              image.name
-            )}`, //https://axra.sgp1.digitaloceanspaces.com/axra-tv/$
-            product_specification: credential.specification,
-            product_description: credential.description,
-            sub_img_one_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-              subImageOne.name
-            )}`,
-            sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-              subImageTwo.name
-            )}`,
-            sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-              subImageTwo.name
-            )}`,
-          },
-        });
-        toast("Product created");
-        resetFormFields();
+
+      // Upload images to DigitalOcean Spaces
+      const uploadResult = await uploadToDigitalOcean(images);
+      if (!uploadResult) {
+        toast("Failed to upload images");
+        return;
       }
+
+      // Create the product if images are uploaded successfully
+      await createProduct({
+        variables: {
+          name: credential.name,
+          model: credential.model,
+          price: parseInt(credential.price),
+          category_id: category,
+          subcategory_id: subCategory,
+          image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+            image.name
+          )}`,
+          product_specification: credential.specification,
+          product_description: credential.description,
+          sub_img_one_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+            subImageOne.name
+          )}`,
+          sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+            subImageTwo.name
+          )}`,
+          sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+            subImageThree.name
+          )}`,
+        },
+      });
+
+      toast("Product created successfully");
+      resetFormFields();
     } catch (err) {
       toast("Product creation failed");
-      throw new Error("error creating product");
+      console.error("Error creating product:", err);
     }
   });
+
+  // const handleCreate = handleSubmit(async (credential) => {
+  //   try {
+  //     const images = [image, subImageOne, subImageTwo, subImageThree].filter(
+  //       Boolean
+  //     );
+  //     if (images.length < 4) {
+  //       toast("Please upload all images");
+  //       return;
+  //     }
+
+  //     else if(!category || !subCategory){
+  //        toast("Please Choose Category")
+  //     }
+
+  //     else{  uploadToDigitalOcean(images);
+  //       await createProduct({
+  //         variables: {
+  //           name: credential.name,
+  //           model: credential.model,
+  //           price: parseInt(credential.price),
+  //           category_id: category,
+  //           subcategory_id: subCategory,
+  //           image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+  //             image.name
+  //           )}`, //https://axra.sgp1.digitaloceanspaces.com/axra-tv/$
+  //           product_specification: credential.specification,
+  //           product_description: credential.description,
+  //           sub_img_one_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+  //             subImageOne.name
+  //           )}`,
+  //           sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+  //             subImageTwo.name
+  //           )}`,
+  //           sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
+  //             subImageThree.name
+  //           )}`,
+  //         },
+  //       });
+  //       toast("Product created");
+  //       resetFormFields();
+  //     }
+  //   } catch (err) {
+  //     toast("Product creation failed");
+  //     throw new Error("error creating product");
+  //   }
+  // });
 
   return (
     <>
@@ -242,8 +320,18 @@ const CreateProduct = () => {
                       })}
                     />
                   </div>
-                  <button type="submit" style={{ marginLeft: "0", background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white', width:'11.5rem' }}>
-                    {createCategoryLoading?(<LoadingButton/>):'Add'}
+                  <button
+                    type="submit"
+                    style={{
+                      marginLeft: "0",
+                      background:
+                        "linear-gradient(to right, #11343b, #625aa7, #271f57)",
+                      borderRadius: "0.25rem",
+                      color: "white",
+                      width: "11.5rem",
+                    }}
+                  >
+                    {createCategoryLoading ? <LoadingButton /> : "Add"}
                   </button>
                 </form>
                 <form
@@ -270,7 +358,7 @@ const CreateProduct = () => {
                   <div className="input-field">
                     <label htmlFor="">Subcategory</label>
                     <input
-                    style={{width:'13.6rem'}}
+                      style={{ width: "13.6rem" }}
                       name="subcategory_name"
                       type="text"
                       placeholder="Enter subcategory name"
@@ -279,12 +367,28 @@ const CreateProduct = () => {
                       })}
                     />
                   </div>
-                  <button type="submit" style={{ marginLeft: "0",background:'linear-gradient(to right, #11343b, #625aa7, #271f57)', borderRadius:'0.25rem',color:'white', width:'15rem' }}>
-                  {createSubcategoryLoading?(<LoadingButton/>):'Add new Subcategory'}
+                  <button
+                    type="submit"
+                    style={{
+                      marginLeft: "0",
+                      background:
+                        "linear-gradient(to right, #11343b, #625aa7, #271f57)",
+                      borderRadius: "0.25rem",
+                      color: "white",
+                      width: "15rem",
+                    }}
+                  >
+                    {createSubcategoryLoading ? (
+                      <LoadingButton />
+                    ) : (
+                      "Add new Subcategory"
+                    )}
                   </button>
                 </form>
               </div>
-              <button className="" onClick={() => setOpenForm(false)}>X</button>
+              <button className="" onClick={() => setOpenForm(false)}>
+                X
+              </button>
             </div>
             <form action="" onSubmit={handleCreate}>
               <div className="create-product-form-layout">
