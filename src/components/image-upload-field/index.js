@@ -24,7 +24,7 @@ const ImageUploadField = ({ handleImageChange, imageUrl, image , label,fontsize,
             <img
             src={imageUrl}
             alt="Uploaded"
-            style={{ width: "350px", height: "100%" }}
+            style={{ width: "100%", height: "100%" }}
           />
         ):
         (<div className="file-upload-image-icon-container">
