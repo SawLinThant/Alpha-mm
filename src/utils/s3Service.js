@@ -1,8 +1,8 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-const DO_BUCKET = process.env.REACT_APP_AWS_BUCKET_NAME;
-const DO_REGION = process.env.REACT_APP_DIGITALOCEAN_REGION;
+const DO_BUCKET = "axra";
+const DO_REGION = "us-east-1";
 
 const sanitizeFileName = (fileName) => {
   return fileName.replace(/[^a-z0-9.]/gi, "_").toLowerCase();
@@ -12,8 +12,8 @@ const s3Client = new S3Client({
   endpoint: "https://sgp1.digitaloceanspaces.com", 
   region: DO_REGION, // 
   credentials: {
-      accessKeyId: process.env.REACT_APP_DIGITALOCEAN_ACCESS_KEY_ID,
-      secretAccessKey: process.env.REACT_APP_DIGITALOCEAN_SECRET_ACCESS_KEY
+      accessKeyId: "6ZF5GJGTLMZZZNAST3UG",
+      secretAccessKey: "QYf7TF39wapUFAds/hRwL5gWQHuedvLyaowECtLEDoE"
   }
 });
 
