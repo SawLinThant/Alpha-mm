@@ -198,6 +198,7 @@
   width: 95%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: start;
   gap: 1rem;
 }
 
@@ -258,7 +259,6 @@
 
   .product-detail-images-layout {
     flex-direction: column;
-    width: 100%;
     overflow: hidden;
   }
 
@@ -276,7 +276,6 @@
 
   .product-mainimg-container{
     height: 100%;
-    width: 100%;
    }
 
    .product-mainimg-container img{
@@ -290,7 +289,7 @@
    }
 
    .related-product-layout{
-    justify-content: space-between;
+    justify-content: flex-start;
    }
   /* .pagination-controls{
         gap: 15px;
