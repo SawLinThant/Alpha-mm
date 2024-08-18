@@ -281,7 +281,7 @@ span {
   flex-wrap: wrap;
   column-gap: 16px;
   row-gap: 60px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* display: grid;
