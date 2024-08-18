@@ -21,7 +21,11 @@ const BrachDescription = ({ name, buttontext, phone, img_url,route }) => {
         <div className="branch-description-text-layout">
         <p>{name}</p>
         <button onClick={() => navigate(route)}>
-          {buttontext}
+         <p style={{
+          fontSize:'16px',
+          fontWeight:'400',
+          lineHeight:'24px'
+         }}>{buttontext}</p> 
           <RightArrrow width={24} height={24} />
         </button>
         </div>

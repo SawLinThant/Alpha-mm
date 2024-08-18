@@ -249,8 +249,8 @@ background-size: cover;
 
 .mvp-button {
   height: 3rem;
-  width: 9rem;
-  background-color: #4a4ccd;
+  width: 10rem;
+  background-color: #4A4CCD;
   border-radius: 2rem;
   display: flex;
   align-items: center;
@@ -259,15 +259,12 @@ background-size: cover;
 }
 
 .mvp-button a {
-  text-decoration: none;
-  color: white;
-  margin-bottom: 2px;
-}
-
-.mvp-button a {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 8px;
 }
 
 .mvp-image-container {

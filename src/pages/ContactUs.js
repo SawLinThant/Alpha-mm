@@ -147,7 +147,7 @@ const ContactUs = () => {
                           <LoadingButton />
                         ) : (
                           <div className="message-subit-icon">
-                            Send Message <RightArrrow width={24} height={24} />
+                            <p>Send Message</p> <RightArrrow width={24} height={24} />
                           </div>
                         )}
                       </button>
