@@ -68,15 +68,11 @@ const SubCategory = () => {
                         className="prev-btn-icon-div"
                         style={{
                           backgroundColor: pagination === 1? "#D9D9D9" : ""
-                          //filter: pagination === 1 ? "back" : "none",
                         }}
                       >
                         <PaginationArrowIcon width={24} height={24} />
                       </div>
                     </button>
-                    {/* <span>
-                Page {currentPage} of {totalPages}
-              </span> */}
                     <button
                       onClick={() => handlePageChange( "next")}
                       disabled={pagination === totalPages}

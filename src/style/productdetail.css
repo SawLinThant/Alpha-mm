@@ -218,6 +218,18 @@
   object-fit: cover;
 }
 
+.related-product-heading{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+ }
+
+ .pagination-controls button{
+    background-color: transparent;
+ }
+
 @media screen and (max-width: 1024px) {
   /* .product-detail-images-container {
     display: grid;
@@ -254,7 +266,6 @@
    /* .product-subimg img{
     width: 100%;
    } */
-
 }
 
 @media screen and (max-width: 844px) {

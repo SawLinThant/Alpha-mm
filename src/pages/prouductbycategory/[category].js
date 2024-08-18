@@ -257,7 +257,7 @@ const ProductByCategory = () => {
                         backgroundColor: `${
                           activeBtn === index ? "#4A4CCD" : "#D9D9D9"
                         }`,
-                        color: `${activeBtn === index ? "white" : "#C1C1C1"}`,
+                        color: `${activeBtn === index ? "white" : "black"}`,
                       }}
                     >
                       {subCategory.subcategory_name}
