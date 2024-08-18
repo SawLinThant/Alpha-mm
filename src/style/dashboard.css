@@ -1,11 +1,12 @@
 .dashboard-container{
+    height: 100vh;
     display: flex;
-    flex-direction: row;
-    background-image: url('/public/adminbg.jpg');
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;  
+    background-color: rgb(255, 255, 255);   
 }
-
+/* background-image: url('/public/adminbg.jpg');
+    background-size: cover;
+    background-position: center;  */
 .feature-restrict-label{
     display: none;
     width: 100%;
@@ -20,25 +21,41 @@
     padding: 0px 15px 0 15px;
 }
 
-.dashboard-right-side{
-    max-height: 100vh;
+/* .dashboard-right-side{
+    height: 100vh;
     width: 100%;
     display: flex;
     place-items: center;
     justify-content: center;
     overflow: auto;
     background-color: white;
-    overflow: auto;
-    
-}
+    overflow: auto;   
+} */
 
-.dashboard-right-side-layout{
+.dashboard-right-side {
+    margin-left: 15rem;
+    width: calc(100% - 15rem);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+/* .dashboard-right-side-layout{
     width: 95%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+} */
+
+.dashboard-right-side-layout {
+    padding: 20px;
+    overflow-y: auto;
     min-height: 100%;
     display: flex;
     place-items: center;
     justify-content: center;
-}
+  }
 
 @media screen and (max-width: 1024px){
     .feature-restrict-label{

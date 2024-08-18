@@ -1,12 +1,20 @@
 aside{
-    max-height:100vh;
-    width: 18vw;
-    border: 2px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 15rem;
+    border: 2px solid rgb(115, 138, 156);
     display: flex;
     place-items: center;
     justify-content: center;
     transition-duration: 0.5s;
     color: white;
+    z-index: 11;
+    backdrop-filter: blur(10px);
+    background-image: url('/public/adminbg.jpg');
+    background-size: cover;
+    background-position: center; 
 }
 
 .ops-sidebar-collapse{

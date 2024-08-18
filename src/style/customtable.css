@@ -13,11 +13,12 @@
 }
 
 .custom-table-layout{
-    width: 100%;
-    min-height: 77vh;
+    width: 99%;
+    min-height: 50vh;
     box-shadow: 0px 2px 2px gray;
     border: 1.5px solid black;
 }
+/* 77vh */
 
 .column-head{
     color: white;
