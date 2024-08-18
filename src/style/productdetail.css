@@ -37,6 +37,18 @@
   height: 9.375rem;
 }
 
+/* .custom-large-image img {
+  max-width: 50vw; 
+  max-height: 60vh; 
+  object-fit: contain;
+} */
+.__react_modal_image__medium_img{
+  max-width: 50% !important;
+  max-height: 50% !important;
+  object-fit: contain !important;
+  background-color: transparent !important;
+}
+
 .product-subimg img {
   width: 100%;
   height: 100%;
@@ -307,6 +319,13 @@
    .related-product-layout{
     justify-content: flex-start;
    }
+
+   .__react_modal_image__medium_img{
+    max-width: 80% !important;
+    max-height: 70% !important;
+    object-fit: contain !important;
+    background-color: transparent !important;
+  }
   /* .pagination-controls{
         gap: 15px;
      }

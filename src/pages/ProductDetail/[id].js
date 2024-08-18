@@ -11,6 +11,7 @@ import {
 import LoadingButton from "../../modules/icons/loading-button";
 import { useEffect, useState, useMemo } from "react";
 import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
+import ModalImage from "react-modal-image";
 
 const convertStringToArray = (text) => {
   return text.split(",");
@@ -163,13 +164,31 @@ const ProductDetail = () => {
             <div className="product-detail-images-layout">
               <div className="product-subimg-container">
                 <div className="product-subimg">
-                  <img src={sub_img_one_url} alt="sub-img" />
+                  {/* <img src={sub_img_one_url} alt="sub-img" /> */}
+                  <ModalImage
+                   small={sub_img_one_url}
+                   large={sub_img_one_url}
+                   alt=""
+                   hideZoom={true}
+                  />
                 </div>
                 <div className="product-subimg">
-                  <img src={sub_img_two_url} alt="sub-img" />
+                  {/* <img src={sub_img_two_url} alt="sub-img" /> */}
+                  <ModalImage
+                   small={sub_img_two_url}
+                   large={sub_img_two_url}
+                   alt=""
+                   hideZoom={true}
+                  />
                 </div>
                 <div className="product-subimg">
-                  <img src={sub_img_three_url} alt="sub-img" />
+                  {/* <img src={sub_img_three_url} alt="sub-img" /> */}
+                  <ModalImage
+                   small={sub_img_three_url}
+                   large={sub_img_three_url}
+                   alt=""
+                   hideZoom={true}
+                  />
                 </div>
               </div>
               <div className="product-mainimg-container">
