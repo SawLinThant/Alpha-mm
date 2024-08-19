@@ -45,18 +45,18 @@ nav{
 }
 
 .hotline{
-    height: 40%;
-    border: 1px solid blueviolet;
+    height: 30%;
+    border: 1px solid white;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0 10px 0 10px;
-    background-color: #4A4CCD;
+    background-color: transparent;
 }
 
-.hotline p{
+.hotline a{
     height: 100%;
     text-align: center;
     display: flex;
@@ -64,6 +64,11 @@ nav{
     align-items: center;
     gap: 8px;
     color: white;
+    text-decoration: none;
+}
+
+.hotline a:hover{
+    cursor: pointer;
 }
 
 .hotline span{

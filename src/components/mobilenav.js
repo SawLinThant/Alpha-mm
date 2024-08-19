@@ -9,6 +9,7 @@ import { CiCircleChevRight } from "react-icons/ci";
 import { GoSidebarExpand } from "react-icons/go";
 import SidebarToggleIcon from "../modules/icons/sidebar-toggle";
 import CrossIcon from "../modules/icons/cross";
+import PhoneIcon from "../modules/icons/phone-iocn";
 
 const Sidebar = ({ 
   showMore ,
@@ -65,8 +66,9 @@ const Sidebar = ({
           {/* <button className="side-button" onClick={closeSidebarContent}>
             Close Side Bar Content
           </button> */}
-        </div>
+        </div >
         {!showMore ? (
+          <div className="mobile-nav-link-container">
           <div className="mobile-nav-wrap">
             <div className="nav-link-container">
               {/* <BiHome />{" "} */}
@@ -97,6 +99,12 @@ const Sidebar = ({
               </a>
             </div>
           </div>
+          <div style={{height:'3rem',width:'70%', marginLeft:'2.6rem'}} className="hotline">
+          <a href="tel:09428694996">
+            {/* <PhoneIcon stroke="white"  width={24} height={24}/> */}
+            Hotline :<span style={{color:"white"}}>09 428 694 996</span></a> 
+         </div>
+         </div>
         ) : (
           <div className="mobile-nav-category-wrap">
             <h2>{Category}</h2>

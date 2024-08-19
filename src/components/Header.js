@@ -9,7 +9,7 @@ const Header = () => {
       <nav>
         <div className="nav-left">
             <div className="logo">
-                <a href="/"><AlphaLogo width={150} height={56}/></a>
+                <a style={{color:'white'}} href="/"><AlphaLogo width={150} height={56}/></a>
             </div>
         </div>
         <Sidebar/>
@@ -23,7 +23,9 @@ const Header = () => {
             </ul>
           </div>
           <div className="hotline">
-           <p><PhoneIcon stroke="white"  width={24} height={24}/>Hotline:<span style={{color:"white"}}>01 235 678</span></p> 
+           <a href="tel:+959428694996">
+            {/* <PhoneIcon stroke="white"  width={24} height={24}/> */}
+            Hotline :<span style={{color:"white"}}>09 428 694 996</span></a> 
           </div>
         </div>
       </nav>
