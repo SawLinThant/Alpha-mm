@@ -382,4 +382,11 @@
 } */
 }
 
+@media screen and (max-width: 400px) {
+  .related-product{
+    width: 9.75rem;
+    height: 9.75rem;
+  }
+}
+
 
