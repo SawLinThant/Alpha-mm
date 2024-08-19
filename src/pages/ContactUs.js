@@ -59,7 +59,7 @@ const ContactUs = () => {
                       Yangon, Myanmar
                     </p>
                   </div>
-                  <div className="description-detail-container">
+                  <a href="mailto:info@alphaelectronicmm.com" className="description-detail-container">
                     <div className="contact-icon">
                       <MailIcon width={24} height={24} />
                     </div>
@@ -67,25 +67,25 @@ const ContactUs = () => {
                       {" "}
                       <a>info@alphaelectronicmm.com</a>
                     </p>
-                  </div>
-                  <div className="description-detail-container">
+                  </a>
+                  <a href="tel:01 382 772" className="description-detail-container">
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
                     <p>01 382 772 </p>
-                  </div>
-                  <div className="description-detail-container">
+                  </a>
+                  <a href="tel:09 407 146 226" className="description-detail-container">
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
                     <p>09 407 146 226 </p>
-                  </div>
-                  <div className="description-detail-container">
+                  </a>
+                  <a href="tel:09 424 461 693" className="description-detail-container">
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
                     <p> 09 424 461 693</p>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -101,8 +101,9 @@ const ContactUs = () => {
                     <div className="input-container">
                       <div className="input-icon-container">
                         <PlaneIcon width={24} height={24} />
+                        <label htmlFor="">Name</label>
                       </div>
-                      <label htmlFor="">Name</label>
+                      
                       <input
                         name="username"
                         type="text"
@@ -115,8 +116,9 @@ const ContactUs = () => {
                     <div className="input-container">
                       <div className="input-icon-container">
                         <PhoneIcon width={24} height={24} />
+                        <label htmlFor="">Phone Number</label>
                       </div>
-                      <label htmlFor="">Phone Number</label>
+                     
                       <input
                         name="ph_number"
                         type="text"
@@ -129,8 +131,9 @@ const ContactUs = () => {
                     <div className="text-area-container">
                       <div className="input-icon-container">
                         <MailIcon width={24} height={24} />
+                        <label htmlFor="">Message</label>
                       </div>
-                      <label htmlFor="">Message</label>
+                     
                       <textarea
                         name="message"
                         onResize={false}

@@ -299,7 +299,7 @@
 
   .product-subimg{
     width: 100%;
-    height: 9rem;
+    height: auto;
   }
 
   .product-mainimg-container{

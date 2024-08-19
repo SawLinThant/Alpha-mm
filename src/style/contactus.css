@@ -127,6 +127,8 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
+    color: #262626;
 }
 
 .description-detail-container p{
@@ -174,56 +176,80 @@
 .input-container{
   display: flex;
   flex-direction: column;
-  height: 64px;
+  height: auto;
+  border: 1px solid #F2F2F2;
+  background-color: #F2F2F2;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .input-container input{
     height: 100%;
-    border-radius: 0.5rem;
     border: 1px solid #F2F2F2;
     background-color: #F2F2F2;
-   
-    padding: 2rem 0rem 0.5rem 2.5rem;
+    padding: 0.5rem 0rem 1rem 3rem;
     font-size: medium;
 }
 
 .input-container label{
     position: absolute;
     margin-left: 2.5rem;
-    margin-top: 0.5rem;
     font-size: 14px;
     font-weight: 400;
-}
-
-.input-icon-container{
-    position: absolute;
-    margin-top: 1.25rem;
-    margin-left: 0.5rem;
+    color: #4D4D4D;
 }
 
 .text-area-container{
+    position: relative;
     display: flex;
     flex-direction: column;
-    height: 200px;
-  }
-
-.text-area-container textarea{
-    height: 100%;
+    height: auto;
     border-radius: 0.5rem;
     border: 1px solid #F2F2F2;
     background-color: #F2F2F2;
-    padding-left: 2.5rem;
-    padding-top: 3rem;
-    font-size: medium;
-    font-family: sans-serif;
+    overflow: hidden;
+  }
+
+  .input-icon-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1.25rem;
+    margin-left: 0.5rem;
+    left: 0; /* Adjust position as needed */
+    top: 0; /* Adjust position as needed */
 }
 
+.text-area-container textarea{
+    height: 180px;
+    border: none;
+    background-color: #F2F2F2;
+    border: 1px solid #F2F2F2;
+    font-size: medium;
+    font-family: sans-serif;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    resize: none;
+    padding-left: 3rem
+}
+
+.input-container input:focus-visible{
+    border: none;
+    outline: none
+}
+
+.text-area-container textarea:focus-visible{
+    border: none;
+    outline: none
+}
+
+/* padding-left: 2.5rem;
+padding-top: 3rem; */
+
 .text-area-container label{
-    position: absolute;
-    margin-top: 1.25rem;
-    margin-left: 2.5rem;
+    margin-left: 1rem;
     font-size: 14px;
     font-weight: 400;
+    pointer-events: none;
 }
 
 .form-button{

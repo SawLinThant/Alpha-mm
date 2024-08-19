@@ -99,7 +99,7 @@ const Sidebar = ({
               </a>
             </div>
           </div>
-          <div style={{height:'3rem',width:'70%', marginLeft:'2.6rem'}} className="hotline">
+          <div style={{height:'3rem',width:'70%', marginLeft:'2rem'}} className="hotline-container">
           <a href="tel:09428694996">
             {/* <PhoneIcon stroke="white"  width={24} height={24}/> */}
             Hotline :<span style={{color:"white"}}>09 428 694 996</span></a> 
