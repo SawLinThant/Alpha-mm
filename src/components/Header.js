@@ -9,7 +9,10 @@ const Header = () => {
       <nav>
         <div className="nav-left">
             <div className="logo">
-                <a style={{color:'white'}} href="/"><AlphaLogo width={150} height={56}/></a>
+                <a style={{color:'white'}} href="/">
+                {/* <AlphaLogo width={150} height={56}/> */}
+                <img style={{marginTop:'15px'}} height={56} width={150} src="/nav-logo.png" alt="" />
+                </a>
             </div>
         </div>
         <Sidebar/>

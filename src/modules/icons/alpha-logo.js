@@ -7,10 +7,12 @@ const AlphaLogo = ({width,height}) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      style={{
-        filter: `grayscale(1) brightness(0) invert(1)`,
-      }}
+      // style={{
+      //   filter: `grayscale(1) brightness(0) invert(1)`,
+      // }}
     >
+       {/* <rect width="316" height="81" fill="url(#pattern0_98_220)" />
+       <rect x="68" y="0" width="248" height="81" color="black" fill="white" fillOpacity="1" /> */}
       <rect width="316" height="81" fill="url(#pattern0_98_220)" />
       <defs>
         <pattern

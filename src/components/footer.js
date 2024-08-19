@@ -17,7 +17,8 @@ const Footer = () => {
             <div className="location">
               <div className="location-layout">
               <div className="location-logo">
-              <AlphaLogo width={200} height={75} />
+              {/* <AlphaLogo width={200} height={75} /> */}
+              <img height={75} width={200} src="/nav-logo.png" alt="" />
               </div>
               <div className="location-description">
                 <div className="location-icon"><LocationIcon color="#9394E0" width={24} height={24}/></div>
