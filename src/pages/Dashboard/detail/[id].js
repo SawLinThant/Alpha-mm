@@ -317,8 +317,8 @@ const ProductDetail = () => {
             </div>
             {!deleteLoading ? (
               <div className="delete-box-btn-container">
-                <button onClick={handleDelete}>Yes</button>
-                <button onClick={toggleDeleteBox}>No</button>
+                <button disabled={!confirmDelete} onClick={handleDelete}>Yes</button>
+                <button disabled={!confirmDelete} onClick={toggleDeleteBox}>No</button>
               </div>
             ) : (
               <div></div>
@@ -421,8 +421,12 @@ const ProductDetail = () => {
                   </div>
                 ) : (
                   <div className="category-field-container">
-                  <div className="category-field-container-layout">
-                    <h3>- {productData.category.category_name}<span style={{color:'blueviolet', padding:'0 5px 0 5px'}}>/</span>{productData.subcategory.subcategory_name}</h3>
+                  <div className="category-field-container-category-layout">
+                    <h4>
+                     <p>{productData.category.category_name}</p>  
+                      <span style={{color:'blueviolet', padding:'0 5px 0 5px'}}>/</span>
+                     <p>{productData.subcategory.subcategory_name}</p> 
+                     </h4>
                   </div>
                   
                 </div>
