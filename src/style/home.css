@@ -310,7 +310,7 @@ background-size: cover;
 .icon {
   height: 35.125rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .phone-icon-container {
@@ -318,7 +318,7 @@ background-size: cover;
   width: 28rem;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .phone-icon1 {

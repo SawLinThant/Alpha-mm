@@ -226,13 +226,13 @@ const Home = () => {
         <div className="download-container">
           <div className="icon">
             <div className="phone-icon-container">
-              <div className="phone-icon1">
+              {/* <div className="phone-icon1">
                 <img src="/ph1.png" />
               </div>
               <div className="phone-icon2">
-                {/* <PhoneTwo width={220} height={440} /> */}
                 <img src="/ph2.png" />
-              </div>
+              </div> */}
+              <img style={{maxWidth:'100%',maxHeight:'100%',objectFit:'cover'}} src="/app-img.png" alt="" />
             </div>
           </div>
           <div className="download-description">
