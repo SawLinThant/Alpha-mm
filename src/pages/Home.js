@@ -134,7 +134,7 @@ const Home = () => {
           </div>
           <div className="mvp-image-container">
             <div className="mvp-image">
-              <img src="/mvpimg.jpg" alt="mvp1" />
+              <img src="/images/mvpimg.jpg" alt="mvp1" />
             </div>
             {/* <div className="mvp-image">
               <img src="/mvp2.jpg" alt="mvp2" />
@@ -175,16 +175,16 @@ const Home = () => {
             {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
 
             <div onClick={() =>navigate('/productbycategory/home appliance')} className="showcase-category">
-              <img src="/product-category/homeappliance.jpg" alt="img" />
+              <img src="/product-category/home-appliance2.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/cooling electronics')} className="showcase-category">
-              <img src="/product-category/cooling.jpg" alt="img" />
+              <img src="/product-category/cooling2.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/entertainment')} className="showcase-category">
-              <img src="/product-category/entertainment.jpg" alt="img" />
+              <img src="/product-category/entertainment2.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/commercial electronics')} className="showcase-category">
-              <img src="/product-category/commercial.jpg" alt="img" />
+              <img src="/product-category/commercial2.jpg" alt="img" />
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ const Home = () => {
             <div className="mobile-showcase-mid-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="mobile-showcase-mid-img-button-container">
-                  <a href="/products">
+                  <a href="/productbycategory/home appliance">
                   <p>View All</p><RightArrrow width={24} height={24}/>
                   </a>
                 </div>
@@ -232,7 +232,7 @@ const Home = () => {
               <div className="phone-icon2">
                 <img src="/ph2.png" />
               </div> */}
-              <img style={{maxWidth:'100%',maxHeight:'100%',objectFit:'cover'}} src="/app-img.png" alt="" />
+              <img style={{maxWidth:'100%',maxHeight:'100%',objectFit:'cover'}} src="/images/app-img.png" alt="" />
             </div>
           </div>
           <div className="download-description">

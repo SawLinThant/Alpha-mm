@@ -40,13 +40,16 @@ const ProgressBarSlider = () => {
               modules={[Autoplay, Pagination, Navigation]}
             >
                 <SwiperSlide>
-                    <img src="/banner1.jpg" alt="bg1" />
+                  <div className="swiper-image1"></div>
+                    {/* <img src="/images/banner1.jpg" alt="bg1" /> */}
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/banner2.jpg" alt="bg1" />
+                    {/* <img src="/images/banner2.jpg" alt="bg1" /> */}
+                    <div className="swiper-image2"></div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="/banner3.jpg" alt="bg1" />
+                    {/* <img src="/images/banner3.jpg" alt="bg1" /> */}
+                    <div className="swiper-image3"></div>
                 </SwiperSlide>
             </Swiper>
         </div>

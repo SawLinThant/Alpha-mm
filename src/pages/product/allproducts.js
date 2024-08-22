@@ -4,64 +4,24 @@ import Footer from "../../components/footer";
 import { useQuery } from "@apollo/client";
 import { useCallback, useState } from "react";
 import { GET_CATEGORIES } from "../../graphql/queries/productQueries";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import LoadingButton from "../../modules/icons/loading-button";
 import PaginationArrowIcon from "../../modules/icons/pagination-arrow";
 import { useInView } from "react-intersection-observer";
 import Catalouge from "../../components/catalouge";
 import RightArrrow from "../../modules/icons/rightarrow";
+import { useEffect } from "react";
 
 const AllProducts = () => {
   const navigate = useNavigate();
+  const{pathname} = useLocation()
   const itemsPerPage = 4;
   const [pagination, setPagination] = useState({});
-  const KITCHEN_ITEMS = [
-    {
-      id: "1",
-      name: "Home Appliance",
-      items: {
-        itemone:"Electric Kettles",
-        itemtwo:"Microwave Ovens",
-        itemthree:"Blenders",
-      },
-      img_url: "/kitchen.png",
-      product_link: "/productbycategory/kitchen"
-    },
-   
-    {
-      id: "2",
-      name: "Cooling Electronic",
-      items: {
-        itemone:"Washing Machines",
-        itemtwo:"Dryers",
-        itemthree:"Steamers",
-      },
-      img_url: "/laundry.png",
-      product_link: "/productbycategory/cooling"
-    },
 
-    {
-      id: "3",
-      name: "Entertainments",
-      items: {
-        itemone:"Televisions",
-        itemtwo:"Sound Systems",
-      },
-      img_url: "/entertainment.png",
-      product_link: "/productbycategory/entertainment"
-    },
-
-    {
-      id: "4",
-      name: "Miscellaneous",
-      items: {
-        itemone:"Water Purifiers",
-        itemtwo:"Air Purifiers",
-      },
-      img_url: "/miscellaneous.png",
-      product_link: "/productbycategory/commercial"
-    },
-  ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[pathname,pagination])
+  
 
   const { data: categeories, loading: fetchCategory } =
     useQuery(GET_CATEGORIES,{
@@ -112,7 +72,7 @@ const AllProducts = () => {
       </div>
     );
   return (
-    <div style={{backgroundColor:'#B1B3B6'}}>
+    <div style={{backgroundColor:'#B1B3B6', overflow:'hidden'}}>
       <Header />
       {/* <div className="product-sub-nav-link">
         <div className="product-sub-nav-link-layout">
@@ -265,11 +225,11 @@ const AllProducts = () => {
               {/* <img src="/left-showcasebg.jpg" alt="" /> */}
               <div className="showcaseleft-img-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
-                {/* <div className="left-img-button-container">
-                  <a href="/products">
+                <div className="left-img-button-container">
+                  <a href="/productbycategory/home appliance">
                   <p>View All</p><RightArrrow width={24} height={24}/>
                   </a>
-                </div> */}
+                </div>
               </div>
               {/* <div className="showcase-left-image-icon"></div> */}
             </div>
@@ -283,16 +243,16 @@ const AllProducts = () => {
             {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
 
             <div onClick={() =>navigate('/productbycategory/home appliance')} className="showcase-category">
-              <img src="/product-category/homeappliance.jpg" alt="img" />
+              <img src="/product-category/home-appliance2.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/cooling electronics')} className="showcase-category">
-              <img src="/product-category/cooling.jpg" alt="img" />
+              <img src="/product-category/cooling2.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/entertainment')} className="showcase-category">
-              <img src="/product-category/entertainment.jpg" alt="img" />
+              <img src="/product-category/entertainment2.jpg" alt="img" />
             </div>
             <div onClick={() =>navigate('/productbycategory/commercial electronics')} className="showcase-category">
-              <img src="/product-category/commercial.jpg" alt="img" />
+              <img src="/product-category/commercial2.jpg" alt="img" />
             </div>
           </div>
         </div>
@@ -309,7 +269,15 @@ const AllProducts = () => {
         </div>
         <div className="mobile-showcase-mid-container">
           <div ref={mobileCategoryMidRef} className={`mobile-showcase-mid ${mobileCategoryMidInView ? "slide-mobile-category" : ""}`}>
-            <img src="/left-showcasebg.jpg" alt="img" />
+            {/* <img src="/left-showcasebg.jpg" alt="img" /> */}
+            <div className="mobile-showcase-mid-text">
+                <h2>Discover Your Perfect Home Appliance</h2>
+                <div className="mobile-showcase-mid-img-button-container">
+                  <a href="/productbycategory/home appliance">
+                  <p>View All</p><RightArrrow width={24} height={24}/>
+                  </a>
+                </div>
+              </div>
           </div>
         </div>
         <div className="mobile-showcase-bottom-container">

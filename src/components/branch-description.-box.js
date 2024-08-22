@@ -13,7 +13,7 @@ const BrachDescription = ({ name, buttontext, phone, img_url,route }) => {
       className="branch-description"
       style={{
         backgroundImage: `url(${img_url})`,
-        backgroundSize:'100% 100%',
+        backgroundSize:'cover',
         backgroundPosition:'center'
       }}
     >
