@@ -18,13 +18,13 @@ const Footer = () => {
               <div className="location-layout">
               <div className="location-logo">
               {/* <AlphaLogo width={200} height={75} /> */}
-              <img height={75} width={200} src="/nav-logo.png" alt="" />
+              <img height={65} width={145} src="/nav-logo.png" alt="" />
               </div>
               <div className="location-description">
                 <div className="location-icon"><LocationIcon color="#9394E0" width={24} height={24}/></div>
                 <p>
-                  No.186/188, Pansodan Middle Block, Kyautada Township,
-                  Yangon,Myanmar
+                No. 297, Marlar Myaing Street, Tharkayta
+                Industrial Zone, Yangon, Myanmar
                 </p>
               </div>
               </div>
@@ -34,18 +34,17 @@ const Footer = () => {
               <div className="section one">
                 <h3>Link</h3>
                 <ul className="links">
-                  <li className="link"><RightArrowCircle color="#9394E0" width={20} height={20}/><a href="/">Home</a></li>
-                  <li className="link"><RightArrowCircle color="#9394E0"  width={20} height={20}/><a href="/products">Products</a></li>
-                  <li className="link"><RightArrowCircle color="#9394E0"  width={20} height={20}/><a href="/aboutus">About Us</a></li>
-                  <li className="link"><RightArrowCircle color="#9394E0"  width={20} height={20}/><a href="/contactus">ContactUs</a></li>
+                  <li className="link"><RightArrowCircle color="white" width={20} height={20}/><a href="/">Home</a></li>
+                  <li className="link"><RightArrowCircle color="white"  width={20} height={20}/><a href="/products">Products</a></li>
+                  <li className="link"><RightArrowCircle color="white"  width={20} height={20}/><a href="/aboutus">About Us</a></li>
+                  <li className="link"><RightArrowCircle color="white"  width={20} height={20}/><a href="/contactus">ContactUs</a></li>
                 </ul>
               </div>
               <div className="section two">
                 <h3>Call Us</h3>
                 <ul className="call-us">
-                  <li className="call"><PhoneIcon stroke="#9394E0"  width={20} height={20}/>01 382 772</li>
-                  <li className="call"><PhoneIcon stroke="#9394E0"  width={20} height={20}/>09 407 146 226</li>
-                  <li className="call"><PhoneIcon stroke="#9394E0"  width={20} height={20}/>09 424 46 693</li>
+                  <li className="call"><a href="tel:09 428 694 996"><RightArrowCircle color="white" width={20} height={20}/>09- 428 694 996</a></li>
+                  <li className="call"><a href="tel:09 762 509 157"><RightArrowCircle color="white" width={20} height={20}/>09- 762 509 157</a></li>
                 </ul>
               </div>
               <div className="section three">

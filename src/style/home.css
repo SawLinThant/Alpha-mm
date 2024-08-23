@@ -1569,8 +1569,6 @@ transform: translateY(70%); */
 
   .icon{
     height: 26rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
   }
 
   .phone-icon-container {
@@ -1689,4 +1687,48 @@ transform: translateY(70%); */
   .apple-container {
     width: 10rem !important;
   }
+}
+
+@media screen and (max-width: 380px){
+  .mvp-container{
+      height: 51rem !important;
+  }
+
+  .hero-container {
+      height: 35vh;
+  }
+
+  .download-app-icon{
+      flex-direction: column;
+  }
+
+  .download-container{
+      height: 55rem !important;       
+  }
+
+  .download-description h2{
+      line-height: normal !important;
+      font-size: 30px !important;
+  }
+
+  .download-description{
+      margin-top: 0;
+      justify-content: start;
+  }
+
+  /* .download-app-icon{
+      align-items: center;
+  } */
+}
+
+@media screen and (max-width: 355px){
+  .download-container{
+    height: 60rem !important;       
+}
+}
+
+@media screen and (max-width: 325px){
+  .download-container{
+    height: 65rem !important;       
+}
 }
