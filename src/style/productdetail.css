@@ -381,11 +381,50 @@
 } */
 }
 
+@media screen and (max-width: 640px){
+  .product-sub-nav-link-layout p{
+    word-break: break-all;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .related-product{
     width: 9.75rem;
     height: 9.75rem;
   }
 }
+
+@media screen and (max-width: 375px){
+  .related-product{
+    width: 9.5rem;
+    height: 9.5rem;
+  }
+
+  .related-product-layout{
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 365px){
+  .related-product{
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+@media screen and (max-width: 345px){
+  .related-product{
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+}
+
+@media screen and (max-width: 325px){
+  .related-product{
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
 
 
