@@ -239,6 +239,7 @@ const ProductByCategory = () => {
                   }}
                   style={{
                     backgroundColor: `${isAllProducts ? "#4A4CCD" : "#D9D9D9"}`,
+                    color: `${isAllProducts ? "white" : "black"}`
                   }}
                   className="category-nav-list-all-btn"
                 >
