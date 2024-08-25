@@ -17,10 +17,10 @@ import { useLocation } from "react-router-dom";
 const ContactUs = () => {
   const { register, handleSubmit, reset } = useForm();
   const [createMessage, { loading }] = useMutation(CREATE_MESSAGE);
-  const{pathname} = useLocation()
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[pathname])
+  }, [pathname]);
 
   const handleSubmitMessage = handleSubmit(async (credentials) => {
     try {
@@ -38,7 +38,7 @@ const ContactUs = () => {
     }
   });
   return (
-    <div style={{backgroundColor:'#B1B3B6'}}>
+    <div style={{ backgroundColor: "#B1B3B6" }}>
       <Toaster />
       <Header />
       <section className="contact-form-container">
@@ -54,12 +54,18 @@ const ContactUs = () => {
                     <div className="contact-icon">
                       <LocationIcon width={24} height={24} />
                     </div>
-                    <p>
+                    <a
+                      className="description-detail-container"
+                      href="https://maps.app.goo.gl/bVctcaNnkN3te86w5"
+                    >
                       No.186/188, Pansodan Middle Block, Kyautada Township,
-                      Yangon, Myanmar
-                    </p>
+                      Yangon, Myanmar.
+                    </a>
                   </div>
-                  <a href="mailto:info@alphaelectronicmm.com" className="description-detail-container">
+                  <a
+                    href="mailto:info@alphaelectronicmm.com"
+                    className="description-detail-container"
+                  >
                     <div className="contact-icon">
                       <MailIcon width={24} height={24} />
                     </div>
@@ -68,19 +74,28 @@ const ContactUs = () => {
                       <a>info@alphaelectronicmm.com</a>
                     </p>
                   </a>
-                  <a href="tel:01 382 772" className="description-detail-container">
+                  <a
+                    href="tel:01 382 772"
+                    className="description-detail-container"
+                  >
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
                     <p>01 382 772 </p>
                   </a>
-                  <a href="tel:09 407 146 226" className="description-detail-container">
+                  <a
+                    href="tel:09 407 146 226"
+                    className="description-detail-container"
+                  >
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
                     <p>09 407 146 226 </p>
                   </a>
-                  <a href="tel:09 424 461 693" className="description-detail-container">
+                  <a
+                    href="tel:09 424 461 693"
+                    className="description-detail-container"
+                  >
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
@@ -103,7 +118,7 @@ const ContactUs = () => {
                         <PlaneIcon width={24} height={24} />
                         <label htmlFor="">Name</label>
                       </div>
-                      
+
                       <input
                         name="username"
                         type="text"
@@ -118,7 +133,7 @@ const ContactUs = () => {
                         <PhoneIcon width={24} height={24} />
                         <label htmlFor="">Phone Number</label>
                       </div>
-                     
+
                       <input
                         name="ph_number"
                         type="text"
@@ -133,7 +148,7 @@ const ContactUs = () => {
                         <MailIcon width={24} height={24} />
                         <label htmlFor="">Message</label>
                       </div>
-                     
+
                       <textarea
                         name="message"
                         onResize={false}
@@ -150,7 +165,8 @@ const ContactUs = () => {
                           <LoadingButton />
                         ) : (
                           <div className="message-subit-icon">
-                            <p>Send Message</p> <RightArrrow width={24} height={24} />
+                            <p>Send Message</p>{" "}
+                            <RightArrrow width={24} height={24} />
                           </div>
                         )}
                       </button>
