@@ -101,7 +101,7 @@
     position: absolute;
     height: 15rem;
     width: 100%;
-    z-index: 1;
+    z-index: 10;
     top: 0;
     transform: translateY(-120%);
     border-bottom: 1px solid gray;
@@ -124,6 +124,19 @@
 .create-category-form-container button:hover{
     cursor: pointer;
     color: #625aa7;
+}
+
+.create-category-form-layout-subcategory-from{
+    border-left: 1px solid purple;
+}
+
+.create-category-form-layout-category-from
+,.create-category-form-layout-subcategory-from
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
 
 .category-form, .subcategory-form{

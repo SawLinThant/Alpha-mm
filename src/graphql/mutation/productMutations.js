@@ -51,6 +51,25 @@ export const CREATE_SUBCATEGORY = gql`
   }
 `
 
+export const DELETE_CATEGORY = gql`
+  mutation deleteCategory($id: uuid!) {
+    delete_category_by_pk(id: $id) {
+      id
+      category_name
+    }
+  }
+`;
+
+export const DELETE_SUBCATEGORY = gql`
+  mutation deleteSubCategory($id: uuid!) {
+    delete_subcategory_by_pk(id: $id) {
+      id
+      subcategory_name
+      category_id
+    }
+  }
+`;
+
 export const CREATE_PRODUCT = gql`
   mutation createProduct(
     $name: String

@@ -1,0 +1,50 @@
+/* dropdown.css */
+
+.delete-dropdown-container {
+  position: relative;
+  width: 80%;
+}
+
+.custom-dropdowns {
+  background-color: transparent;
+  border: 1px solid #655e5e;
+  padding: 6px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-options {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 2;
+  scrollbar-width: none;
+}
+
+.dropdown-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-option:hover {
+  background-color: #f1f1f1;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: darkred;
+}

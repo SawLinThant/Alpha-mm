@@ -15,12 +15,16 @@ const CustomDropdown = ({
   initialValue,
   label,
   addable,
-  setOpenForm
+  setOpenForm,
 }) => {
   const [selectedOption, setSelectedOption] = useState();
 
-  const { data: category, loading } = useQuery(GET_CATEGORIES_WITHOUT_SUB, {pollInterval:500});
-  const { data: subcategory } = useQuery(GET_SUBCATEGORIES,{pollInterval:500});
+  const { data: category, loading } = useQuery(GET_CATEGORIES_WITHOUT_SUB, {
+    pollInterval: 500,
+  });
+  const { data: subcategory } = useQuery(GET_SUBCATEGORIES, {
+    pollInterval: 500,
+  });
   const categories = category ? category.category : [];
   const subCategories = subcategory ? subcategory.subcategory : [];
 
@@ -60,16 +64,17 @@ const CustomDropdown = ({
     <div className="dropdown-container">
       <div className="dropdown-label-container">
         <p>{label}</p>
-        <button 
-        type="button"
-        onClick={() => setOpenForm(true)}
-        className="add-category-btn">
-        {" "}
-      {addable?( <FaPlus />):(<div></div>)}  
-        {/* <p>new</p> */}
-      </button>
+      {addable?( <button
+          type="button"
+          onClick={() => setOpenForm(true)}
+          className="add-category-btn"
+        >
+          {" "}
+          {addable ? <FaPlus /> : <div style={{display:'none'}}></div>}
+        </button>):(<div></div>)}  
+     
       </div>
-      
+
       <Dropdown
         className="custom-dropdown"
         options={isMain ? categoryOptions : subCategoryoptions}

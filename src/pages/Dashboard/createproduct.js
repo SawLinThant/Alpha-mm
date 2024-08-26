@@ -3,20 +3,18 @@ import "../../style/createproduct.css";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT } from "../../graphql/mutation/productMutations";
+import { CREATE_PRODUCT, DELETE_CATEGORY, DELETE_SUBCATEGORY } from "../../graphql/mutation/productMutations";
 import { Toaster, toast } from "react-hot-toast";
 import ImageUploadField from "../../components/image-upload-field";
 import { useNavigate } from "react-router-dom";
-import AWS from "aws-sdk";
 import CustomDropdown from "../../components/dropdown";
 import LoadingButton from "../../modules/icons/loading-button";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { uploadToDigitalOcean } from "../../utils/s3Service";
 import {
   CREATE_CATEGORY,
   CREATE_SUBCATEGORY,
 } from "../../graphql/mutation/productMutations";
+import CustomDeleteDropdown from "../../components/delete-dropdown";
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -30,6 +28,25 @@ const CreateProduct = () => {
     handleSubmit: handleSubmitSubcategory,
     reset: resetSubcategory,
   } = useForm(); // Subcategory form
+
+  const [deleteCategory,{loading:deleteCategoryLoading}] = useMutation(DELETE_CATEGORY);
+  const [deleteSubCategory,{loading:deleteSubcategoryLoading}] = useMutation(DELETE_SUBCATEGORY);
+
+  const handleDeleteCategory = async (id) => {
+    try {
+      await deleteCategory({ variables: { id } });
+    } catch (error) {
+      console.error("Failed to delete category", error);
+    }
+  };
+
+  const handleDeleteSubCategory = async (id) => {
+    try {
+      await deleteSubCategory({ variables: { id } });
+    } catch (error) {
+      console.error("Failed to delete subcategory", error);
+    }
+  };
 
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -53,6 +70,8 @@ const CreateProduct = () => {
     createSubCategory,
     { error: createSubcategoryError, loading: createSubcategoryLoading },
   ] = useMutation(CREATE_SUBCATEGORY);
+
+
 
   const handleCreateCategory = handleSubmitCategory(
     async ({ category_name }) => {
@@ -221,53 +240,6 @@ const CreateProduct = () => {
     }
   });
 
-  // const handleCreate = handleSubmit(async (credential) => {
-  //   try {
-  //     const images = [image, subImageOne, subImageTwo, subImageThree].filter(
-  //       Boolean
-  //     );
-  //     if (images.length < 4) {
-  //       toast("Please upload all images");
-  //       return;
-  //     }
-
-  //     else if(!category || !subCategory){
-  //        toast("Please Choose Category")
-  //     }
-
-  //     else{  uploadToDigitalOcean(images);
-  //       await createProduct({
-  //         variables: {
-  //           name: credential.name,
-  //           model: credential.model,
-  //           price: parseInt(credential.price),
-  //           category_id: category,
-  //           subcategory_id: subCategory,
-  //           image_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-  //             image.name
-  //           )}`, //https://axra.sgp1.digitaloceanspaces.com/axra-tv/$
-  //           product_specification: credential.specification,
-  //           product_description: credential.description,
-  //           sub_img_one_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-  //             subImageOne.name
-  //           )}`,
-  //           sub_img_two_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-  //             subImageTwo.name
-  //           )}`,
-  //           sub_img_three_url: `https://axra.sgp1.digitaloceanspaces.com/bonchon-erp/alpha-website/${sanitizeFileName(
-  //             subImageThree.name
-  //           )}`,
-  //         },
-  //       });
-  //       toast("Product created");
-  //       resetFormFields();
-  //     }
-  //   } catch (err) {
-  //     toast("Product creation failed");
-  //     throw new Error("error creating product");
-  //   }
-  // });
-
   return (
     <>
       <Toaster />
@@ -295,20 +267,23 @@ const CreateProduct = () => {
               }`}
             >
               <div className="create-category-form-layout">
+                <div className="create-category-form-layout-category-from">
                 <form
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "start",
+                    alignItems: "center",
                     justifyContent: "start",
-                    paddingLeft: "2rem",
+                    paddingLeft: "0rem",
                     paddingTop: "1rem",
                   }}
                   className="category-form"
                   action=""
                   onSubmit={handleCreateCategory}
                 >
-                  <div className="input-field">
+                  <div
+                  style={{width:'80%'}}
+                  className="input-field">
                     <label htmlFor="">Category</label>
                     <input
                       //  style={{width:''}}
@@ -328,25 +303,43 @@ const CreateProduct = () => {
                         "linear-gradient(to right, #11343b, #625aa7, #271f57)",
                       borderRadius: "0.25rem",
                       color: "white",
-                      width: "11.5rem",
+                      width: "80%",
                     }}
                   >
                     {createCategoryLoading ? <LoadingButton /> : "Add"}
                   </button>
                 </form>
+                <div style={{paddingTop:'1rem'}}>
+                <CustomDeleteDropdown
+                  label="Delete Category"
+                  isMain={true}
+                  //setCategory={setCategory}
+                 // setSubCategory={setSubCategory}
+                  //addable={false}
+                  setOpenForm={setOpenForm}
+                 // categories={categories}
+                 deleteLoading={deleteCategoryLoading}
+                  onDeleteCategory={handleDeleteCategory}
+                />
+                </div>
+               
+                </div>
+                
+                <div className="create-category-form-layout-subcategory-from">
                 <form
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "start",
+                    alignItems: "center",
                     justifyContent: "start",
-                    paddingLeft: "2rem",
+                    paddingLeft: "0rem",
                     paddingTop: "1rem",
                   }}
                   className="subcategory-form"
                   action=""
                   onSubmit={handleCreateSubCategory}
                 >
+                  <div style={{width:'80%'}}>
                   <CustomDropdown
                     label="Select Related Category"
                     isMain={true}
@@ -355,10 +348,14 @@ const CreateProduct = () => {
                     addable={false}
                     setOpenForm={setOpenForm}
                   />
-                  <div className="input-field">
+                  </div>
+                  
+                  <div 
+                   style={{width:'80%'}}
+                  className="input-field">
                     <label htmlFor="">Subcategory</label>
                     <input
-                      style={{ width: "13.6rem" }}
+                      //style={{ width: "100%" }}
                       name="subcategory_name"
                       type="text"
                       placeholder="Enter subcategory name"
@@ -375,7 +372,7 @@ const CreateProduct = () => {
                         "linear-gradient(to right, #11343b, #625aa7, #271f57)",
                       borderRadius: "0.25rem",
                       color: "white",
-                      width: "15rem",
+                      width: "80%",
                     }}
                   >
                     {createSubcategoryLoading ? (
@@ -385,6 +382,22 @@ const CreateProduct = () => {
                     )}
                   </button>
                 </form>
+                <div style={{paddingTop:'1rem'}}>
+                <CustomDeleteDropdown
+                  label="Delete  Subcategory"
+                  isMain={false}
+                  //setCategory={setCategory}
+                 // setSubCategory={setSubCategory}
+                  //addable={false}
+                  setOpenForm={setOpenForm}
+                 // categories={categories}
+                 deleteLoading={deleteSubcategoryLoading}
+                  onDeleteSubCategory={handleDeleteSubCategory}
+                />
+                </div>
+              
+                </div>
+               
               </div>
               <button className="" onClick={() => setOpenForm(false)}>
                 X
