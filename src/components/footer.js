@@ -21,11 +21,11 @@ const Footer = () => {
               <img height={65} width={145} src="/nav-logo.png" alt="" />
               </div>
               <div className="location-description">
-                <div className="location-icon"><LocationIcon color="#9394E0" width={24} height={24}/></div>
-                <p>
+                <div className="location-icon"><LocationIcon color="white" width={24} height={24}/></div>
+                <a className="location-link" href="https://maps.app.goo.gl/N13QHppgi6bJQVCM7">
                 No. 297, Marlar Myaing Street, Tharkayta
                 Industrial Zone, Yangon, Myanmar
-                </p>
+                </a>
               </div>
               </div>
             
