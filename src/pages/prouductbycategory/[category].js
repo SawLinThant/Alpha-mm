@@ -44,6 +44,8 @@ const ProductByCategory = () => {
       ? get_category.category[0].products
       : [];
 
+      console.log(allProducts)
+
   const subCategoryList =
     get_category && get_category.category.length > 0
       ? get_category.category[0].subcategories
@@ -72,7 +74,6 @@ const ProductByCategory = () => {
     return allProducts.slice(start, end);
   }, [allProducts, pagination, itemsPerPage]);
 
-  console.log(currentItems);
 
   const handlePageChange = (direction) => {
     console.log(direction);

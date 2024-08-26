@@ -99,6 +99,7 @@ export const GET_PRODUCTS_BY_SUBCATEGORY = gql`
   query getProductsBySubCategory($subcategory: String!) {
     product(
       where: { subcategory: { subcategory_name: { _eq: $subcategory } } }
+      order_by: { created_at: desc }
     ) {
       id
       name
@@ -124,6 +125,7 @@ export const GET_PRODUCTS_BY_SUBCATEGORY = gql`
       sub_img_one_url
       sub_img_two_url
       sub_img_three_url
+      created_at
     }
   }
 `;
@@ -133,31 +135,31 @@ export const GET_CATEGORIES = gql`
     category {
       id
       category_name
-      products{
-         id
-      name
-      model
-      price
-      image_url
-      category_id
-      subcategory_id
-      category {
+      products {
         id
-        category_name
-        subcategories {
+        name
+        model
+        price
+        image_url
+        category_id
+        subcategory_id
+        category {
+          id
+          category_name
+          subcategories {
+            id
+            subcategory_name
+          }
+        }
+        subcategory {
           id
           subcategory_name
         }
-      }
-      subcategory {
-        id
-        subcategory_name
-      }
-      product_specification
-      product_description
-      sub_img_one_url
-      sub_img_two_url
-      sub_img_three_url
+        product_specification
+        product_description
+        sub_img_one_url
+        sub_img_two_url
+        sub_img_three_url
       }
       subcategories {
         id
@@ -175,7 +177,7 @@ export const GET_CATEGORY_BY_NAME = gql`
       subcategories {
         id
         subcategory_name
-        products {
+        products(order_by: { created_at: desc }) {
           id
           name
           model
@@ -187,31 +189,32 @@ export const GET_CATEGORY_BY_NAME = gql`
           category_name
         }
       }
-      products{
-         id
-      name
-      model
-      price
-      image_url
-      category_id
-      subcategory_id
-      category {
+      products(order_by: { created_at: desc }) {
         id
-        category_name
-        subcategories {
+        name
+        model
+        price
+        image_url
+        category_id
+        subcategory_id
+        category {
+          id
+          category_name
+          subcategories {
+            id
+            subcategory_name
+          }
+        }
+        subcategory {
           id
           subcategory_name
         }
-      }
-      subcategory {
-        id
-        subcategory_name
-      }
-      product_specification
-      product_description
-      sub_img_one_url
-      sub_img_two_url
-      sub_img_three_url
+        product_specification
+        product_description
+        sub_img_one_url
+        sub_img_two_url
+        sub_img_three_url
+        created_at
       }
     }
   }
