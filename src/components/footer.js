@@ -18,7 +18,7 @@ const Footer = () => {
               <div className="location-layout">
               <div className="location-logo">
               {/* <AlphaLogo width={200} height={75} /> */}
-              <img height={65} width={145} src="/nav-logo.png" alt="" />
+              <img src="/nav-logo.png" alt="" />
               </div>
               <div className="location-description">
                 <div className="location-icon"><LocationIcon color="white" width={24} height={24}/></div>
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
             <div className="section-container">
               <div className="section one">
-                <h3>Link</h3>
+                <h3>Links</h3>
                 <ul className="links">
                   <li className="link"><RightArrowCircle color="white" width={20} height={20}/><a href="/">Home</a></li>
                   <li className="link"><RightArrowCircle color="white"  width={20} height={20}/><a href="/products">Products</a></li>
