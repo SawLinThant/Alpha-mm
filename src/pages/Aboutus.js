@@ -4,43 +4,82 @@ import RightArrrow from "../modules/icons/rightarrow";
 import "../style/aboutus.css";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { FaCaretRight } from "react-icons/fa";
 
 const AboutUs = () => {
-  const{pathname} = useLocation()
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[pathname])
+  }, [pathname]);
   return (
-    <div className="aboutus-container" style={{backgroundColor:'#B1B3B6'}}>
+    <div className="aboutus-container" style={{ backgroundColor: "#B1B3B6" }}>
       <Header />
       <section className="about-alpha">
         <div className="about-alpha-layout">
           <div className="about-alpha-logo-container">
-            <div className="about-alpha-logo">
+            {/* <div className="about-alpha-logo">
               <h4>About Us</h4>
               <h1>Alpha International</h1>
-            </div>
+            </div> */}
           </div>
           <div className="about-alpha-text-container">
             <div className="about-alpha-text">
-              <p>
-                Alpha International Company Limited is a private company, which
-                was founded since 2004 in Myanmar. We are an official
-                distributor who imports and sells consumer electronics such as
-                Alpha, Syinix and Era, Karofi water and air processing machines
-                as well as FMCG products such as Turkish condensed milk, raw
-                milk, the best condensed milk, and also Chocopie food products
-                around the country. The initial name of our company was RICH
-                HERO (RH Company Limited) and changed to Alpha International
-                Company Limited in 2021.
-              </p>
-              <p>
-                We understand the needs and wants of Myanmar people and have
-                been providing world-class, dependable, high-quality electronic
-                products at affordable prices. We have been striving to grow
-                together with our valuable employees, business partners and
-                retailers as our company’s slogan “Moving Forward Together”.
-              </p>
+              <h2 
+               style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "10px",
+              }}
+              >About Alpha Electronics <div className="line-div" style={{border:'1px solid black'}}></div></h2>
+              <div
+              
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "start",
+                  gap: "8px",
+                }}
+              >
+              <div style={{marginTop:'3px'}}><FaCaretRight /></div>  
+                Alpha Electronics is a leading local brand, making everyone's
+                home more smarter and modern by providing the consumer
+                electronics with unique design and high quality in an affordable
+                way.
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <FaCaretRight /> Our brands stands on these three important
+                  tenants
+                </div>
+
+                <div style={{ listStyle: "none", marginLeft: "1.5rem" }}>
+                  <span style={{ color: "black" }}>1.</span> Modern and unique
+                  designs
+                </div>
+                <div style={{ listStyle: "none", marginLeft: "1.5rem" }}>
+                  <span style={{ color: "black" }}>2.</span> Differentiation
+                  from other brands, whether in terms of technology and
+                  innovation or the design.
+                </div>
+                <div style={{ listStyle: "none", marginLeft: "1.5rem" }}>
+                  <span style={{ color: "black" }}>3.</span> Value for money, to
+                  suit the needs of the people of Myanmar.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -71,7 +110,7 @@ const AboutUs = () => {
             </div> */}
           </div>
           <div className="mvp-image-container">
-          <div className="mvp-image">
+            <div className="mvp-image">
               <img src="/mvpimg.jpg" alt="mvp1" />
             </div>
             {/* <div className="mvp-image">

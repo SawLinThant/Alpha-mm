@@ -1,170 +1,187 @@
-.aboutus-container{
-    overflow: hidden;
-    background-color: #B1B3B6;
+.aboutus-container {
+  overflow: hidden;
+  background-color: #b1b3b6;
 }
 
-.about-alpha{
-    width: 100%;
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    background-image: url("/public/aboutalphabg.png");
-    background-position: center;
-    background-size: cover;
-    padding:80px 0px 80px 0px;
+.about-alpha {
+  width: 100%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
 
-.about-alpha-layout{
-    width: 93%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+.line-div{
+  width: 6rem;
+}
+/* background-image: url("/public/aboutalphabg.png");
+background-position: center;
+background-size: cover;
+padding:80px 0px 80px 0px; */
+
+.about-alpha-layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.about-alpha-logo-container{
-    height: 100%;
-    width: 35%;
-    display: flex;
-    place-items: center;
+.about-alpha-logo-container {
+  min-height: 40vh;
+  width: 30%;
+  display: flex;
+  place-items: center;
+  background-image: url("/public/images/about-left.png");
+  background-position: center;
+  background-size: 100% 100%;
 }
 
-.about-alpha-logo{
-    height: 80%;
-    width: 80%;   
+.about-alpha-logo {
+  height: 80%;
+  width: 80%;
 }
 
-.about-alpha-logo h4{
-    font-weight: 400;
-    font-size: large;
-    font-size: 23px;
-    font-family: 'Poppins', sans-serif;
+.about-alpha-logo h4 {
+  font-weight: 400;
+  font-size: large;
+  font-size: 23px;
+  font-family: "Poppins", sans-serif;
 }
 
-.about-alpha-logo h1{
-    font-weight: 700;
-    font-size:2.313rem;
+.about-alpha-logo h1 {
+  font-weight: 700;
+  font-size: 2.313rem;
 }
 
-.about-alpha-text-container{
-    width: 65%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.about-alpha-text-container {
+  width: 70%;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("/public/images/about-right.png");
+  background-position: center;
+  background-size: 100% 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-.about-alpha-text{
-    width: 100%;
-    height: 100%;
+.about-alpha-text {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.about-alpha-text p{
-    font-weight: 400;
-    line-height: 2rem;
+.about-alpha-text p {
+  font-weight: 400;
+  line-height: 2rem;
 }
 
-.vision-container{
-    width: 100%;
-    display: flex;
-    place-items: center;
-    justify-content: center;
+.vision-container {
+  width: 100%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
 
-.vision-container-layout{
-    width: 93%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    column-gap: 1.5rem;
+.vision-container-layout {
+  width: 93%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.5rem;
 }
 
-.reason-container{
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    height: 100%;
+.reason-container {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-.reason{
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    background-color: #F2F2F2;
-    display: flex;
-    place-items: center;
-    justify-content: center;
+.reason {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: #f2f2f2;
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
 
-.reason-description-container{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
+.reason-description-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
-.reason-description-container h4{
-    font-weight: 700;
-    font-size: 25px;
-    color: #262626;
+.reason-description-container h4 {
+  font-weight: 700;
+  font-size: 25px;
+  color: #262626;
 }
 
-.reason-text{
-    display: flex;
-    flex-direction: column;
+.reason-text {
+  display: flex;
+  flex-direction: column;
 }
 
-.reason-text p{
-    line-height: 30px;
-    font-weight: 400;
-    font-size: 19px;
-    color: #262626;
+.reason-text p {
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 19px;
+  color: #262626;
 }
 
-.aim-container{
-    display: flex;
-    place-items: center;
-    justify-content: center;
+.aim-container {
+  display: flex;
+  place-items: center;
+  justify-content: center;
 }
 
-.sub-aim-container{
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.sub-aim-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.aim{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    place-items: center;
-    justify-content: center;
-    border-radius: 1rem;
-    background-color: #F2F2F2;
-    padding: 20px 0px 20px 0;
+.aim {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: #f2f2f2;
+  padding: 20px 0px 20px 0;
 }
 
-.aim-layout{
+.aim-layout {
   width: 91%;
   display: flex;
   flex-direction: column;
 }
 
-.aim h4{
-    font-weight: 700;
-    font-size: 25px;
-    color: #262626;
+.aim h4 {
+  font-weight: 700;
+  font-size: 25px;
+  color: #262626;
 }
 
-.aim p{
-    line-height: 30px;
-    font-weight: 400;
-    font-size: 19px;
-    color: #262626;
+.aim p {
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 19px;
+  color: #262626;
 }
 
-.aim h2, .aim p{
-    margin-top: 0;
+.aim h2,
+.aim p {
+  margin-top: 0;
 }
 
 /* .mvp-container {
@@ -278,63 +295,94 @@
   .mvp-image img{
     height: 100%;
   } */
-  
-  .blank-separator{
-    height: 6rem;
+
+.blank-separator {
+  height: 6rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-alpha {
+    height: 100%;
   }
 
-  
+  .about-alpha-logo-container{
+    min-height: 17vh;
+  }
 
-  @media screen and (max-width: 1024px){
-    .about-alpha{
-      height: 100%;
-    }
+  .about-alpha-text-container{
+    min-height: 17vh;
+    padding-bottom: 2rem;
+  }
 
-    .about-alpha-logo h1{
-      font-size: 28px;
-    }
+  .about-alpha-logo h1 {
+    font-size: 28px;
+  }
 
-    /* .about-alpha-text p{
+  /* .about-alpha-text p{
       font-size: 16px;
     } */
 
-    .aim{
-      padding: 0;
-      width: 100%;
-    }
+  .aim {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1015px) {
+  .about-alpha {
+    height: 100%;
+  }
+  .reason-text {
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 844px) {
+  .about-alpha-layout{
+    flex-direction: column;
+  }
+  .about-alpha-logo-container {
+    width: 100%;
+    background-size: cover;
+    background-repeat:no-repeat;
+    min-height: 30vh;
+}
+.about-alpha-text-container{
+  width: 100%;
+}
+.about-alpha-text{
+  width: 93%;
+}
+}
+
+@media screen and (max-width: 640px) {
+  .vision-container-layout {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 24px;
   }
 
-  @media screen and (max-width: 1015px){
-      .about-alpha{
-        height: 100%;
-      }
-      .reason-text{
-        padding-bottom: 2rem;
-      }
+  .sub-aim-container {
+    row-gap: 24px;
   }
+}
 
-  @media screen and (max-width: 844px){
-    .about-alpha-layout{
-      flex-direction: column;
-    }
-
-    .about-alpha-logo-container,.about-alpha-text-container{
-      width: 100%;
-    }
-
-    /* .vision-container{
-      margin-top: 4rem;
-    } */
-    
+@media screen and (max-width: 520px){
+  .about-alpha-text h2{
+    gap: 8px;
   }
-
-  @media screen and (max-width: 640px){
-    .vision-container-layout{
-      grid-template-columns: repeat(1,1fr);
-      row-gap: 24px;
-    }
-
-    .sub-aim-container{
-      row-gap: 24px;
-    }
+  .line-div{
+    width: 4rem;
   }
+} 
+
+@media screen and (max-width: 400px){
+  .line-div{
+    width: 2rem;
+  }
+}
+
+@media screen and (max-width: 361px){
+  .line-div{
+    width: 0rem;
+  }
+}
