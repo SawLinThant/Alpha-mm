@@ -73,6 +73,20 @@ padding:80px 0px 80px 0px; */
   gap: 1rem;
 }
 
+.about-us-description-headeing-layout{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-us-description-list-layout{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 4px;
+}
+
 .about-alpha-text p {
   font-weight: 400;
   line-height: 2rem;
@@ -372,6 +386,12 @@ padding:80px 0px 80px 0px; */
   }
   .line-div{
     width: 4rem;
+  }
+  .about-us-description-headeing-layout{
+    align-items: start;
+  }
+  .adjust-margin{
+    margin-top: 3px;
   }
 } 
 

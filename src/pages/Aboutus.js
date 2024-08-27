@@ -24,16 +24,21 @@ const AboutUs = () => {
           </div>
           <div className="about-alpha-text-container">
             <div className="about-alpha-text">
-              <h2 
-               style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                gap: "10px",
-              }}
-              >About Alpha Electronics <div className="line-div" style={{border:'1px solid black'}}></div></h2>
+              <h2
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+              >
+                About Alpha Electronics{" "}
+                <div
+                  className="line-div"
+                  style={{ border: "1px solid black" }}
+                ></div>
+              </h2>
               <div
-              
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -41,7 +46,9 @@ const AboutUs = () => {
                   gap: "8px",
                 }}
               >
-              <div style={{marginTop:'3px'}}><FaCaretRight /></div>  
+                <div style={{ marginTop: "3px" }}>
+                  <FaCaretRight />
+                </div>
                 Alpha Electronics is a leading local brand, making everyone's
                 home more smarter and modern by providing the consumer
                 electronics with unique design and high quality in an affordable
@@ -55,29 +62,43 @@ const AboutUs = () => {
                 }}
               >
                 <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  className="about-us-description-headeing-layout"
+                  // style={{
+                  //   display: "flex",
+                  //   flexDirection: "row",
+                  //   alignItems: "start",
+                  //   gap: "8px",
+                  // }}
                 >
-                  <FaCaretRight /> Our brands stands on these three important
+                  <div className="adjust-margin"><FaCaretRight /></div> Our brands stands on these three important
                   tenants
                 </div>
 
-                <div style={{ listStyle: "none", marginLeft: "1.5rem" }}>
-                  <span style={{ color: "black" }}>1.</span> Modern and unique
-                  designs
+                <div
+                  className="about-us-description-list-layout"
+                  style={{ listStyle: "none", marginLeft: "1.5rem" }}
+                >
+                  <span style={{ color: "black", width: "1rem" }}>1.</span>
+                  <div>Modern and unique designs</div>
                 </div>
-                <div style={{ listStyle: "none", marginLeft: "1.5rem" }}>
-                  <span style={{ color: "black" }}>2.</span> Differentiation
-                  from other brands, whether in terms of technology and
-                  innovation or the design.
+                <div
+                  className="about-us-description-list-layout"
+                  style={{ listStyle: "none", marginLeft: "1.5rem" }}
+                >
+                  <span style={{ color: "black", width: "1rem" }}>2.</span>{" "}
+                  <div>
+                    Differentiation from other brands, whether in terms of
+                    technology and innovation or the design.
+                  </div>
                 </div>
-                <div style={{ listStyle: "none", marginLeft: "1.5rem" }}>
-                  <span style={{ color: "black" }}>3.</span> Value for money, to
-                  suit the needs of the people of Myanmar.
+                <div
+                  className="about-us-description-list-layout"
+                  style={{ listStyle: "none", marginLeft: "1.5rem" }}
+                >
+                  <span style={{ color: "black", width: "1rem" }}>3.</span>{" "}
+                  <div>
+                    Value for money, to suit the needs of the people of Myanmar.
+                  </div>
                 </div>
               </div>
             </div>
