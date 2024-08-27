@@ -43,10 +43,10 @@ footer{
 }
 
 .location-logo{
-    width: 11rem;
+    width: 10rem;
     height: 3.5rem;
     padding-top: 0.5rem;
-    background-color: rgb(48, 48, 143);
+    background-color: rgb(45, 45, 141);
     display: flex;
     place-items: center;
     justify-content: center;
@@ -56,7 +56,7 @@ footer{
 
 .location-logo img{
     object-fit: cover;
-    max-width: 100%;
+    max-width: 9.75rem;
     max-height: 100%;
 }
 
@@ -166,15 +166,15 @@ footer{
 }
 
 @media screen and (max-width: 1024px){
-    .location-logo{
+    /* .location-logo{
         width: 65%;
-    }
+    } */
 }
 
 @media screen and (max-width: 860px){
-    .location-logo{
+    /* .location-logo{
         width: 85%;
-    }
+    } */
 }
 
 @media screen and (max-width: 720px){
@@ -208,15 +208,15 @@ footer{
 }
 
 @media screen and (max-width: 520px){
-    .location-logo{
+    /* .location-logo{
         width: 45%;
-    }
+    } */
 }
 
 @media screen and (max-width: 355px){
-    .location-logo{
+    /* .location-logo{
         width: 50%;
-    }
+    } */
 }
 
 
