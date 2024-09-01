@@ -13,6 +13,7 @@ import PhoneIcon from "../modules/icons/phone-iocn";
 
 const Sidebar = ({ 
   showMore ,
+  zindex=20,
   subCategory,
   Category,
   setSubcategory,

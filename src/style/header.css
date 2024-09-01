@@ -5,6 +5,8 @@ header{
     place-items: center;
     justify-content: center;
     background-color: #4D4D4F;
+    position: fixed;
+    z-index: 100;
 }
 
 nav{

@@ -290,6 +290,7 @@ const ProductByCategory = () => {
             <button className="showmore-btn">
               <p className="showmore-btn-text">Show More</p>
               <Sidebar
+                zindex={121}
                 showMore="true"
                 subCategory={subCategoryList}
                 Category={category}

@@ -97,7 +97,7 @@ const ProductDetail = () => {
   console.log(filteredRelatedProducts);
 
   const [pagination, setPagination] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 5;
   const totalPages = Math.ceil(filteredRelatedProducts.length / itemsPerPage);
 
   const currentRelatedItems = useMemo(() => {

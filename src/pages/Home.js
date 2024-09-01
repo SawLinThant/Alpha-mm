@@ -134,7 +134,7 @@ const Home = () => {
           </div>
           <div className="mvp-image-container">
             <div className="mvp-image">
-              <img src="/images/mvpimg.jpg" alt="mvp1" />
+              <img src="/images/mvp.jpg" alt="mvp1" />
             </div>
             {/* <div className="mvp-image">
               <img src="/mvp2.jpg" alt="mvp2" />
