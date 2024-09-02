@@ -58,8 +58,8 @@ const ContactUs = () => {
                       className="description-detail-container"
                       href="https://maps.app.goo.gl/bVctcaNnkN3te86w5"
                     >
-                      No.186/188, Pansodan Middle Block, Kyautada Township,
-                      Yangon, Myanmar.
+                      No,297, Malar Myaing Street, Thaketa Industrial Zone,
+                      Thaketa Township, Yangon Region
                     </a>
                   </div>
                   <a
@@ -75,31 +75,31 @@ const ContactUs = () => {
                     </p>
                   </a>
                   <a
-                    href="tel:01 382 772"
+                    href="tel:09428694996"
                     className="description-detail-container"
                   >
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
-                    <p>01 382 772 </p>
+                    <p>09-428694996</p>
                   </a>
                   <a
-                    href="tel:09 407 146 226"
+                    href="tel:09762509157"
                     className="description-detail-container"
                   >
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
-                    <p>09 407 146 226 </p>
+                    <p>09-762509157</p>
                   </a>
                   <a
-                    href="tel:09 424 461 693"
+                    href="tel:09884888693"
                     className="description-detail-container"
                   >
                     <div className="contact-icon">
                       <PhoneIcon width={24} height={24} />
                     </div>
-                    <p> 09 424 461 693</p>
+                    <p>09-884888693</p>
                   </a>
                 </div>
               </div>

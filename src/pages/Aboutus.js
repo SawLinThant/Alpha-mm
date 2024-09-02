@@ -70,8 +70,10 @@ const AboutUs = () => {
                   //   gap: "8px",
                   // }}
                 >
-                  <div className="adjust-margin"><FaCaretRight /></div> Our brands stands on these three important
-                  tenants
+                  <div className="adjust-margin">
+                    <FaCaretRight />
+                  </div>{" "}
+                  Our brands stands on these three important pillars
                 </div>
 
                 <div
@@ -148,20 +150,24 @@ const AboutUs = () => {
           <div className="reason-container">
             <div className="reason">
               <div className="reason-description-container">
-                <h4>Why Choose Us?</h4>
+                <h4>Why you should be our partner?</h4>
                 <div className="reason-text">
                   <p>
-                    Being an older electronic company in Myanmar, we understand
-                    the needs of local consumers well and have been satisfying
-                    those with our innovations and latest technology.
+                    Being a reputable electronic company in Myanmar, we
+                    understand the needs of local consumers well and have been
+                    satisfying those with high quality electronics products at
+                    affordable prices to keep abreast of latest innovations and
+                    technology of the world. We value and preserve a sense of
+                    excellent after sales service by understanding customers’
+                    concerns to provide prompt and effective solutions.
                   </p>
-                  <p>
+                  {/* <p>
                     We are distributing world-class, dependable, high-quality
                     electronic products at affordable prices and have been
                     striving to grow together with our valuable employees,
                     business partners and retailers as our company’s slogan
                     “Moving Forward Together”{" "}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -172,10 +178,8 @@ const AboutUs = () => {
                 <div className="aim-layout">
                   <h4>Our Vision</h4>
                   <p>
-                    To be a globally recognised corporation for excellence,
-                    governance, consumer delight and fairness to each
-                    stakeholder including the society and environment we operate
-                    in
+                    To become a “pride of Myanmar” electronic brand to penetrate
+                    in international market.
                   </p>
                 </div>
               </div>
@@ -183,9 +187,9 @@ const AboutUs = () => {
                 <div className="aim-layout">
                   <h4>Our Mission</h4>
                   <p>
-                    To achieve our vision through business ethics, global reach,
-                    technological expertise, building long-term relationships
-                    with all our associates, customers, partners and employees.
+                    To become a leading electronic brand to fulfill every
+                    residential or commercial needs at an affordable price,
+                    while possessing innovative technology and capacity.
                   </p>
                 </div>
               </div>

@@ -23,46 +23,46 @@ const Home = () => {
       id: "1",
       name: "Kitchens",
       items: {
-        itemone:"Electric Kettles",
-        itemtwo:"Microwave Ovens",
-        itemthree:"Blenders",
+        itemone: "Electric Kettles",
+        itemtwo: "Microwave Ovens",
+        itemthree: "Blenders",
       },
       img_url: "/kitchen.png",
-      product_link: "/products/kitchen"
+      product_link: "/products/kitchen",
     },
-   
+
     {
       id: "2",
       name: "Laundry",
       items: {
-        itemone:"Washing Machines",
-        itemtwo:"Dryers",
-        itemthree:"Steamers",
+        itemone: "Washing Machines",
+        itemtwo: "Dryers",
+        itemthree: "Steamers",
       },
       img_url: "/laundry.png",
-      product_link: "/products/laundry"
+      product_link: "/products/laundry",
     },
 
     {
       id: "3",
       name: "Entertainments",
       items: {
-        itemone:"Televisions",
-        itemtwo:"Sound Systems",
+        itemone: "Televisions",
+        itemtwo: "Sound Systems",
       },
       img_url: "/entertainment.jpg",
-      product_link: "/products/entertainment"
+      product_link: "/products/entertainment",
     },
 
     {
       id: "4",
       name: "Miscellaneous",
       items: {
-        itemone:"Water Purifiers",
-        itemtwo:"Air Purifiers",
+        itemone: "Water Purifiers",
+        itemtwo: "Air Purifiers",
       },
       img_url: "/miscellaneous.jpg",
-      product_link: "/products/miscellaneous"
+      product_link: "/products/miscellaneous",
     },
   ];
 
@@ -82,24 +82,29 @@ const Home = () => {
     triggerOnce: false,
   });
 
-  const { ref: mobileCategoryTopRef1, inView: mobileCategoryTopInView1 } = useInView({
-    triggerOnce: false,
-  });
-  const { ref: mobileCategoryTopRef2, inView: mobileCategoryTopInView2 } = useInView({
-    triggerOnce: false,
-  });
-  const { ref: mobileCategoryMidRef, inView: mobileCategoryMidInView } = useInView({
-    triggerOnce: false,
-  });
-  const { ref: mobileCategoryBottomRef1, inView: mobileCategoryBottomInView1 } = useInView({
-    triggerOnce: false,
-  });
-  const { ref: mobileCategoryBottomRef2, inView: mobileCategoryBottomInView2 } = useInView({
-    triggerOnce: false,
-  });
+  const { ref: mobileCategoryTopRef1, inView: mobileCategoryTopInView1 } =
+    useInView({
+      triggerOnce: false,
+    });
+  const { ref: mobileCategoryTopRef2, inView: mobileCategoryTopInView2 } =
+    useInView({
+      triggerOnce: false,
+    });
+  const { ref: mobileCategoryMidRef, inView: mobileCategoryMidInView } =
+    useInView({
+      triggerOnce: false,
+    });
+  const { ref: mobileCategoryBottomRef1, inView: mobileCategoryBottomInView1 } =
+    useInView({
+      triggerOnce: false,
+    });
+  const { ref: mobileCategoryBottomRef2, inView: mobileCategoryBottomInView2 } =
+    useInView({
+      triggerOnce: false,
+    });
 
   return (
-    <div className="home-container" style={{backgroundColor:'#B1B3B6'}}>
+    <div className="home-container" style={{ backgroundColor: "#B1B3B6" }}>
       <Header />
       <section className="hero-container">
         <div className="hero">
@@ -136,12 +141,6 @@ const Home = () => {
             <div className="mvp-image">
               <img src="/images/mvp.jpg" alt="mvp1" />
             </div>
-            {/* <div className="mvp-image">
-              <img src="/mvp2.jpg" alt="mvp2" />
-            </div>
-            <div className="mvp-image">
-              <img src="/mvp3.jpg" alt="mvp3" />
-            </div> */}
           </div>
         </section>
       </section>
@@ -154,16 +153,15 @@ const Home = () => {
             }`}
           >
             <div className="showcase-left-img">
-              {/* <img src="/left-showcasebg.jpg" alt="" /> */}
               <div className="showcaseleft-img-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="left-img-button-container">
                   <a href="/productbycategory/home appliance">
-                  <p>View All</p><RightArrrow width={24} height={24}/>
+                    <p>View All</p>
+                    <RightArrrow width={24} height={24} />
                   </a>
                 </div>
               </div>
-              {/* <div className="showcase-left-image-icon"></div> */}
             </div>
           </div>
           <div
@@ -174,54 +172,100 @@ const Home = () => {
           >
             {/* <Catalouge Items={KITCHEN_ITEMS} /> */}
 
-            <div onClick={() =>navigate('/productbycategory/home appliance')} className="showcase-category">
+            <div
+              onClick={() => navigate("/productbycategory/home appliance")}
+              className="showcase-category"
+            >
               <img src="/product-category/home-appliance2.jpg" alt="img" />
             </div>
-            <div onClick={() =>navigate('/productbycategory/cooling electronics')} className="showcase-category">
+            <div
+              onClick={() => navigate("/productbycategory/cooling electronics")}
+              className="showcase-category"
+            >
               <img src="/product-category/cooling2.jpg" alt="img" />
             </div>
-            <div onClick={() =>navigate('/productbycategory/entertainment')} className="showcase-category">
+            <div
+              onClick={() => navigate("/productbycategory/entertainment")}
+              className="showcase-category"
+            >
               <img src="/product-category/entertainment2.jpg" alt="img" />
             </div>
-            <div onClick={() =>navigate('/productbycategory/commercial electronics')} className="showcase-category">
+            <div
+              onClick={() =>
+                navigate("/productbycategory/commercial electronics")
+              }
+              className="showcase-category"
+            >
               <img src="/product-category/commercial2.jpg" alt="img" />
             </div>
           </div>
         </div>
       </section>
       <section className="mobile-showcase">
-      <div className="mobile-showcase-layout">
-        <div className="mobile-showcase-top-container">
-          <div onClick={() =>navigate('/productbycategory/home appliance')} ref={mobileCategoryTopRef1} className={`mobile-showcase-category ${mobileCategoryTopInView1 ? "slide-mobile-category" : ""}`}>
-            <img src="/product-category/homeappliance.jpg" alt="img" />
+        <div className="mobile-showcase-layout">
+          <div className="mobile-showcase-top-container">
+            <div
+              onClick={() => navigate("/productbycategory/home appliance")}
+              ref={mobileCategoryTopRef1}
+              className={`mobile-showcase-category ${
+                mobileCategoryTopInView1 ? "slide-mobile-category" : ""
+              }`}
+            >
+              <img src="/product-category/homeappliance.jpg" alt="img" />
+            </div>
+            <div
+              onClick={() => navigate("/productbycategory/entertainment")}
+              ref={mobileCategoryTopRef2}
+              className={`mobile-showcase-category ${
+                mobileCategoryTopInView2 ? "slide-mobile-category" : ""
+              }`}
+            >
+              <img src="/product-category/entertainment.jpg" alt="img" />
+            </div>
           </div>
-          <div onClick={() =>navigate('/productbycategory/entertainment')} ref={mobileCategoryTopRef2} className={`mobile-showcase-category ${mobileCategoryTopInView2 ? "slide-mobile-category" : ""}`}>
-            <img src="/product-category/entertainment.jpg" alt="img" />
-          </div>
-        </div>
-        <div className="mobile-showcase-mid-container">
-          <div ref={mobileCategoryMidRef} className={`mobile-showcase-mid ${mobileCategoryMidInView ? "slide-mobile-category" : ""}`}>
-            {/* <img src="/left-showcasebg.jpg" alt="img" /> */}
-            <div className="mobile-showcase-mid-text">
+          <div className="mobile-showcase-mid-container">
+            <div
+              ref={mobileCategoryMidRef}
+              className={`mobile-showcase-mid ${
+                mobileCategoryMidInView ? "slide-mobile-category" : ""
+              }`}
+            >
+              {/* <img src="/left-showcasebg.jpg" alt="img" /> */}
+              <div className="mobile-showcase-mid-text">
                 <h2>Discover Your Perfect Home Appliance</h2>
                 <div className="mobile-showcase-mid-img-button-container">
                   <a href="/productbycategory/home appliance">
-                  <p>View All</p><RightArrrow width={24} height={24}/>
+                    <p>View All</p>
+                    <RightArrrow width={24} height={24} />
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="mobile-showcase-bottom-container">
+            <div
+              onClick={() => navigate("/productbycategory/cooling electronics")}
+              ref={mobileCategoryBottomRef1}
+              className={`mobile-showcase-category ${
+                mobileCategoryBottomInView1 ? "slide-mobile-category" : ""
+              }`}
+            >
+              <img src="/product-category/cooling.jpg" alt="img" />
+            </div>
+            <div
+              onClick={() =>
+                navigate("/productbycategory/commercial electronics")
+              }
+              ref={mobileCategoryBottomRef2}
+              className={`mobile-showcase-category ${
+                mobileCategoryBottomInView2 ? "slide-mobile-category" : ""
+              }`}
+            >
+              <img src="/product-category/commercial.jpg" alt="img" />
+            </div>
           </div>
         </div>
-        <div className="mobile-showcase-bottom-container">
-          <div onClick={() =>navigate('/productbycategory/cooling electronics')} ref={mobileCategoryBottomRef1} className={`mobile-showcase-category ${mobileCategoryBottomInView1 ? "slide-mobile-category" : ""}`}>
-            <img src="/product-category/cooling.jpg" alt="img" />
-          </div>
-          <div onClick={() =>navigate('/productbycategory/commercial electronics')} ref={mobileCategoryBottomRef2} className={`mobile-showcase-category ${mobileCategoryBottomInView2 ? "slide-mobile-category" : ""}`}>
-            <img src="/product-category/commercial.jpg" alt="img" />
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
       <section className="advertise-container">
         <div className="download-container">
           <div className="icon">
@@ -232,16 +276,25 @@ const Home = () => {
               <div className="phone-icon2">
                 <img src="/ph2.png" />
               </div> */}
-              <img style={{maxWidth:'100%',maxHeight:'100%',objectFit:'cover'}} src="/images/app-img.png" alt="" />
+              <img
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "cover",
+                }}
+                src="/images/app-img.png"
+                alt=""
+              />
             </div>
           </div>
           <div className="download-description">
             <h2>Get the App Today!</h2>
             <div className="download-text">
               <p>
-                Discover convenience at your fingertips with our app! Enjoy
-                seamless navigation, exclusive features, and instant updates.
-                Download now and elevate your experience!
+                The brand-new ALPHA app can be downloaded easily from both App
+                Store or Google Play Store. Grab it now to enjoy seamless
+                navigation, exclusive features such as intuitive new utility
+                dashboard, and instant updates.
               </p>
               {/* <p>Discover convenience at your fingertips with our app!</p>
               <p>Enjoy seamless navigation, exclusive features, and</p>
@@ -318,8 +371,8 @@ const Home = () => {
               <div className="find-us-descritpion">
                 <p>
                   Discover and connect with nearby showrooms and service centers
-                  with ease. Our platform lets you search by location, providing
-                  detailed maps and directions for your convenience
+                  with ease. Search by locations, providing detailed maps,
+                  directions for your convenience.
                 </p>
               </div>
             </div>

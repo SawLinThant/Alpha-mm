@@ -161,6 +161,13 @@ background-size: cover;
   height: 100%;
   border-radius: 12px;
 }
+ 
+/* .showcase-category img{
+  aspect-ratio: 3/2;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+} */
 
 .showcase-category  {
   width: 100%;
