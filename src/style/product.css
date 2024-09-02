@@ -296,7 +296,6 @@ grid-template-columns: repeat(4,1fr); */
 }
 
 .category-individual-product-container {
-  height: 21.625rem;
   width: 15.688rem;
   display: flex;
   flex-direction: column;
