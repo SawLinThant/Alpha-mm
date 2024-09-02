@@ -58,7 +58,7 @@ const ProductByCategory = () => {
   const [pagination, setPagination] = useState(1);
   const [typePagination, setTypePagination] = useState(1);
   const typeItemsPerPage = 2;
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   const totalTypePages = Math.ceil(subCategoryList.length / typeItemsPerPage);
   const totalPages = Math.ceil(allProducts.length / itemsPerPage);
 
