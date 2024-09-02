@@ -47,7 +47,7 @@ const AdminSidebar = () => {
                 </div>
               </div>
               <div className="email-container">
-              {!isCollapse?(<p>Alpha Electroincs</p>):(<div></div>)}  
+              {!isCollapse?(<p>Alpha Electronics</p>):(<div></div>)}  
               </div>
             </div>
           </div>
