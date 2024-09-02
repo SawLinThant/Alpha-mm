@@ -32,7 +32,7 @@ const StoreAndService = () => {
                             </div>
                         </div>
                         <div className="store-service-btn-container">
-                            <button onClick={() => navigate('/contactus')}> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
+                            <a href="https://maps.app.goo.gl/WE2muceSFm6vGvKH9"> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></a>
                         </div>
                     </div>
                     <div className="store-service-description">
@@ -54,7 +54,7 @@ const StoreAndService = () => {
                             </div>
                         </div>
                         <div className="store-service-btn-container">
-                            <button onClick={() => navigate('/contactus')}> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></button>
+                            <a href="https://maps.app.goo.gl/iSVB4Nzrxd7v7Qh77"> <p>Get Direction</p> <DirectionIcon width={24} height={24}/></a>
                         </div>
                     </div>
                 </div>
