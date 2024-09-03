@@ -149,31 +149,19 @@ const AboutUs = () => {
       </section>
       <section className="vision-container">
         <div className="vision-container-layout">
-          <div className="reason-container">
+          {/* <div className="reason-container">
             <div className="reason">
               <div className="reason-description-container">
-                <h4>Why you should be our partner?</h4>
+                <h4>Our Vision</h4>
                 <div className="reason-text">
                   <p>
-                    Being a reputable electronic company in Myanmar, we
-                    understand the needs of local consumers well and have been
-                    satisfying those with high quality electronics products at
-                    affordable prices to keep abreast of latest innovations and
-                    technology of the world. We value and preserve a sense of
-                    excellent after sales service by understanding customers’
-                    concerns to provide prompt and effective solutions.
+                  To become a “pride of Myanmar” electronic brand to penetrate
+                  in international market.
                   </p>
-                  {/* <p>
-                    We are distributing world-class, dependable, high-quality
-                    electronic products at affordable prices and have been
-                    striving to grow together with our valuable employees,
-                    business partners and retailers as our company’s slogan
-                    “Moving Forward Together”{" "}
-                  </p> */}
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="aim-container">
             <div className="sub-aim-container">
               <div className="aim">
@@ -185,6 +173,10 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="aim-container">
+            <div className="sub-aim-container">
               <div className="aim">
                 <div className="aim-layout">
                   <h4>Our Mission</h4>
