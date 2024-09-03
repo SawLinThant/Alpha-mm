@@ -115,20 +115,23 @@ const Home = () => {
         <section className="mvp">
           <div className="mvp-description">
             <div className="mvp-heading">
-              <h3>Hello, We are </h3>
-              <h2>Official Distributor & Retailer</h2>
+              {/* <h3>Hello, We are </h3> */}
+              <h2>Why you should be our partner?</h2>
             </div>
             <div className="mvp-text">
               <p>
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
+              Being a reputable electronic company in Myanmar, we
+                    understand the needs of local consumers well and have been
+                    satisfying those with high quality electronics products at
+                    affordable prices to keep abreast of latest innovations and
+                    technology of the world. We value and preserve a sense of
+                    excellent after sales service by understanding customers’
+                    concerns to provide prompt and effective solutions.
+              </p>
+              {/* <p className="bottom-paragraph">
                 The point of using Lorem Ipsum is that it has a more-or-less
                 normal distribution of letters
-              </p>
-              <p className="bottom-paragraph">
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters
-              </p>
+              </p> */}
             </div>
             <div className="mvp-button">
               <a href="/aboutus">

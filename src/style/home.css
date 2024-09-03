@@ -240,7 +240,6 @@ background-size: cover;
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  margin-bottom: 1.5rem;
 }
 
 .mvp-heading h3 {
@@ -256,7 +255,6 @@ background-size: cover;
   font-size: 2.063rem;
   font-style: normal;
   font-weight: 700;
-  margin-top: 0px;
   color: #262626;
 }
 
@@ -1432,7 +1430,6 @@ transform: translateY(70%); */
   }
 
   .mvp-heading {
-    height: 10rem !important;
     margin-bottom: 0;
   }
 
@@ -1711,7 +1708,7 @@ transform: translateY(70%); */
   }
 
   .download-container{
-      height: 55rem !important;       
+      height: 60rem !important;       
   }
 
   .download-description h2{
@@ -1731,7 +1728,7 @@ transform: translateY(70%); */
 
 @media screen and (max-width: 355px){
   .download-container{
-    height: 60rem !important;       
+    height: 65rem !important;       
 }
 }
 
